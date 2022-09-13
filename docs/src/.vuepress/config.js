@@ -1,10 +1,10 @@
-const { description } = require('../../package.json')
+const { description } = require('../../package.json');
 
 module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'Vuepress Docs Boilerplate',
+  title: 'MC Linker Guide',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -67,4 +67,4 @@ module.exports = {
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
   ]
-}
+};
