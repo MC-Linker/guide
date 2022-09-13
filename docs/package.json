@@ -1,0 +1,19 @@
+{
+  "name": "mc-linker-guide",
+  "version": "0.0.1",
+  "description": "Guide about connecting your Minecraft server to Discord!",
+  "main": "index.js",
+  "authors": {
+    "name": "Lianecx",
+    "email": ""
+  },
+  "repository": "https://github.com/MC-Linker/guide/mc-linker-guide",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
