@@ -13,6 +13,6 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         TARGET_REPO: MC-Linker/guide
         TARGET_BRANCH: main
-        BUILD_SCRIPT: npm run build
+        BUILD_SCRIPT: npm i && npm run build
         BUILD_DIR: src/.vuepress/dist/
         CNAME: https://guide.mclinker.ml
