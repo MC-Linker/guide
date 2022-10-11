@@ -1,5 +1,5 @@
 const { description } = require('../../package.json');
-const { path } = require('path');
+const path = require('path');
 
 module.exports = {
   /**
