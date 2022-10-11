@@ -11,5 +11,8 @@ jobs:
       uses: jenkey2011/vuepress-deploy@master
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        TARGET_REPO: MC-Linker/guide
         TARGET_BRANCH: main
+        BUILD_SCRIPT: npm && npm run build
         BUILD_DIR: src/.vuepress/dist/
+        CNAME: https://guide.mclinker.ml
