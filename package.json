@@ -8,8 +8,8 @@
   },
   "repository": "https://github.com/MC-Linker/guide/mc-linker-guide",
   "scripts": {
-    "dev": "SET NODE_OPTIONS=--openssl-legacy-provider && vuepress dev src",
-    "build": "SET NODE_OPTIONS=--openssl-legacy-provider && vuepress build src"
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
   },
   "license": "MIT",
   "devDependencies": {
