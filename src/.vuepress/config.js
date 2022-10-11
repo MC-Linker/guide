@@ -1,4 +1,5 @@
 const { description } = require('../../package.json');
+const { path } = require('path');
 
 module.exports = {
   /**
@@ -20,6 +21,8 @@ module.exports = {
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
   ],
+
+  theme: path.join(__dirname, 'theme', 'index.js'),
 
   /**
    * Theme configuration, here is the default theme configuration for VuePress.
