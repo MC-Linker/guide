@@ -6,7 +6,7 @@
     "name": "Lianecx",
     "email": ""
   },
-  "repository": "https://github.com/MC-Linker/guide/mc-linker-guide",
+  "repository": "https://github.com/MC-Linker/guide/",
   "scripts": {
     "dev": "vuepress dev src",
     "build": "vuepress build src"
