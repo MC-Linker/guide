@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: https://v1.vuepress.vuejs.org/hero.png
-tagline: Guide about connecting your Minecraft server to Discord!
+tagline: The Guide for connecting your Minecraft server to Discord!
 actionText: Quick Start →
 actionLink: /guide/
 features:
