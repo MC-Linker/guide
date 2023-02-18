@@ -1,15 +1,17 @@
 ---
 home: true
-heroImage: https://v1.vuepress.vuejs.org/hero.png
+heroImage: /favicon.svg
 tagline: The Guide for connecting your Minecraft server to Discord!
 actionText: Quick Start →
 actionLink: /guide/
 features:
-- title: Feature 1 Title
-  details: Feature 1 Description
-- title: Feature 2 Title
-  details: Feature 2 Description
-- title: Feature 3 Title
-  details: Feature 3 Description
-footer: Made by Lianecx with ❤️
+
+- title: View Inventories
+  details: View other player's inventories including information about every item.
+- title: Chat Channels
+  details: Add a chat bridge between Minecraft and Discord or monitor commands being sent by users.
+- title: Moderation
+  details: Moderate your server by executing any command on the Minecraft server.
+  footer: Made by Lianecx with ❤️
+
 ---
