@@ -5,4 +5,17 @@
  */
 
 .home .hero img
-  max-width 450px!important
+  max-width 450px !important
+
+body, header.navbar, div.links, aside.sidebar
+  background-color $bgColor !important
+
+input
+  color $textColor !important
+  background-color $borderColor !important
+
+ul.suggestions
+  background-color darken($borderColor, 10%) !important
+
+  .suggestion.focused
+    background-color $bgColor !important
