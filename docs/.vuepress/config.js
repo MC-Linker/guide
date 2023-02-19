@@ -1,71 +1,53 @@
-const { description } = require('../../package.json');
+import { description } from '../../package.json';
+import { defaultTheme, defineUserConfig } from 'vuepress';
+import { searchPlugin } from '@vuepress/plugin-search';
 
-module.exports = {
-  /**
-   * Ref：https://v1.vuepress.vuejs.org/config/#title
-   */
+export default defineUserConfig({
+  lang: 'en-US',
   title: 'MC Linker Guide',
-  /**
-   * Ref：https://v1.vuepress.vuejs.org/config/#description
-   */
   description: description,
-
-  /**
-   * Extra tags to be injected to the page HTML `<head>`
-   *
-   * ref：https://v1.vuepress.vuejs.org/config/#head
-   */
   head: [
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
-    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-    ['link', { rel: 'icon', href: '/favicon.svg' }],
+    ['meta', { charset: 'utf-8' }],
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
+    ['link', { rel: 'icon', href: '/logo.svg' }],
+    ['meta', { name: 'theme-color', content: '#729e34' }],
+    ['meta', { name: 'twitter:card', content: 'summary' }],
+    ['meta', { property: 'og:title', content: 'MC Linker Guide' }],
+    ['meta', { property: 'og:description', content: description }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:url', content: 'https://guide.mclinker.com/' }],
+    ['meta', { property: 'og:locale', content: 'en_US' }],
+    ['meta', { property: 'og:image', content: '/logo.svg' }],
   ],
-
-  /**
-   * Theme configuration, here is the default theme configuration for VuePress.
-   *
-   * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
-   */
-  themeConfig: {
-    repo: '',
-    editLinks: false,
-    docsDir: '',
-    editLinkText: '',
-    lastUpdated: false,
-    nav: [
+  theme: defaultTheme({
+    repo: 'MC-Linker',
+    docsRepo: 'MC-Linker/guide',
+    docsBranch: 'main',
+    docsDir: 'docs',
+    logo: '/logo.svg',
+    searchPlaceholder: 'Search...',
+    smoothScroll: true,
+    navbar: [
+      {
+        'text': 'Home',
+        'link': '/',
+      },
       {
         text: 'Guide',
         link: '/guide/',
       },
-      {
-        text: 'Config',
-        link: '/config/'
-      },
-      {
-        text: 'VuePress',
-        link: 'https://v1.vuepress.vuejs.org'
-      }
     ],
     sidebar: {
       '/guide/': [
         {
-          title: 'Guide',
-          collapsable: false,
-          children: [
-            '',
-            'using-vue',
-          ]
-        }
+          text: 'Guide',
+          collapsible: false,
+          children: ['', 'using-vue', 'config', 'discord'],
+        },
       ],
-    }
-  },
-
-  /**
-   * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
-   */
+    },
+  }),
   plugins: [
-    '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
-  ]
-};
+    searchPlugin({}),
+  ],
+});
