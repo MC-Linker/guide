@@ -27,12 +27,17 @@ export default defineUserConfig({
     logo: '/logo.svg',
     navbar: [
       {
-        'text': 'Home',
-        'link': '/',
+        text: 'Home',
+        link: 'https://mclinker.com/',
+        target: '_self',
       },
       {
         text: 'Guide',
         link: '/guide/',
+      },
+      {
+        text: 'Invite!',
+        link: 'https://mclinker.com/invite',
       },
     ],
     sidebar: {
