@@ -1,5 +1,8 @@
 import { defineClientConfig } from '@vuepress/client';
-import {
+import * as pkg from '@discord-message-components/vue';
+import '@discord-message-components/vue/dist/style.css';
+
+const {
     DiscordButton,
     DiscordButtons,
     DiscordEmbed,
@@ -12,13 +15,12 @@ import {
     DiscordMessages,
     DiscordReaction,
     DiscordReactions,
-    install as DiscordMessageComponents,
-} from '@discord-message-components/vue';
-import '@discord-message-components/vue/dist/style.css';
+    install,
+} = pkg;
 
 export default defineClientConfig({
     enhance({ app }) {
-        app.use(DiscordMessageComponents, {
+        app.use(install, {
             profiles: {
                 bot: {
                     author: 'Guide Bot',
