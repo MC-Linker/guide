@@ -1,7 +1,7 @@
 {
   "name": "mc-linker-guide",
   "version": "0.0.1",
-  "description": "The Guide for connecting your Minecraft server to Discord!",
+  "description": "The Guide for linking your Minecraft server to Discord!",
   "type": "module",
   "authors": {
     "name": "Lianecx",

@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /logo.svg
-tagline: The Guide for connecting your Minecraft server to Discord!
+tagline: The Guide for linking your Minecraft server to Discord!
 actions:
 - text: Get Started →
   link: /guide/
