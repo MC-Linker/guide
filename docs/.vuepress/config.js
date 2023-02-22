@@ -25,8 +25,6 @@ export default defineUserConfig({
     docsBranch: 'main',
     docsDir: 'docs',
     logo: '/logo.svg',
-    searchPlaceholder: 'Search...',
-    smoothScroll: true,
     navbar: [
       {
         'text': 'Home',
@@ -42,7 +40,7 @@ export default defineUserConfig({
         {
           text: 'Guide',
           collapsible: false,
-          children: ['', 'using-vue', 'config', 'discord'],
+          children: ['README.md', 'using-vue', 'config', 'discord'],
         },
       ],
     },
