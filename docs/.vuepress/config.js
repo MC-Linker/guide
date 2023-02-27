@@ -42,10 +42,36 @@ export default defineUserConfig({
     ],
     sidebar: {
       '/guide/': [
+        '/guide/README.md',
         {
-          text: 'Guide',
-          collapsible: false,
-          children: ['README.md', 'using-vue', 'config', 'discord'],
+          text: 'Connecting',
+          collapsible: true,
+          children: ['/guide/connecting/README.md', '/guide/connecting/plugin.md', '/guide/connecting/ftp.md', '/guide/connecting/backup.md', '/guide/connecting/disconnecting.md'],
+        },
+        {
+          text: 'Chat Channels',
+          collapsible: true,
+          children: ['/guide/chatchannels/creating.md', '/guide/chatchannels/managing.md'],
+        },
+        {
+          text: 'Moderating',
+          collapsible: true,
+          children: ['/guide/moderation/commands.md', '/guide/moderation/op-deop.md', '/guide/moderation/ban-unban.md', '/guide/moderation/gamemode.md', '/guide/moderation/kick.md'],
+        },
+        {
+          text: 'Account Connections',
+          collapsible: true,
+          children: ['/guide/account/connecting.md', '/guide/account/linked-roles.md'],
+        },
+        {
+          text: 'Main Features',
+          collapsible: true,
+          children: ['/guide/main/inventory.md', '/guide/main/stats.md', '/guide/main/advancements.md'],
+        },
+        {
+          text: 'Settings',
+          collapsible: true,
+          children: ['/guide/settings/managing-permissions.md', '/guide/settings/plugin-config.md', '/guide/settings/disable-enable.md'],
         },
       ],
     },
