@@ -66,7 +66,7 @@ export default defineUserConfig({
         {
           text: 'Main Features',
           collapsible: true,
-          children: ['/guide/main/inventory.md', '/guide/main/stats.md', '/guide/main/advancements.md'],
+          children: ['/guide/main/inventory.md', '/guide/main/stats.md', '/guide/main/advancements.md', '/guide/main/message.md'],
         },
         {
           text: 'Settings',
