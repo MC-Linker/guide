@@ -11,4 +11,4 @@ If you're looking for a reliable and powerful Discord bot to help you moderate a
 Discord, look no further than MC Linker. With its user-friendly interface, extensive features, and robust functionality,
 MC Linker is the perfect choice for Minecraft server admins and players alike.
 
-[Get started by connecting your server!](/guide/connecting/README.md)
+### [Get started by connecting your server!](/guide/connecting/README.md)

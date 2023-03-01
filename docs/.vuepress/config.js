@@ -39,6 +39,10 @@ export default defineUserConfig({
         text: 'Invite!',
         link: 'https://mclinker.com/invite',
       },
+      {
+        text: 'Discord',
+        link: 'https://discord.gg/rX36kZUGNK',
+      },
     ],
     sidebar: {
       '/guide/': [
