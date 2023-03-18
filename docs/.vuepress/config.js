@@ -75,7 +75,12 @@ export default defineUserConfig({
         {
           text: 'Settings',
           collapsible: true,
-          children: ['/guide/settings/managing-permissions.md', '/guide/settings/plugin-config.md', '/guide/settings/disable-enable.md'],
+          children: ['/guide/settings/managing-permissions.md', '/guide/settings/disable-enable.md'],
+        },
+        {
+          text: 'Plugin',
+          collapsible: true,
+          children: ['/guide/plugin/linker-command.md', '/guide/plugin/config-yml.md'],
         },
       ],
     },
