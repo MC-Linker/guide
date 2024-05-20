@@ -4,7 +4,7 @@
 
 To be able to connect your server to the bot using the plugin, you'll first need to install
 the [Discord-Linker](https://www.spigotmc.org/resources/discord-linker.98749/) plugin on your server. You can find the
-latest version of the plugin on the [SpigotMC page](https://www.spigotmc.org/resources/discord-linker.82468/),
+latest version of the plugin on the [SpigotMC page](https://www.spigotmc.org/resources/discord-linker.98749/),
 on [Modrinth](https://modrinth.com/plugin/discord-linker), on
 the [GitHub releases page](https://github.com/MC-Linker/Discord-Linker/releases) or in
 the [Aternos Plugin List](https://aternos.org/addons/a/spigot/98749).
