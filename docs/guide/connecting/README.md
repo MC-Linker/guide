@@ -8,7 +8,7 @@ This is the recommended and easiest way to connect your server to the bot.
 
 ### [Connecting using FTP](/guide/connecting/ftp.md)
 
-If you don't need to use [chat channels](/guide/chatchannels/creating.md)Fi
+If you don't need to use [chat channels](/guide/chatchannels/creating.md)
 or [moderation commands](/guide/moderation/commands.md) and your server host supports it, you can connect your server in
 a very reliable way using FTP.
 
