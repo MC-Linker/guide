@@ -1,14 +1,15 @@
 import { description } from '../../package.json';
-import { defaultTheme, defineUserConfig } from 'vuepress';
+import { viteBundler } from '@vuepress/bundler-vite'
+import { defaultTheme } from '@vuepress/theme-default';
+import { defineUserConfig } from 'vuepress';
 import { searchPlugin } from '@vuepress/plugin-search';
-import * as path from 'node:path';
 
 export default defineUserConfig({
   lang: 'en-US',
   title: 'MC Linker Guide',
   description: description,
   port: 8888,
-  clientConfigFile: path.resolve(__dirname, './clientConfig.js').replace(/\\/g, '/'),
+  bundler: viteBundler({}),
   head: [
     ['meta', { charset: 'utf-8' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],

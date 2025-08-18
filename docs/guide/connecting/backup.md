@@ -30,9 +30,8 @@ replacing `<port>` with the port you added in the last step) or edit the `port` 
 plugin. When editing the config file, make sure to restart or reload the server after saving the changes.
 
 ::: warning
-
 * To run the `/linker port <port>` command, you need to have the `discordlinker.linker.port` permission.
-  :::
+:::
 
 ### 4. Connecting your Server
 

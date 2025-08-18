@@ -1,6 +1,6 @@
-import { defineClientConfig } from '@vuepress/client';
-import '@skyra/discord-components-core';
 import { setConfig } from '@skyra/discord-components-core';
+import '@skyra/discord-components-core';
+import { defineClientConfig } from 'vuepress/client';
 
 export default defineClientConfig({
     enhance({ app }) {

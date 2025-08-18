@@ -14,10 +14,13 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@vuepress/plugin-search": "^2.0.0-beta.60",
-    "vuepress": "^2.0.0-beta.60"
+    "@skyra/discord-components-core": "^4.0.2",
+    "@vuepress/plugin-search": "^2.0.0-rc.112",
+    "sass-embedded": "^1.90.0",
+    "vuepress": "^2.0.0-rc.24"
   },
   "dependencies": {
-    "@skyra/discord-components-core": "^4.0.0-alpha.18"
+    "@vuepress/bundler-vite": "^2.0.0-rc.24",
+    "@vuepress/theme-default": "^2.0.0-rc.112"
   }
 }
