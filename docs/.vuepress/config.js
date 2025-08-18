@@ -8,7 +8,7 @@ export default defineUserConfig({
   lang: 'en-US',
   title: 'MC Linker Guide',
   description: description,
-  port: 8888,
+  port: 8889,
   bundler: viteBundler({}),
   head: [
     ['meta', { charset: 'utf-8' }],
@@ -54,7 +54,7 @@ export default defineUserConfig({
         {
           text: 'Connecting',
           collapsible: true,
-          children: ['/guide/connecting/README.md', '/guide/connecting/plugin.md', '/guide/connecting/ftp.md', '/guide/connecting/backup.md', '/guide/connecting/disconnecting.md'],
+          children: ['/guide/connecting/plugin.md', '/guide/connecting/disconnecting.md'],
         },
         {
           text: 'Chat Channels',

@@ -1,4 +1,4 @@
-# Using the Plugin
+# Plugin
 
 ### 1. Downloading and Installing the Plugin
 
@@ -56,8 +56,8 @@ Do not include the `/` prefix in the command when you are running the command fr
 
 * To run the `/connect plugin` command, you need to be an Administrator in the Discord server.
 * To run the generated command in the console or in the chat you need to have the `discordlinker.linker.connect`
-  permission.
-  :::
+  permission (or be an OP).
+:::
 
 **Congratulations! You have successfully connected your server to the bot using the plugin!
 Now you're ready to start using the bot and all of its features!**
