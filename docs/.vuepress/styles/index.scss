@@ -3,6 +3,20 @@
   --c-brand-light: #729e34;
 }
 
+.wip-banner {
+  position: sticky;
+  top: var(--navbar-height);
+  z-index: 10;
+  margin: -2rem 0 2rem 0;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  text-align: center;
+  background-color: var(--vp-c-bg-alt);
+  color: var(--vp-c-yellow-text);
+  border: 1px solid rgb(194 129 0 / 30%);
+}
+
 html.dark {
   --c-brand: #729e34;
   --c-brand-light: #729e34;
@@ -17,6 +31,10 @@ html.dark {
 
 .custom-container {
   border-radius: .375rem !important;
+}
+
+.hint-container.important .hint-container-title {
+  --vp-c-accent: var(--important-c-text);
 }
 
 @font-face {

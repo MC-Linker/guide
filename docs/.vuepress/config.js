@@ -52,34 +52,24 @@ export default defineUserConfig({
       '/guide/': [
         '/guide/README.md',
         {
-          text: 'Connecting',
+          text: 'Core',
           collapsible: true,
-          children: ['/guide/connecting/plugin.md', '/guide/connecting/disconnecting.md'],
+          children: ['/guide/core/connect.md', '/guide/core/disconnect.md', '/guide/core/account-connect.md', '/guide/core/linked-roles.md', '/guide/core/customize.md', '/guide/core/permissions.md'],
         },
         {
-          text: 'Chat Channels',
+          text: 'Player Info',
           collapsible: true,
-          children: ['/guide/chatchannels/creating.md', '/guide/chatchannels/managing.md'],
+          children: ['/guide/player-info/inventory.md', '/guide/player-info/stats.md', '/guide/player-info/advancements.md', '/guide/player-info/userinfo.md', '/guide/player-info/message.md'],
         },
         {
-          text: 'Moderating',
+          text: 'Server Management',
           collapsible: true,
-          children: ['/guide/moderation/commands.md', '/guide/moderation/op-deop.md', '/guide/moderation/ban-unban.md', '/guide/moderation/gamemode.md', '/guide/moderation/kick.md'],
+          children: ['/guide/server-management/command.md', '/guide/server-management/serverinfo.md', '/guide/server-management/creating.md', '/guide/server-management/managing.md', '/guide/server-management/statchannel.md', '/guide/server-management/rolesync.md'],
         },
         {
-          text: 'Account Connections',
+          text: 'Moderation',
           collapsible: true,
-          children: ['/guide/account/connecting.md', '/guide/account/linked-roles.md'],
-        },
-        {
-          text: 'Main Features',
-          collapsible: true,
-          children: ['/guide/main/inventory.md', '/guide/main/stats.md', '/guide/main/advancements.md', '/guide/main/message.md'],
-        },
-        {
-          text: 'Settings',
-          collapsible: true,
-          children: ['/guide/settings/managing-permissions.md', '/guide/settings/disable-enable.md'],
+          children: ['/guide/moderation/ban-unban.md', '/guide/moderation/kick.md', '/guide/moderation/op-deop.md', '/guide/moderation/gamemode.md'],
         },
         {
           text: 'Plugin',

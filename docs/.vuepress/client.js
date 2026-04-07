@@ -1,9 +1,13 @@
 import { setConfig } from '@skyra/discord-components-core';
 import '@skyra/discord-components-core';
 import { defineClientConfig } from 'vuepress/client';
+import Layout from './layouts/Layout.vue';
+import DefaultBadge from './components/DefaultBadge.vue';
 
 export default defineClientConfig({
+    layouts: { Layout },
     enhance({ app }) {
+        app.component('DefaultBadge', DefaultBadge);
         setConfig({
             profiles: {
                 lianecx: {
