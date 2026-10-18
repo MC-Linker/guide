@@ -1,40 +1,66 @@
+// Brand: grass green (Minecraft) and blurple (Discord), like mclinker.com.
 :root {
-  --c-brand: #729e34;
-  --c-brand-light: #729e34;
+  --vp-c-accent: #4f7a1c;
+  --vp-c-accent-bg: #6f9e2d;
+  --vp-c-accent-hover: #5d8a24;
+  --vp-c-accent-text: #fff;
+  --vp-c-accent-soft: rgb(111 158 45 / 14%);
+  --ml-blurple: #5865f2;
+  --ml-dirt: #915d2a;
+  --ml-pixel: 'Pixelify Sans Variable', ui-monospace, monospace;
+  --font-family: 'DM Sans Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
-.wip-banner {
-  position: sticky;
-  top: var(--navbar-height);
-  z-index: 10;
-  margin: -2rem 0 2rem 0;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 0.88rem;
-  text-align: center;
-  background-color: var(--vp-c-bg-alt);
-  color: var(--vp-c-yellow-text);
-  border: 1px solid rgb(194 129 0 / 30%);
+html[data-theme='dark'] {
+  --vp-c-accent: #8cbf3f;
+  --vp-c-accent-bg: #6f9e2d;
+  --vp-c-accent-hover: #7cad35;
+  --vp-c-accent-soft: rgb(140 191 63 / 16%);
+  --vp-c-bg: #111418;
+  --vp-c-bg-alt: #0d1014;
+  --vp-c-bg-elv: #171b20;
 }
 
-html.dark {
-  --c-brand: #729e34;
-  --c-brand-light: #729e34;
-
-  --c-bg: #222e35;
-  --c-bg-dark: #111b21
+// Hide the language label on short command examples.
+div[class*='language-'][data-title='text']::before,
+div[class*='language-'][data-ext='text']::before {
+  display: none;
 }
 
-.hero .description {
-  max-width: 42rem !important;
+// Pixel font for the big titles, readable sans everywhere else.
+.vp-site-name,
+[vp-content] h1,
+#main-title {
+  font-family: var(--ml-pixel);
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
-.custom-container {
-  border-radius: .375rem !important;
+.vp-hero .vp-hero-description {
+  max-width: 40rem !important;
+}
+
+// Hint boxes: rounded, and "important" used for permission boxes.
+.hint-container {
+  border-radius: 0.5rem !important;
 }
 
 .hint-container.important .hint-container-title {
   --vp-c-accent: var(--important-c-text);
+}
+
+// Tables fit on phones.
+[vp-content] table {
+  display: block;
+  overflow-x: auto;
+}
+
+// discord-components: keep previews from stretching full width on big screens.
+discord-messages {
+  display: block;
+  margin: 1rem 0;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 @font-face {
