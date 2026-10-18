@@ -19,6 +19,8 @@ export default defineUserConfig({
     ['meta', { charset: 'utf-8' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
     ['link', { rel: 'icon', href: '/logo.svg' }],
+    ['link', { rel: 'preload', href: '/fonts/minecraft-seven.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }],
+    ['link', { rel: 'preload', href: '/fonts/minecrafter.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }],
     ['meta', { name: 'theme-color', content: '#6f9e2d' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
     ['meta', { property: 'og:title', content: 'MC Linker Guide' }],

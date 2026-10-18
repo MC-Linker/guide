@@ -13,6 +13,12 @@ const props = defineProps({
   terminal: { type: Boolean, default: false },
 });
 
+// Minecraft draws bold text by repeating each glyph one pixel to the right.
+const bold = {
+  letterSpacing: '0.0625em',
+  textShadow: '0.0625em 0 0 currentColor, 0.12em 0.12em 0 rgb(0 0 0 / 0.6), 0.1825em 0.12em 0 rgb(0 0 0 / 0.6)',
+};
+
 const colors = {
   0: '#000000', 1: '#0000aa', 2: '#00aa00', 3: '#00aaaa', 4: '#aa0000', 5: '#aa00aa', 6: '#ffaa00', 7: '#aaaaaa',
   8: '#555555', 9: '#5555ff', a: '#55ff55', b: '#55ffff', c: '#ff5555', d: '#ff55ff', e: '#ffff55', f: '#ffffff',
@@ -53,7 +59,7 @@ const rows = computed(() => props.lines.map(line => {
       <span
         v-for="(s, j) in row.segments"
         :key="j"
-        :style="{ color: s.color, fontWeight: s.bold ? 700 : undefined, fontStyle: s.italic ? 'italic' : undefined, textDecoration: s.underline ? 'underline' : undefined }"
+        :style="{ color: s.color, ...(s.bold ? bold : {}), fontStyle: s.italic ? 'italic' : undefined, textDecoration: s.underline ? 'underline' : undefined }"
       >{{ s.text }}</span>
     </div>
   </div>

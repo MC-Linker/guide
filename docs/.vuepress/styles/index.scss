@@ -1,3 +1,20 @@
+// Minecraft fonts from the MC-Linker bot repo (resources/fonts), subset to woff2.
+@font-face {
+  font-family: 'Minecraft Seven';
+  src: url('/fonts/minecraft-seven.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Minecrafter';
+  src: url('/fonts/minecrafter.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Mojang Studios';
+  src: url('/fonts/mojang-studios.woff2') format('woff2');
+  font-display: swap;
+}
+
 // Brand: grass green (Minecraft) and blurple (Discord), like mclinker.com.
 :root {
   --vp-c-accent: #4f7a1c;
@@ -7,7 +24,12 @@
   --vp-c-accent-soft: rgb(111 158 45 / 14%);
   --ml-blurple: #5865f2;
   --ml-dirt: #915d2a;
-  --ml-pixel: 'Pixelify Sans Variable', ui-monospace, monospace;
+  // In-game text. Pixelify only fills in glyphs Minecraft Seven doesn't have (like arrows).
+  --ml-pixel: 'Minecraft Seven', 'Pixelify Sans Variable', ui-monospace, monospace;
+  // The blocky logo font. Letters and digits only.
+  --ml-logo: 'Minecrafter', 'Minecraft Seven', ui-monospace, monospace;
+  // The Mojang Studios logo font, for small uppercase labels.
+  --ml-mojang: 'Mojang Studios', 'Minecraft Seven', ui-monospace, monospace;
   --font-family: 'DM Sans Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -27,13 +49,25 @@ div[class*='language-'][data-ext='text']::before {
   display: none;
 }
 
-// Pixel font for the big titles, readable sans everywhere else.
-.vp-site-name,
-[vp-content] h1,
-#main-title {
+// The Minecraft fonts have one weight; never smear them into fake bold.
+html {
+  font-synthesis-weight: none;
+}
+
+// Minecraft fonts for the big titles, readable sans everywhere else.
+// Bold the way Minecraft does it: the glyph again, one pixel to the right.
+[vp-content] h1 {
   font-family: var(--ml-pixel);
-  font-weight: 700;
-  letter-spacing: 0.01em;
+  font-weight: 400;
+  letter-spacing: 0.0625em;
+  text-shadow: 0.0625em 0 0 currentColor;
+}
+
+.vp-site-name,
+#main-title {
+  font-family: var(--ml-logo);
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
 .vp-hero .vp-hero-description {

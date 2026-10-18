@@ -44,7 +44,7 @@
   color: var(--vp-c-text-mute);
 }
 .minecraft .label {
-  font-family: var(--ml-pixel);
-  letter-spacing: 0.03em;
+  font-family: var(--ml-mojang);
+  font-size: 0.8rem;
 }
 </style>
