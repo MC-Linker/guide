@@ -28,7 +28,8 @@
   --ml-pixel: 'Minecraft Seven', 'Pixelify Sans Variable', ui-monospace, monospace;
   // The blocky logo font. Letters and digits only.
   --ml-logo: 'Minecrafter', 'Minecraft Seven', ui-monospace, monospace;
-  // The Mojang Studios logo font, for small uppercase labels.
+  // The Mojang Studios logo font, for small uppercase labels. Same file as mclinker.com, with real
+  // capitals for B, D, M, N, Q, T and Y (see scripts/mojang-capitals.py in the main-page repo).
   --ml-mojang: 'Mojang Studios', 'Minecraft Seven', ui-monospace, monospace;
   --font-family: 'DM Sans Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
