@@ -28,11 +28,15 @@ docs/
     components/             BotReply, McChat, SplitView, CommandInfo
     styles/                 Theme overrides (brand colours, fonts)
     public/                 Logo, the bot's emoji, screenshots
-    config.js               Navbar, sidebar, redirects from old URLs
+    config.js               Site settings, navbar, sidebar, plugins
+    redirects.js            Old URLs and the pages they moved to
+    linkPreview.js          Link previews for every page (Open Graph and Discord's component embeds)
     client.js               Registers components and discord-components
 ```
 
-Old URLs (like `/guide/core/connect.html`) redirect to their new pages. When you move a page, add a redirect in `config.js`.
+Old URLs (like `/guide/core/connect.html`) redirect to their new pages. When you move a page, add a redirect in `redirects.js`.
+
+Every page gets a link preview for Discord automatically: its title, first paragraph, screenshots and headings, with buttons to the page, the quick start, the bot invite and the support server. A page's `description` front matter, if it has one, replaces the first paragraph.
 
 ## Writing
 
