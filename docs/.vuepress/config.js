@@ -4,6 +4,7 @@ import { defaultTheme } from '@vuepress/theme-default';
 import { defineUserConfig } from 'vuepress';
 import { searchPlugin } from '@vuepress/plugin-search';
 import { redirectPlugin } from '@vuepress/plugin-redirect';
+import { linkPreviewPlugin } from './linkPreview.js';
 
 const isCustomElement = tag => tag.startsWith('discord-');
 
@@ -23,12 +24,11 @@ export default defineUserConfig({
     ['link', { rel: 'preload', href: '/fonts/minecrafter.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }],
     ['meta', { name: 'theme-color', content: '#6f9e2d' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
-    ['meta', { property: 'og:title', content: 'MC Linker Guide' }],
-    ['meta', { property: 'og:description', content: description }],
+    // og:title, og:description, og:url and the Discord preview are set per page by linkPreview.js.
+    ['meta', { property: 'og:site_name', content: 'MC Linker Guide' }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:url', content: 'https://guide.mclinker.com/' }],
     ['meta', { property: 'og:locale', content: 'en_US' }],
-    ['meta', { property: 'og:image', content: 'https://guide.mclinker.com/logo.png' }],
+    ['meta', { property: 'og:image', content: 'https://mclinker.com/logo.png' }],
   ],
   theme: defaultTheme({
     repo: 'MC-Linker',
@@ -118,6 +118,7 @@ export default defineUserConfig({
   }),
   plugins: [
     searchPlugin({ maxSuggestions: 8 }),
+    linkPreviewPlugin(),
     // Old URLs (from the previous guide structure and old website links) keep working.
     redirectPlugin({
       config: {
