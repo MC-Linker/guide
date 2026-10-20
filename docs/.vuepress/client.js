@@ -6,9 +6,11 @@ import BotReply from './components/BotReply.vue';
 import McChat from './components/McChat.vue';
 import CommandInfo from './components/CommandInfo.vue';
 import SplitView from './components/SplitView.vue';
+import { fixNarrowEmbeds } from './discordFixes.js';
 
 export default defineClientConfig({
   enhance({ app }) {
+    if(typeof window !== 'undefined') void fixNarrowEmbeds();
     app.component('BotReply', BotReply);
     app.component('McChat', McChat);
     app.component('CommandInfo', CommandInfo);
