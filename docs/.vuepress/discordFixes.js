@@ -5,7 +5,7 @@
  * like Discord does.
  */
 const fixes = {
-  'discord-embed-field': ':host .discord-inline-field { min-width: 0; }',
+  'discord-embed-field': ':host .discord-inline-field { min-width: 5rem; }',
   'discord-embed': `
     :host .discord-embed-wrapper { min-width: 0; max-width: 100%; }
     :host .discord-embed-grid { min-width: 0; }
