@@ -12,7 +12,7 @@ Shows information about your Minecraft server: name, MOTD, players, world settin
 
 ## Example
 
-<BotReply command="/serverinfo" title="Server Information" color="#729e34" :fields="[{ name: 'Name', value: 'Linker SMP', inline: true }, { name: 'MOTD', value: 'A cozy survival server', inline: true }, { name: 'Players', value: '4/20', inline: true }, { name: 'Difficulty', value: 'Hard' }]" footer="Server IP: testing.mclinker.com (26.2)" :buttons="[{ label: 'World Information' }, { label: 'Admin Information', style: 'danger' }]" />
+<BotReply command="/serverinfo" title="Server Information" color="#729e34" image="/assets/serverlist.png" :fields="[{ name: 'Name', value: 'Linker SMP', inline: true }, { name: 'MOTD', value: 'A cozy survival server', inline: true }, { name: 'Players', value: '4/20', inline: true }, { name: 'Difficulty', value: 'Hard' }]" footer="Server IP: testing.mclinker.com (26.2)" :buttons="[{ label: 'World Information' }, { label: 'Admin Information', style: 'danger' }]" />
 
 ## Pages
 
