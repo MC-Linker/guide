@@ -7,6 +7,7 @@ import McChat from './components/McChat.vue';
 import CommandInfo from './components/CommandInfo.vue';
 import SplitView from './components/SplitView.vue';
 import ServerInfo from './components/ServerInfo.vue';
+import NotFound from './components/NotFound.vue';
 import { fixNarrowEmbeds } from './discordFixes.js';
 
 export default defineClientConfig({
@@ -18,4 +19,5 @@ export default defineClientConfig({
     app.component('SplitView', SplitView);
     app.component('ServerInfo', ServerInfo);
   },
+  layouts: { NotFound },
 });
