@@ -71,10 +71,11 @@ function embedFor(page, description) {
     section(`${home ? '' : `-# ${label}\n`}## [${home ? 'MC Linker Guide' : page.title}](${url})\n${description}`, thumbnail(logo)),
   ];
 
-  // The front page shows off the bot; other pages show the images they use.
-  const used = home ? ['inventory.png', 'userinfo.png', 'serverinfo.png', 'statchannel.png'] : [...new Set([...page.content.matchAll(/\/assets\/([a-z_]+\.png)/g)].map(m => m[1]))]
-    .filter(f => images[f]).slice(0, 4);
-  if (used.length) children.push({ type: 12, items: used.map(f => ({ media: { url: images[f] } })) });
+  // One image only: Discord crops gallery images into a mosaic, and ours all have
+  // different shapes. A single image is shown whole. The front page shows /userinfo,
+  // other pages show the first image they use.
+  const image = home ? 'userinfo.png' : [...page.content.matchAll(/\/assets\/([a-z_]+\.png)/g)].map(m => m[1]).find(f => images[f]);
+  if (image) children.push({ type: 12, items: [{ media: { url: images[image] } }] });
 
   const headings = (page.headers ?? []).map(h => h.title).filter(Boolean);
   if (headings.length) children.push(text(`-# On this page: ${clip(headings.join(' · '), 200)}`));
