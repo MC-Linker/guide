@@ -23,7 +23,7 @@ export default defineUserConfig({
     ['link', { rel: 'icon', href: '/logo.svg' }],
     ['link', { rel: 'preload', href: '/fonts/minecraft-seven.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }],
     ['link', { rel: 'preload', href: '/fonts/minecrafter.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }],
-    ['meta', { name: 'theme-color', content: '#6f9e2d' }],
+    ['meta', { name: 'theme-color', content: '#e6e8eb' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
     // og:title, og:description, og:url and the Discord preview are set per page by linkPreview.js.
     ['meta', { property: 'og:site_name', content: 'MC Linker Guide' }],
@@ -39,6 +39,9 @@ export default defineUserConfig({
     editLinkText: 'Edit this page on GitHub',
     themePlugins: { prismjs: { lineNumbers: false } },
     logo: '/logo.svg',
+    // Ore UI is dark only, like mclinker.com.
+    colorMode: 'dark',
+    colorModeSwitch: false,
     navbar: [
       { text: 'Home', link: 'https://mclinker.com/', target: '_self' },
       { text: 'Quick start', link: '/guide/getting-started/quick-start.md' },

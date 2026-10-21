@@ -1,6 +1,6 @@
 import '@skyra/discord-components-core';
 import '@fontsource-variable/pixelify-sans';
-import '@fontsource-variable/dm-sans';
+import '@fontsource-variable/noto-sans';
 import { defineClientConfig } from 'vuepress/client';
 import BotReply from './components/BotReply.vue';
 import McChat from './components/McChat.vue';

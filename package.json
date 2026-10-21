@@ -14,7 +14,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@fontsource-variable/dm-sans": "^5.3.0",
+    "@fontsource-variable/noto-sans": "^5.3.0",
     "@fontsource-variable/pixelify-sans": "^5.3.0",
     "@skyra/discord-components-core": "^4.0.2",
     "@vuepress/plugin-redirect": "^2.0.0-rc.112",

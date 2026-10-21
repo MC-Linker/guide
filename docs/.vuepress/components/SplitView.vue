@@ -36,15 +36,19 @@
 .side :deep(.mc-chat) {
   margin-top: 0.4rem;
 }
+/* A small Ore tag over each side. */
 .label {
+  display: inline-block;
   margin: 0;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--vp-c-text-mute);
+  padding: 0.15rem 0.45rem 0.2rem;
+  border: var(--t) solid var(--ore-outline);
+  background: #5865f2;
+  color: #fff;
+  font-family: var(--ml-pixel);
+  font-size: 0.8rem;
+  line-height: 1.2;
 }
 .minecraft .label {
-  font-family: var(--ml-mojang);
-  font-size: 0.8rem;
+  background: var(--ore-green);
 }
 </style>

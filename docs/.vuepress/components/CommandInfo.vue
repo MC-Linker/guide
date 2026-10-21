@@ -34,28 +34,30 @@ defineProps({
 </template>
 
 <style scoped>
+/* An Ore UI panel: dark face, outline, and a green and blurple edge on the left (Minecraft and Discord). */
 .command-info {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   gap: 0.75rem 1.5rem;
   margin: 1rem 0 1.5rem;
-  padding: 1rem 1.25rem;
-  border-radius: 0.5rem;
-  background: var(--vp-c-bg-alt);
-  border: 1px solid var(--vp-c-divider);
-  border-left: 4px solid;
-  border-image: linear-gradient(#6f9e2d 50%, #5865f2 50%) 1;
+  padding: 0.9rem 1.25rem calc(0.9rem + 2 * var(--t)) calc(1.25rem + 3 * var(--t));
+  border: var(--t) solid var(--ore-outline);
+  background:
+    linear-gradient(var(--ore-green) 50%, #5865f2 50%) left / calc(3 * var(--t)) 100% no-repeat,
+    var(--ore-dark);
+  box-shadow: inset 0 calc(-2 * var(--t)) 0 var(--ore-deep);
 }
 dt {
+  font-family: var(--ml-mojang);
   font-size: 0.75rem;
-  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--vp-c-text-mute);
+  letter-spacing: 0.06em;
+  color: var(--ore-silver);
 }
 dd {
-  margin: 0.15rem 0 0;
+  margin: 0.2rem 0 0;
   font-weight: 500;
+  color: #fff;
 }
 .more {
   font-size: 0.8rem;

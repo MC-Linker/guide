@@ -69,7 +69,7 @@ const rows = computed(() => props.lines.map(line => {
 .mc-chat {
   margin: 1rem 0;
   padding: 0.75rem;
-  border: 3px solid #000;
+  border: var(--t) solid var(--ore-outline);
   background:
     linear-gradient(rgb(0 0 0 / 0.55), rgb(0 0 0 / 0.55)),
     linear-gradient(#78a6f7, #b4d3ff 70%, #6f9e2d 70%, #6f9e2d 76%, #915d2a 76%);
