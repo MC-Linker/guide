@@ -31,23 +31,21 @@ export default defineUserConfig({
     ['meta', { property: 'og:image', content: 'https://mclinker.com/logo.png' }],
   ],
   theme: defaultTheme({
-    repo: 'MC-Linker',
     docsRepo: 'MC-Linker/guide',
     docsBranch: 'main',
     docsDir: 'docs',
     editLinkText: 'Edit this page on GitHub',
     themePlugins: { prismjs: { lineNumbers: false } },
-    logo: '/logo.svg',
+    // The banner hangs from the middle of the header bar (styles/index.scss).
+    logo: '/banner.png',
     // Ore UI is dark only, like mclinker.com.
     colorMode: 'dark',
     colorModeSwitch: false,
     navbar: [
-      { text: 'Home', link: 'https://mclinker.com/', target: '_self' },
       { text: 'Quick start', link: '/guide/getting-started/quick-start.md' },
       { text: 'Commands', link: '/guide/commands/' },
       { text: 'Help', link: '/guide/help/troubleshooting.md' },
       { text: 'Add to Discord', link: 'https://mclinker.com/invite' },
-      { text: 'Support server', link: 'https://discord.gg/rX36kZUGNK' },
     ],
     sidebar: {
       '/guide/': [

@@ -218,22 +218,72 @@ body {
     inset 0 calc(-3 * var(--t)) 0 #3a3b3c,
     0 var(--t) 0 #121213;
 
+  // The banner, in a tab that hangs down from the middle of the bar, like mclinker.com's.
+  // The bar's bottom edge steps down around it, outline and all.
+  --drop: 1.6rem;
+  --brand-h: 3.5rem;
+  --brand-w: calc(var(--brand-h) * 1346 / 340 + 2rem);
+
+  // The theme wraps the brand link in a bare <span>.
+  > span > a:has(> .vp-site-logo) {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 2;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--brand-w);
+    height: calc(var(--navbar-height) + var(--drop));
+    padding-bottom: calc(3 * var(--t));
+    translate: -50% 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: calc(var(--navbar-height) - 3 * var(--t)) 0 0;
+      background: var(--ore-deep);
+      box-shadow:
+        inset 0 calc(-2 * var(--t)) 0 #1a1a1b,
+        inset 0 calc(-3 * var(--t)) 0 #3a3b3c,
+        0 var(--t) 0 #121213,
+        var(--t) 0 0 #121213,
+        calc(-1 * var(--t)) 0 0 #121213,
+        0 0.5rem 1rem rgb(0 0 0 / 35%);
+    }
+    &:hover .vp-site-logo { filter: brightness(1.15); }
+    &:focus-visible { outline-offset: calc(-1 * var(--t)); }
+  }
+
   .vp-site-logo {
-    height: 1.6rem;
-    vertical-align: middle;
+    display: block;
+    width: auto;
+    height: var(--brand-h);
+    margin: 0;
+    transition: filter 0.15s ease;
   }
 
+  // The banner already says it.
   .vp-site-name {
-    @include ore-title;
-    color: #fff;
-    font-size: 1.2rem;
+    display: none;
   }
 
+  // The page links on the left; "Add to Discord", Links and search on the right.
   .vp-navbar-items-wrapper {
     top: 50%;
+    left: 1rem;
+    right: 0.75rem;
+    max-width: none !important;
     transform: translateY(calc(-50% - 1.5 * var(--t)));
     padding-top: 0;
     align-items: center;
+    gap: 0.6rem;
+
+    > .vp-navbar-items {
+      flex: 1;
+    }
   }
 
   .vp-navbar-items:not(.vp-hide-mobile),
@@ -287,13 +337,27 @@ body {
   }
 
   // "Add to Discord" in blurple, like the site's header.
+  .vp-navbar-item:has(> a[href$='/invite']) {
+    margin-left: auto !important;
+  }
   .vp-navbar-item > a[href$='/invite'] {
     @include ore-blurple;
-    margin-left: 0.6rem;
     border: 0 !important;
   }
-  .vp-navbar-item:has(> a[href$='/invite']) + .vp-navbar-item > a {
-    margin-left: 0.6rem;
+
+  // Less room beside the banner: "Add to Discord" moves into Links, the buttons get narrower.
+  @media (max-width: 1080px) {
+    .vp-navbar-item:has(> a[href$='/invite']) {
+      display: none;
+    }
+  }
+  @media (max-width: 900px) {
+    --brand-h: 2.75rem;
+
+    .vp-navbar-item > a {
+      padding-inline: 0.5rem;
+      font-size: 0.85rem;
+    }
   }
 
   .vp-toggle-sidebar-button .icon span {
@@ -464,7 +528,8 @@ body {
 // ── Page ────────────────────────────────────────────────────────────────────
 // The text sits on a raised Ore panel over the dark screen, like the site's legal pages.
 .vp-page {
-  padding-top: calc(var(--navbar-height) + 1.5rem);
+  // Clear of the banner's tab.
+  padding-top: calc(var(--navbar-height) + 2.4rem);
   padding-bottom: 2rem;
   background: var(--ore-deep);
 }
@@ -703,7 +768,7 @@ details.hint-container summary {
 
 // ── Home ────────────────────────────────────────────────────────────────────
 .vp-home {
-  padding-top: calc(var(--navbar-height) + 2rem);
+  padding-top: calc(var(--navbar-height) + 2.6rem);
   background: var(--ore-deep);
 }
 
@@ -812,6 +877,14 @@ discord-messages {
 @media (max-width: 719px) {
   .vp-navbar {
     padding-left: 3.5rem;
+    --drop: 1.1rem;
+    --brand-h: min(2.5rem, 9.5vw);
+    --brand-w: calc(var(--brand-h) * 1346 / 340 + 1rem);
+
+    // Just the search button on the right; the toggle stays clickable on the left.
+    .vp-navbar-items-wrapper {
+      left: auto;
+    }
 
     .vp-toggle-sidebar-button {
       top: calc(50% - 1.5 * var(--t));
@@ -824,7 +897,12 @@ discord-messages {
   }
 
   .vp-page {
-    padding-top: calc(var(--navbar-height) + 0.75rem);
+    padding-top: calc(var(--navbar-height) + 1.6rem);
+  }
+
+  // The sidebar opens under the banner's tab.
+  .vp-sidebar > .vp-navbar-items {
+    padding-top: 2rem;
   }
 
   [vp-content] {
@@ -920,4 +998,152 @@ discord-messages {
     @include ore-green;
     text-shadow: 0.0625em 0 0 currentColor;
   }
+}
+
+// ── Links dropdown ──────────────────────────────────────────────────────────
+// mclinker.com's "Links": a dark Ore face with a chevron, opening a grey popup of rows.
+.ml-links {
+  position: relative;
+  flex: none;
+}
+.ml-links-face {
+  @include ore-dark;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.25rem;
+  padding-inline: 0.7rem 0.65rem;
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+
+  // A dropdown doesn't sink when pressed; it opens.
+  &:active::before {
+    top: 0;
+  }
+  > * {
+    transform: none !important;
+  }
+}
+.ml-chev {
+  width: calc(7 * var(--t));
+  height: calc(4 * var(--t));
+  shape-rendering: crispEdges;
+  transition: transform 0.15s ease;
+
+  .pressed & {
+    transform: rotate(180deg);
+  }
+}
+.ml-links-popup {
+  position: absolute;
+  top: calc(100% + var(--t));
+  right: 0;
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  gap: var(--t);
+  width: max-content;
+  max-width: min(20rem, calc(100vw - 1rem));
+  max-height: calc(100dvh - var(--navbar-height) - 0.5rem);
+  overflow-y: auto;
+  padding: var(--t);
+  border: var(--t) solid var(--ore-outline);
+  background: #8c8d90;
+  box-shadow: 0 0.75rem 1.5rem rgb(0 0 0 / 40%);
+}
+.ml-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3.25rem;
+  padding: 0.45rem 0.75rem;
+  border: var(--t) solid #8c8d90;
+  background: #58585a;
+  color: #fff !important;
+  text-decoration: none !important;
+
+  &:hover {
+    background: #48494a;
+  }
+  &:focus-visible {
+    outline-offset: calc(-1 * var(--t));
+  }
+  // The theme's "external link" arrow; these rows draw their own.
+  &::after {
+    display: none !important;
+  }
+}
+.ml-thumb {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.25rem;
+  height: 2.25rem;
+
+  img {
+    width: 2.25rem;
+    height: 2.25rem;
+    image-rendering: pixelated;
+  }
+}
+.ml-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  min-width: 0;
+}
+.ml-row-title {
+  font-family: var(--ml-pixel);
+  font-size: 1rem;
+  line-height: 1.2;
+}
+.ml-row-sub {
+  font-size: 0.85rem;
+  line-height: 1.35;
+  color: var(--ore-white);
+}
+.ml-out {
+  flex: none;
+  width: calc(6 * var(--t));
+  height: calc(6 * var(--t));
+  shape-rendering: crispEdges;
+}
+
+// On phones the same rows sit in the sidebar, under the header's links.
+.ml-links-list {
+  padding: 0.9rem 0.9rem 1rem;
+  border-bottom: calc(2 * var(--t)) solid;
+  border-image: linear-gradient(#323334 50%, var(--ore-line) 50%) 1;
+}
+.ml-links-title {
+  margin: 0 0 0.5rem;
+  font-family: var(--ml-pixel);
+  font-size: 0.8rem;
+  color: var(--ore-silver);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.ml-links-rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--t);
+  padding: var(--t);
+  border: var(--t) solid var(--ore-outline);
+  background: #8c8d90;
+}
+@media (min-width: 720px) {
+  .ml-hide-wide {
+    display: none;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
