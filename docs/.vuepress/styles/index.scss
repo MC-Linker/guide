@@ -346,14 +346,18 @@ body {
   }
 
   // Less room beside the banner: "Add to Discord" moves into Links, the buttons get narrower.
-  @media (max-width: 1080px) {
+  @media (max-width: 1400px) {
     .vp-navbar-item:has(> a[href$='/invite']) {
       display: none;
     }
   }
-  @media (max-width: 900px) {
-    --brand-h: 2.75rem;
+  @media (max-width: 1080px) {
+    --brand-h: 2.4rem;
+    --brand-w: calc(var(--brand-h) * 1346 / 340 + 1.25rem);
 
+    --search-input-width: 7rem;
+  }
+  @media (max-width: 900px) {
     .vp-navbar-item > a {
       padding-inline: 0.5rem;
       font-size: 0.85rem;
@@ -997,6 +1001,14 @@ discord-messages {
   &.respawn {
     @include ore-green;
     text-shadow: 0.0625em 0 0 currentColor;
+  }
+}
+
+// With a sidebar, the banner centres over the page text instead of the whole bar.
+// (Narrower than 960px there isn't room beside it, so it stays in the middle.)
+@media (min-width: 960px) {
+  .vp-theme-container:not(.no-sidebar) .vp-navbar > span > a:has(> .vp-site-logo) {
+    left: calc(var(--sidebar-width) + (100% - var(--sidebar-width)) / 2);
   }
 }
 

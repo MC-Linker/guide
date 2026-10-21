@@ -11,6 +11,7 @@ const links = [
   { title: 'Add to Discord', hint: 'Opens Discord in a new tab', href: 'https://mclinker.com/invite', icon: '/nav/add-to-discord.png' },
   { title: 'Get the plugin', hint: 'Opens Modrinth in a new tab', href: 'https://modrinth.com/plugin/discord-linker', icon: '/nav/get-the-plugin.png' },
   { title: 'Support server', hint: 'Opens Discord in a new tab', href: 'https://discord.gg/rX36kZUGNK', icon: '/nav/support-server.png' },
+  { title: 'Donate', hint: 'Opens GitHub Sponsors in a new tab', href: 'https://github.com/sponsors/MC-Linker', icon: '/nav/donate.png' },
   { title: 'Meet the team', hint: 'The people behind MC Linker', href: 'https://mclinker.com/team', icon: '/nav/meet-the-team.png' },
   { title: 'MC Linker website', hint: 'Opens mclinker.com', href: 'https://mclinker.com/', icon: '/nav/website.png', sameTab: true },
   { title: 'GitHub', hint: 'Opens GitHub in a new tab', href: 'https://github.com/MC-Linker', github: true },
