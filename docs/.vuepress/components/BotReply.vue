@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue';
+import { computed, getCurrentInstance, ref } from 'vue';
 
 /**
  * A reply from the MC Linker bot, styled like Discord. Embed styles and
@@ -40,6 +40,19 @@ const fieldsWithIndex = computed(() => {
   });
 });
 const buttonTypes = { primary: 'primary', secondary: 'secondary', danger: 'destructive', success: 'success' };
+
+// Like Discord: a clicked button shows pulsing dots in place of its label while the bot
+// answers, and other clicks wait until the answer arrives. Buttons nobody listens to stay still.
+const listening = !!getCurrentInstance()?.vnode.props?.onButton;
+const loading = ref(null);
+function press(b) {
+  if(!listening || loading.value) return;
+  loading.value = b.label;
+  setTimeout(() => {
+    loading.value = null;
+    emit('button', b);
+  }, 650);
+}
 </script>
 
 <template>
@@ -62,9 +75,21 @@ const buttonTypes = { primary: 'primary', secondary: 'secondary', danger: 'destr
       </discord-embed>
       <discord-attachments v-if="buttons.length" slot="components">
         <discord-action-row>
-          <discord-button v-for="(b, i) in buttons" :key="b.label" :type="buttonTypes[b.style] ?? 'secondary'" @click="emit('button', b)">{{ b.label }}</discord-button>
+          <discord-button v-for="(b, i) in buttons" :key="b.label" :type="buttonTypes[b.style] ?? 'secondary'" @click="press(b)" :aria-busy="loading === b.label || undefined"><span class="label" :class="{ loading: loading === b.label }"><span class="text">{{ b.label }}</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></span></discord-button>
         </discord-action-row>
       </discord-attachments>
     </discord-message>
   </discord-messages>
 </template>
+
+<style scoped>
+/* Discord's pulsing ellipsis: the label keeps the button's width but is hidden behind three dots. */
+.label { position: relative; display: inline-block; }
+.dots { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; gap: 0.2rem; }
+.label.loading .text { visibility: hidden; }
+.label.loading .dots { display: flex; }
+.dots i { width: 0.375rem; height: 0.375rem; border-radius: 50%; background: currentColor; animation: pulse 1.4s ease-in-out infinite; }
+.dots i:nth-of-type(2) { animation-delay: 0.15s; }
+.dots i:nth-of-type(3) { animation-delay: 0.3s; }
+@keyframes pulse { 0%, 60%, 100% { opacity: 1; transform: scale(1); } 30% { opacity: 0.3; transform: scale(0.8); } }
+</style>
