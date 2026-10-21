@@ -24,6 +24,8 @@ Download **Discord-Linker** for your server software and put the file into the `
 | NeoForge | 1.21.1 – 26.2 | [Modrinth](https://modrinth.com/plugin/discord-linker) · [CurseForge](https://www.curseforge.com/minecraft/mc-mods/discord-linker) |
 | Forge | 1.16.5 – 1.20.x | [Modrinth](https://modrinth.com/plugin/discord-linker) · [CurseForge](https://www.curseforge.com/minecraft/mc-mods/discord-linker) |
 
+Fabric, Forge and NeoForge also need the [Architectury API](https://modrinth.com/mod/architectury-api) mod (and Fabric also needs [Fabric API](https://modrinth.com/mod/fabric-api)).
+
 On Aternos, add Discord-Linker from the plugin list. More details: [Installing the plugin](./installing-the-plugin.md).
 
 ## 3. Connect
