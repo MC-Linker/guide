@@ -537,6 +537,8 @@ body {
     border-radius: 0;
     background: var(--ore-dark);
     color: #fff;
+    // Long paths (config/discordlinker/config.yml) wrap instead of being cut off in narrow table cells.
+    overflow-wrap: anywhere;
   }
 
   // Code blocks: a sunk-in dark field.
