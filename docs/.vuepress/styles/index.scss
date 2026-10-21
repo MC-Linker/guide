@@ -5,11 +5,6 @@
   font-display: swap;
 }
 @font-face {
-  font-family: 'Minecrafter';
-  src: url('/fonts/minecrafter.woff2') format('woff2');
-  font-display: swap;
-}
-@font-face {
   font-family: 'Mojang Studios';
   src: url('/fonts/mojang-studios.woff2') format('woff2');
   font-display: swap;
@@ -93,8 +88,6 @@ html[data-theme='dark'] {
 
   // In-game text. Pixelify only fills in glyphs Minecraft Seven doesn't have (like arrows).
   --ml-pixel: 'Minecraft Seven', 'Pixelify Sans Variable', ui-monospace, monospace;
-  // The blocky logo font. Letters and digits only.
-  --ml-logo: 'Minecrafter', 'Minecraft Seven', ui-monospace, monospace;
   // The Mojang Studios logo font, for small uppercase labels. Same file as mclinker.com, with real
   // capitals for B, D, M, N, Q, T and Y (see scripts/mojang-capitals.py in the main-page repo).
   --ml-mojang: 'Mojang Studios', 'Minecraft Seven', ui-monospace, monospace;
@@ -537,6 +530,8 @@ body {
     border-radius: 0;
     background: var(--ore-dark);
     color: #fff;
+    // Long paths (config/discordlinker/config.yml) wrap instead of being cut off in narrow table cells.
+    overflow-wrap: anywhere;
   }
 
   // Code blocks: a sunk-in dark field.
@@ -713,10 +708,9 @@ details.hint-container summary {
 }
 
 .vp-hero {
+  // Minecraft Seven drawn bold, like mclinker.com's titles (.ore-title).
   #main-title {
-    font-family: var(--ml-logo);
-    font-weight: 400;
-    letter-spacing: 0.02em;
+    @include ore-title;
     color: #fff;
     font-size: clamp(2.2rem, 7vw, 3.4rem);
     text-shadow: 0.0625em 0.0625em 0 rgb(0 0 0 / 55%);
@@ -856,5 +850,74 @@ discord-messages {
     &:focus {
       width: 10rem;
     }
+  }
+}
+
+// ── 404: the game's death screen, like mclinker.com's error page ────────────
+.ml-died {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 100svh;
+  padding: 3rem 1rem 4rem;
+  text-align: center;
+  color: #fff;
+  background: radial-gradient(circle, rgb(140 20 20 / 55%), rgb(70 8 8 / 90%)), var(--ore-outline);
+
+  h1 {
+    @include ore-title;
+    margin: 0;
+    font-size: clamp(3rem, 9vw, 5rem);
+    line-height: 1.1;
+    color: #fff;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.ml-died-cause {
+  font-size: 1.1rem;
+
+  code {
+    font-family: var(--ml-pixel);
+    color: #ffff55;
+    overflow-wrap: anywhere;
+  }
+}
+
+.ml-died-score {
+  font-family: var(--ml-pixel);
+
+  span {
+    color: #ffff55;
+  }
+}
+
+.ml-died-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: min(22rem, 100%);
+  margin-top: 1.5rem;
+}
+
+.ml-died-button {
+  @include ore-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  font-family: var(--ml-pixel);
+  font-size: 1.15rem;
+  letter-spacing: 0.0625em;
+  text-decoration: none;
+
+  &.respawn {
+    @include ore-green;
+    text-shadow: 0.0625em 0 0 currentColor;
   }
 }

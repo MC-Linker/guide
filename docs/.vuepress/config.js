@@ -22,7 +22,6 @@ export default defineUserConfig({
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
     ['link', { rel: 'icon', href: '/logo.svg' }],
     ['link', { rel: 'preload', href: '/fonts/minecraft-seven.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }],
-    ['link', { rel: 'preload', href: '/fonts/minecrafter.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }],
     ['meta', { name: 'theme-color', content: '#e6e8eb' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
     // og:title, og:description, og:url and the Discord preview are set per page by linkPreview.js.
