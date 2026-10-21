@@ -28,7 +28,7 @@ All options are optional. Most servers don't need any of them.
 | Option | What it does |
 |---|---|
 | `join-requirement` | Decides who may join your Minecraft server. **None** (default) lets everyone in. **Require Linked Account** only lets in players who linked their Discord account. **Require Role(s)** only lets in players who linked their account *and* have certain Discord roles. See [Join requirements](../features/join-requirements.md). |
-| `display-ip` | The address shown in some replies, for example the `/serverinfo` footer, the `%ip%` placeholder in [stat channels](../features/stat-channels.md) and the [account linking](../features/account-linking.md) message. Use your public address, like `play.example.net`. |
+| `display-ip` | The address shown in some replies, for example the `/serverinfo` footer, the `%ip%` placeholder in [stat channels](../features/stat-channels.md) and the [account linking](../features/account-linking.md) message. Use your public address, like `testing.mclinker.com`. |
 | `online` | Overrides whether the bot treats your server as online mode (premium accounts only) or offline mode. The plugin detects this by itself. Behind a **BungeeCord or Velocity proxy**, set it to `True`: the backend servers run in offline mode, but your players use premium accounts. |
 
 ### Requiring roles
@@ -44,7 +44,7 @@ Once both are picked, the verification code appears.
 
 A Discord server can be linked to **one** Minecraft server at a time. If you run `/connect` again, the bot warns you:
 
-<BotReply command="/connect" type="warning" title="Already Connected">Already connected with another server (<strong>play.example.net</strong>). If you proceed to connect, that server will be automatically disconnected!</BotReply>
+<BotReply command="/connect" type="warning" title="Already Connected">Already connected with another server (<strong>testing.mclinker.com</strong>). If you proceed to connect, that server will be automatically disconnected!</BotReply>
 
 Run the new code on the new server and the link moves over. The new connection starts fresh, so set up your [chat channels](../features/chat-bridge.md), [stat channels](../features/stat-channels.md) and [synced roles](../features/role-sync.md) again.
 

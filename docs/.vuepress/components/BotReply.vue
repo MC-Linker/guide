@@ -6,6 +6,8 @@ import { computed } from 'vue';
  * colours match the bot's language file (success / step / warning / error).
  *
  * <BotReply command="/inventory user: Steve" title="Player Inventory">Here's the inventory of **Steve**:</BotReply>
+ *
+ * Clicking a button emits `button` with that button ({ label, style }).
  */
 const props = defineProps({
   command: { type: String, default: '' },
@@ -27,6 +29,7 @@ const styles = {
   step: { color: '#f88239' },
   plain: { color: '#5865f2' },
 };
+const emit = defineEmits(['button']);
 const style = computed(() => styles[props.type] ?? styles.success);
 // discord-components lays out inline fields by their position in the row (1-3).
 const fieldsWithIndex = computed(() => {
@@ -59,7 +62,7 @@ const buttonTypes = { primary: 'primary', secondary: 'secondary', danger: 'destr
       </discord-embed>
       <discord-attachments v-if="buttons.length" slot="components">
         <discord-action-row>
-          <discord-button v-for="(b, i) in buttons" :key="i" :type="buttonTypes[b.style] ?? 'secondary'">{{ b.label }}</discord-button>
+          <discord-button v-for="(b, i) in buttons" :key="b.label" :type="buttonTypes[b.style] ?? 'secondary'" @click="emit('button', b)">{{ b.label }}</discord-button>
         </discord-action-row>
       </discord-attachments>
     </discord-message>

@@ -46,7 +46,7 @@ Stat channels show live server info in your channel list: how many players are o
 | Online template | Shows |
 |---|---|
 | `🟢 %count% online` | 🟢 7 online |
-| `📍 %ip%` | 📍 play.example.net |
+| `📍 %ip%` | 📍 testing.mclinker.com |
 | `Minecraft %version%` | Minecraft 26.2 |
 | `Players: %count% · updated %time%` | Players: 7 · updated 18.10.26 18:30 |
 

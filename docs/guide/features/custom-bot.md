@@ -5,7 +5,7 @@ With the **Customize MC Linker** subscription, MC Linker runs as your own Discor
 ## What you get
 
 - Your own bot name, profile picture and banner
-- A custom status and activity, like *Playing on play.example.net*
+- A custom status and activity, like *Playing on testing.mclinker.com*
 - Your own *About Me* text
 - Emoji used by the bot
 - All MC Linker features, hosted by us

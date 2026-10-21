@@ -4,7 +4,7 @@ Players link their Discord account with their Minecraft account once. After that
 
 <SplitView>
   <template #discord>
-    <BotReply command="/account connect user: Cubey" type="step" title="Account Verification"><discord-custom-emoji name="step" url="/emoji/step.png" embed-emoji></discord-custom-emoji> To verify your account, please join the server (<strong>play.example.net</strong>) and execute the following command: <discord-code multiline>/verify a8f3c</discord-code><strong>You have 3 minutes to run the command.</strong></BotReply>
+    <BotReply command="/account connect user: Cubey" type="step" title="Account Verification"><discord-custom-emoji name="step" url="/emoji/step.png" embed-emoji></discord-custom-emoji> To verify your account, please join the server (<strong>testing.mclinker.com</strong>) and execute the following command: <discord-code multiline>/verify a8f3c</discord-code><strong>You have 3 minutes to run the command.</strong></BotReply>
   </template>
   <template #minecraft>
     <McChat :lines="['&eYou have been added to the verification queue. Please execute &quot;/verify <code>&quot; in-game within 3 minutes to verify your account.', '> /verify a8f3c', '&aYou have been verified successfully.']" />

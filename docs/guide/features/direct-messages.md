@@ -8,7 +8,7 @@ Players can send a Discord DM from inside Minecraft with `/dm`, and get replies 
   </template>
   <template #discord>
     <discord-messages>
-      <discord-message author="MC Linker" avatar="/logo.png" bot verified><strong>📬 New DM from Cubey</strong><br>meet me at spawn?<br><small>Sent from Minecraft (play.example.net) · Reply to this message to send a reply · /account dms to manage DM settings</small></discord-message>
+      <discord-message author="MC Linker" avatar="/logo.png" bot verified><strong>📬 New DM from Cubey</strong><br>meet me at spawn?<br><small>Sent from Minecraft (testing.mclinker.com) · Reply to this message to send a reply · /account dms to manage DM settings</small></discord-message>
     </discord-messages>
   </template>
 </SplitView>

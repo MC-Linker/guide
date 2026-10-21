@@ -15,7 +15,7 @@ Once both are installed, you link them once with [`/connect`](/guide/getting-sta
 
 <SplitView>
   <template #discord>
-    <BotReply command="/serverinfo" title="Server Information" color="#729e34" image="/assets/serverlist.png" :fields="[{ name: 'Name', value: 'Linker SMP', inline: true }, { name: 'MOTD', value: 'A cozy survival server', inline: true }, { name: 'Players', value: '4/20', inline: true }]" footer="Server IP: testing.mclinker.com (26.2)" :buttons="[{ label: 'World Information' }, { label: 'Admin Information', style: 'danger' }]" />
+    <ServerInfo />
   </template>
   <template #minecraft>
     <McChat :lines="['&eCubey joined the game', '<Cubey> hi from Minecraft!', '&9Discord &8| &7Lianecx &8>>&r hi from Discord!']" />
