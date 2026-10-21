@@ -83,7 +83,7 @@ html[data-theme='dark'] {
   --vp-c-control: rgb(0 0 0 / 15%);
   --vp-c-control-hover: rgb(0 0 0 / 25%);
 
-  --vp-navbar-c-bg: var(--ore-light);
+  --vp-navbar-c-bg: var(--ore-deep);
   --vp-sidebar-c-bg: var(--ore-dark);
 
   --code-c-bg: var(--ore-deep);
@@ -217,12 +217,13 @@ body {
   display: flex;
   align-items: center;
   border-bottom: 0;
-  background: var(--ore-light);
-  color: #000;
+  // The dark bar, as on mclinker.com: a darker grey than the page under it.
+  background: var(--ore-deep);
+  color: #fff;
   box-shadow:
-    inset 0 calc(-2 * var(--t)) 0 var(--ore-silver),
-    inset 0 calc(-3 * var(--t)) 0 #ebedef,
-    0 var(--t) 0 var(--ore-outline);
+    inset 0 calc(-2 * var(--t)) 0 #1a1a1b,
+    inset 0 calc(-3 * var(--t)) 0 #3a3b3c,
+    0 var(--t) 0 #121213;
 
   .vp-site-logo {
     height: 1.6rem;
@@ -231,7 +232,7 @@ body {
 
   .vp-site-name {
     @include ore-title;
-    color: #000;
+    color: #fff;
     font-size: 1.2rem;
   }
 
@@ -269,11 +270,10 @@ body {
     line-height: 1;
     border: 0 !important;
 
+    // The page you're on turns green, like the site's chosen section.
     &.route-link-active {
+      @include ore-green;
       color: #fff;
-      --face: #313233;
-      --hi: #5a5b5c;
-      --shade: #464747;
 
       // The chosen one: a short white line under the label.
       &::after {
@@ -304,7 +304,7 @@ body {
   }
 
   .vp-toggle-sidebar-button .icon span {
-    background-color: #000;
+    background-color: #fff;
   }
 }
 
