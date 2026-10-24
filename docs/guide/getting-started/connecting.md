@@ -23,13 +23,13 @@ Run it in the Discord server you want to link. The bot answers with a command li
 
 ## Options
 
-All options are optional. Most servers don't need any of them.
+All options are optional.
 
 | Option | What it does |
 |---|---|
 | `join-requirement` | Decides who may join your Minecraft server. **None** (default) lets everyone in. **Require Linked Account** only lets in players who linked their Discord account. **Require Role(s)** only lets in players who linked their account *and* have certain Discord roles. See [Join requirements](../features/join-requirements.md). |
 | `display-ip` | The address shown in some replies, for example the `/serverinfo` footer, the `%ip%` placeholder in [stat channels](../features/stat-channels.md) and the [account linking](../features/account-linking.md) message. Use your public address, like `testing.mclinker.com`. |
-| `online` | Overrides whether the bot treats your server as online mode (premium accounts only) or offline mode. The plugin detects this by itself. Behind a **BungeeCord or Velocity proxy**, set it to `True`: the backend servers run in offline mode, but your players use premium accounts. |
+| `online` | Overrides whether the bot treats your server as online mode (premium accounts only) or offline mode. The plugin tries to detect this by itself. Behind a **BungeeCord or Velocity proxy**, set it to `True`: the backend servers run in offline mode, but your players use premium accounts. |
 
 ### Requiring roles
 
@@ -46,7 +46,7 @@ A Discord server can be linked to **one** Minecraft server at a time. If you run
 
 <BotReply command="/connect" type="warning" title="Already Connected">Already connected with another server (<strong>testing.mclinker.com</strong>). If you proceed to connect, that server will be automatically disconnected!</BotReply>
 
-Run the new code on the new server and the link moves over. The new connection starts fresh, so set up your [chat channels](../features/chat-bridge.md), [stat channels](../features/stat-channels.md) and [synced roles](../features/role-sync.md) again.
+To be safe, run `/linker disconnect` on the old Minecraft server first, then run the new code on the new server. The new connection starts fresh, so set up your [chat channels](../features/chat-bridge.md), [stat channels](../features/stat-channels.md) and [synced roles](../features/role-sync.md) again.
 
 ### Changing options later
 
@@ -63,10 +63,10 @@ This is a fresh connection too, so you'll need to set up chat channels, stat cha
 | What you see | What to do |
 |---|---|
 | **Verification Failed: You did not reply in time!** | The code expired after 3 minutes. Run `/connect` again. |
-| **Failed to connect to Discord! Please validate the code and try again.** (in Minecraft) | Copy the whole code including the part before the colon, and make sure you use the newest one. |
+| **Failed to connect to Discord! Please validate the code and try again.** (in Minecraft) | Copy the whole code including the part before the colon, and make sure you use the newest one. The same message appears when the plugin can't reach the bot at all, for example after `/linker bot_port` was set to a wrong port. Run `/linker bot_port 80` to go back to the default. |
 | **The server is already connected!** (in Minecraft) | The plugin is still linked to a Discord server. Run `/linker disconnect` in Minecraft first, then `/connect` again. |
 | **You do not have permission to use this command!** (in Minecraft) | Run it as an operator or from the console. See [plugin permissions](../plugin/permissions.md). |
-| Nothing happens in Minecraft | The plugin isn't loaded. Check that the `.jar` is in the right folder and matches your version: [Installing the plugin](./installing-the-plugin.md). |
+| **Unknown or incomplete command** (or **Unknown command** on older versions) in Minecraft | The plugin isn't loaded. Check that the `.jar` is in the right folder and matches your version: [Installing the plugin](./installing-the-plugin.md). |
 
 More fixes are in [Troubleshooting](../help/troubleshooting.md#connecting).
 

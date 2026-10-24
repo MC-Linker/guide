@@ -30,12 +30,33 @@ export default defineUserConfig({
     ['meta', { property: 'og:locale', content: 'en_US' }],
     ['meta', { property: 'og:image', content: 'https://mclinker.com/logo.png' }],
   ],
+  // Inline code only breaks after a slash inside a path (not the one in front of a command), so paths wrap in narrow table cells but short words like `plugins` stay whole.
+  extendsMarkdown: md => {
+    md.renderer.rules.code_inline = (tokens, idx, options, env, self) => {
+      const token = tokens[idx];
+      const content = md.utils.escapeHtml(token.content).replace(/(?<=\S)\/(?=\S)/g, '/<wbr>');
+      return `<code${self.renderAttrs(token)}>${content}</code>`;
+    };
+  },
   theme: defaultTheme({
     docsRepo: 'MC-Linker/guide',
     docsBranch: 'main',
     docsDir: 'docs',
     editLinkText: 'Edit this page on GitHub',
-    themePlugins: { prismjs: { lineNumbers: false } },
+    themePlugins: {
+      prismjs: { lineNumbers: false },
+      git: {
+        contributors: {
+          // E reviews and approves every change, so credit Lianecx and leave AI co-authors out.
+          transform: contributors => {
+            const people = contributors.filter(c => !/claude/i.test(c.name) && !/anthropic\.com$/i.test(c.email));
+            if (!people.some(c => c.username === 'Lianecx' || c.name === 'Lianecx'))
+              people.unshift({ name: 'Lianecx', username: 'Lianecx', email: '', commits: 0, url: 'https://github.com/Lianecx' });
+            return people;
+          },
+        },
+      },
+    },
     // The banner hangs from the middle of the header bar (styles/index.scss).
     logo: '/banner.png',
     // Ore UI is dark only, like mclinker.com.

@@ -15,7 +15,7 @@ The Discord-Linker plugin (or mod) runs on your Minecraft server and talks to th
 Download it from [Modrinth](https://modrinth.com/plugin/discord-linker), [CurseForge](https://www.curseforge.com/minecraft/mc-mods/discord-linker), [Hangar](https://hangar.papermc.io/Lianecx/Discord-Linker) (Paper) or [SpigotMC](https://www.spigotmc.org/resources/discord-linker.98749/) (Spigot). Pick the file that matches both your server software and your Minecraft version.
 
 ::: warning Mods need Architectury API
-The Fabric, Forge and NeoForge builds need the **Architectury API** mod. Download it from [Modrinth](https://modrinth.com/mod/architectury-api) or [CurseForge](https://www.curseforge.com/minecraft/mc-mods/architectury-api), pick the file for the same loader and Minecraft version, and put it into the `mods` folder next to Discord-Linker. Without it, the server won't start.
+The Fabric, Forge and NeoForge builds need the **Architectury API** mod. Download it from [Modrinth](https://modrinth.com/mod/architectury-api) or [CurseForge](https://www.curseforge.com/minecraft/mc-mods/architectury-api), pick the file for the same loader and Minecraft version, and put it into the `mods` folder next to Discord-Linker. Discord-Linker lists it as a required dependency, so without it the mod loader stops the server during startup with a missing dependency error.
 :::
 
 ::: tip Fabric

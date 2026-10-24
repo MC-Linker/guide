@@ -11,7 +11,7 @@ MC Linker uses Discord's own command permissions. Every command has a sensible d
 | `/kick` | Members with **Kick Members** |
 | `/command`, `/op`, `/deop`, `/gamemode` | **Administrators** |
 | `/connect`, `/disconnect`, `/chatchannel`, `/statchannel`, `/rolesync` | **Administrators** |
-| `/customize` | Everyone can open it. Changing the bot's look in a server needs **Administrator** or **Manage Server**. |
+| `/customize` | Everyone sees it, because [custom bot](../features/custom-bot.md) subscribers manage their own bot with it. Without a subscription, changing the bot's look in a server needs **Administrator** or **Manage Server**. |
 
 Two parts always need **Administrator**, whatever you configure: the **Admin Information** pages and buttons of [`/userinfo`](../commands/userinfo.md) and [`/serverinfo`](../commands/serverinfo.md).
 
@@ -26,8 +26,8 @@ Two parts always need **Administrator**, whatever you configure: the **Admin Inf
 
 Example: to let your moderators use `/kick` and `/ban` without making them administrators, add your **Moderator** role to both commands.
 
-::: tip Hide commands in a channel
-Turning a command off for `@everyone` in a channel hides it from the command list there. Handy for keeping `/command` out of public channels.
+::: tip Commands people can't use are hidden
+Discord only shows members the commands they're allowed to use. Administrator commands like `/connect` or `/command` are hidden from everyone else by default, and any command you restrict here disappears for the members and channels that lost access.
 :::
 
 ## Permissions the bot needs
@@ -41,7 +41,13 @@ Some features need the bot itself to have certain permissions in your Discord se
 | [Role sync](../features/role-sync.md) to Discord | **Manage Roles**, and MC Linker's role must be **above** the synced role |
 | [Join requirements](../features/join-requirements.md) and role sync | Nothing extra: the bot reads members and roles by itself |
 
-If you added the bot with its default invite, it already has these.
+If you added the bot with its default invite, it already has these. To change them:
+
+1. Open **Server Settings › Roles**.
+2. Click the **MC Linker** role.
+3. Open the **Permissions** tab, turn on what's missing and save.
+
+For a single channel, open **Edit Channel › Permissions** and allow the permission for MC Linker there instead.
 
 ## Minecraft permissions
 

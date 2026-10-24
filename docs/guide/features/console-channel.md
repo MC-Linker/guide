@@ -12,7 +12,7 @@ The console can show IP addresses, plugin errors and other things you don't want
 
 1. Create a private channel, for example `#console`.
 2. Run `/chatchannel add channel: #console discord-to-minecraft: False`.
-3. In the menu, select **⌨️ Console Messages**. Add **🖥️ Console Command Messages** and **⚡ Player Command Messages** too if you want a full log.
+3. In the menu, select **⌨️ Console Messages**.
 
 The console output now appears in the channel:
 
@@ -30,7 +30,7 @@ The console channel is read-only. To run commands, use [`/command`](../commands/
 
 ## How it's sent
 
-The plugin collects console lines and sends them in batches, so a busy console doesn't flood Discord. A batch is sent every few seconds or when it gets long, whichever comes first. New lines are added to the last console message until it's full, which keeps the channel tidy. Console colours are kept.
+The plugin collects console lines and sends them in batches, so a busy console doesn't flood Discord. A batch is sent every few seconds or when it gets long, whichever comes first. New lines are added to the last console message until it's full, which keeps the channel tidy. Console colours are kept where possible.
 
 You can tune the batching in the plugin's [config.yml](../plugin/configuration.md):
 

@@ -29,7 +29,3 @@ Your Discord channels, roles and messages stay. Stat channels simply stop updati
 ## Connecting again
 
 Run [`/connect`](./connecting.md) again. You will have to set up chat channels, stat channels and synced roles again.
-
-::: tip Switching to another Minecraft server?
-You don't need to disconnect first. Running `/connect` and confirming on the new server moves the link. Chat channels, stat channels and synced roles start empty on the new connection.
-:::
