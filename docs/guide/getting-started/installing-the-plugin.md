@@ -12,7 +12,7 @@ The Discord-Linker plugin (or mod) runs on your Minecraft server and talks to th
 | Forge | 1.16.5 – 1.20.x | `mods` |
 | Hybrid servers (MohistMC, Magma, Arclight) | Use the Forge or NeoForge build for your version | `mods` |
 
-Download it from [Modrinth](https://modrinth.com/plugin/discord-linker), [CurseForge](https://www.curseforge.com/minecraft/mc-mods/discord-linker), [Hangar](https://hangar.papermc.io/Lianecx/Discord-Linker) (Paper) or [SpigotMC](https://www.spigotmc.org/resources/discord-linker.98749/) (Spigot). Pick the file that matches both your server software and your Minecraft version.
+Download it from [Modrinth](https://modrinth.com/plugin/discord-linker) or CurseForge (the [plugin](https://www.curseforge.com/minecraft/bukkit-plugins/discord-linker) for Paper and Spigot, the [mod](https://www.curseforge.com/minecraft/mc-mods/discord-linker) for Fabric, Forge and NeoForge). The Paper and Spigot build is also on [Hangar](https://hangar.papermc.io/Lianecx/Discord-Linker) and [SpigotMC](https://www.spigotmc.org/resources/discord-linker.98749/). Pick the file that matches both your server software and your Minecraft version.
 
 ::: warning Mods need Architectury API
 The Fabric, Forge and NeoForge builds need the **Architectury API** mod. Download it from [Modrinth](https://modrinth.com/mod/architectury-api) or [CurseForge](https://www.curseforge.com/minecraft/mc-mods/architectury-api), pick the file for the same loader and Minecraft version, and put it into the `mods` folder next to Discord-Linker. Discord-Linker lists it as a required dependency, so without it the mod loader stops the server during startup with a missing dependency error.

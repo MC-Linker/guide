@@ -19,7 +19,7 @@ Download **Discord-Linker** for your server software and put the file into the `
 
 | Server software | Minecraft versions | Download |
 |---|---|---|
-| Paper, Spigot, Purpur | 1.8 – latest | [Modrinth](https://modrinth.com/plugin/discord-linker) · [Hangar](https://hangar.papermc.io/Lianecx/Discord-Linker) · [SpigotMC](https://www.spigotmc.org/resources/discord-linker.98749/) · [CurseForge](https://www.curseforge.com/minecraft/mc-mods/discord-linker) |
+| Paper, Spigot, Purpur | 1.8 – latest | [Modrinth](https://modrinth.com/plugin/discord-linker) · [Hangar](https://hangar.papermc.io/Lianecx/Discord-Linker) · [SpigotMC](https://www.spigotmc.org/resources/discord-linker.98749/) · [CurseForge](https://www.curseforge.com/minecraft/bukkit-plugins/discord-linker) |
 | Fabric | 1.16.5 – 26.2 | [Modrinth](https://modrinth.com/plugin/discord-linker) · [CurseForge](https://www.curseforge.com/minecraft/mc-mods/discord-linker) |
 | NeoForge | 1.21.1 – 26.2 | [Modrinth](https://modrinth.com/plugin/discord-linker) · [CurseForge](https://www.curseforge.com/minecraft/mc-mods/discord-linker) |
 | Forge | 1.16.5 – 1.20.x | [Modrinth](https://modrinth.com/plugin/discord-linker) · [CurseForge](https://www.curseforge.com/minecraft/mc-mods/discord-linker) |
