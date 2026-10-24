@@ -13,15 +13,6 @@ MC Linker has two halves that talk to each other:
 
 Once both are installed, you link them once with [`/connect`](/guide/getting-started/connecting.md). From then on they stay connected, even after restarts.
 
-<SplitView>
-  <template #discord>
-    <ServerInfo />
-  </template>
-  <template #minecraft>
-    <McChat :lines="['&eCubey joined the game', '<Cubey> hi from Minecraft!', '&9Discord &8| &7Lianecx &8>>&r hi from Discord!']" />
-  </template>
-</SplitView>
-
 ## What you need
 
 - A **Discord server** where you can add bots (the **Manage Server** permission) and are an **Administrator**.
