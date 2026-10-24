@@ -52,7 +52,7 @@ Write something in the channel and it appears in Minecraft. Chat in Minecraft an
 | `channel` | Yes | Where messages go. Text and announcement channels, threads, and the text chat of voice and stage channels all work. |
 | `discord-to-minecraft` | No | Whether messages written in this channel are sent to Minecraft. Default: `True`. Set it to `False` for log-only channels. |
 
-You can add as many chat channels as you like, each with its own message types. A common setup is one public `#minecraft-chat` with chat, joins, quits and deaths, and one private `#server-log` with commands and the console.
+You can add as many chat channels as you like, each with its own message types. A common setup is one public `#minecraft-chat` with chat, joins, quits and deaths, and one private `#server-log` with the console.
 
 ## How messages look
 
@@ -60,6 +60,7 @@ You can add as many chat channels as you like, each with its own message types. 
 
 - Chat messages use the player's name and skin as the webhook name and avatar. Several messages from the same player in a row are combined into one Discord message.
 - Events (joins, deaths, advancements, commands, starts and stops) are sent as small embeds.
+- Mentions like `@name` written in Minecraft are turned into the matching Discord mention, but nobody gets pinged.
 
 **Discord → Minecraft**
 
