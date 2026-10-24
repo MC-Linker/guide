@@ -12,6 +12,7 @@ const footer = 'Server IP: testing.mclinker.com (26.2)';
 const pages = {
   server: {
     label: 'Server Information',
+    button: 'General Information',
     color: '#729e34',
     fields: [
       { name: 'Name', value: 'Linker SMP', inline: true },
@@ -50,9 +51,9 @@ const pages = {
 
 const page = ref('server');
 const current = computed(() => pages[page.value]);
+// Like the real bot (its Pagination helper): all buttons stay, and the open page's turns blurple.
 const buttons = computed(() => Object.entries(pages)
-  .filter(([key]) => key !== page.value)
-  .map(([key, p]) => ({ key, label: p.label, style: p.style })));
+  .map(([key, p]) => ({ key, label: p.button ?? p.label, style: key === page.value ? 'primary' : p.style })));
 </script>
 
 <template>
