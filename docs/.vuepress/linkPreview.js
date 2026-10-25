@@ -9,20 +9,22 @@
  * It doesn't run JavaScript, so the payload goes into the prerendered head.
  * Same format as mclinker.com (src/lib/linkPreview.ts in the main-page repo).
  */
+import fs from 'node:fs';
+import { redirects } from './redirects.js';
 
 const guide = 'https://guide.mclinker.com';
 const site = 'https://mclinker.com';
 const green = 0x6f9e2d;
 
-// Images come from mclinker.com, where they are already live.
+// The guide's own copies (public/assets), so a move on mclinker.com can't break the previews.
 const logo = `${site}/logo.png`;
-const images = {
-  'inventory.png': `${site}/hero/inventory.png`,
-  'profilecustomization.png': `${site}/hero/profilecustomization.png`,
-  'statchannel.png': `${site}/showcase/statchannel.png`,
-  'userinfo.png': `${site}/showcase/userinfo.png`,
-  'serverinfo.png': `${site}/showcase/serverinfo.png`,
-};
+const images = Object.fromEntries(
+  ['inventory.png', 'profilecustomization.png', 'statchannel.png', 'userinfo.png', 'serverinfo.png']
+    .map(f => [f, `${guide}/assets/${f}`]),
+);
+
+/** Cloudflare Pages serves every page without `.html` (it 308-redirects the `.html` URL), so that's the address to give out. */
+const clean = path => path.replace(/\.html$/, '');
 
 const sections = {
   'getting-started': 'Getting started',
@@ -35,7 +37,7 @@ const sections = {
 const links = {
   invite: `${site}/invite`,
   support: 'https://discord.gg/rX36kZUGNK',
-  quickStart: `${guide}/guide/getting-started/quick-start.html`,
+  quickStart: `${guide}/guide/getting-started/quick-start`,
   commands: `${guide}/guide/commands/`,
 };
 
@@ -62,7 +64,7 @@ function firstParagraph(markdown) {
 const clip = (s, n) => (s.length > n ? `${s.slice(0, n - 1).replace(/\s+\S*$/, '')}…` : s);
 
 function embedFor(page, description) {
-  const url = guide + page.path;
+  const url = guide + clean(page.path);
   const home = page.path === '/';
   const crumb = page.path.split('/')[2];
   const label = sections[crumb] ? `MC Linker Guide › ${sections[crumb]}` : 'MC Linker Guide';
@@ -90,6 +92,26 @@ function embedFor(page, description) {
   return { component: { type: 17, accent_color: green, components: children } };
 }
 
+/** Structured data for search engines: the site on the front page, an article with breadcrumbs elsewhere. */
+function jsonLd(page, title, description, url) {
+  const publisher = { '@type': 'Organization', name: 'MC Linker', url: site, logo };
+  const crumb = page.path.split('/')[2];
+  const data = page.path === '/'
+    ? { '@context': 'https://schema.org', '@type': 'WebSite', name: 'MC Linker Guide', url: `${guide}/`, description, publisher }
+    : {
+        '@context': 'https://schema.org',
+        '@graph': [
+          { '@type': 'TechArticle', headline: page.title, description, url, inLanguage: 'en', publisher },
+          { '@type': 'BreadcrumbList', itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'MC Linker Guide', item: `${guide}/` },
+            ...(sections[crumb] ? [{ '@type': 'ListItem', position: 2, name: sections[crumb] }] : []),
+            { '@type': 'ListItem', position: sections[crumb] ? 3 : 2, name: page.title },
+          ] },
+        ],
+      };
+  return JSON.stringify(data).replace(/</g, '\\u003c');
+}
+
 export const linkPreviewPlugin = () => ({
   name: 'mc-linker-link-preview',
   extendsPage(page) {
@@ -98,8 +120,10 @@ export const linkPreviewPlugin = () => ({
     const home = page.path === '/';
     if (page.path === '/404.html' || (!page.title && !home)) return;
     const title = home ? 'MC Linker Guide' : `${page.title} · MC Linker Guide`;
+    // Discord shows the longer text; search results cut off around 155 characters.
     const description = clip(fm.description || (home ? fm.tagline : firstParagraph(page.content)) || '', 300);
-    if (description && !fm.description) fm.description = description;
+    if (description && !fm.description) fm.description = clip(description, 155);
+    const url = guide + clean(page.path);
 
     const json = JSON.stringify(embedFor(page, description)).replace(/</g, '\\u003c');
     const bytes = Buffer.byteLength(json);
@@ -109,8 +133,23 @@ export const linkPreviewPlugin = () => ({
       ...(fm.head ?? []),
       ['meta', { property: 'og:title', content: title }],
       ['meta', { property: 'og:description', content: description }],
-      ['meta', { property: 'og:url', content: guide + page.path }],
+      ['meta', { property: 'og:url', content: url }],
+      ['meta', { property: 'og:type', content: home ? 'website' : 'article' }],
+      ['link', { rel: 'canonical', href: url }],
+      ['script', { type: 'application/ld+json' }, jsonLd(page, title, description, url)],
       ['script', { id: 'discord:component-embed', type: 'application/json' }, json],
     ];
+  },
+  // A sitemap with the clean URLs, and real 301s for the old URLs (both the .html and clean form).
+  onGenerated(app) {
+    const urls = app.pages
+      .filter(p => p.path !== '/404.html' && (p.path.endsWith('.html') || p.path.endsWith('/')))
+      // No lastmod: Cloudflare's shallow clone would give every page the build date.
+      .map(p => `  <url><loc>${guide}${clean(p.path)}</loc></url>`);
+    fs.writeFileSync(app.dir.dest('sitemap.xml'),
+      `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`);
+    fs.writeFileSync(app.dir.dest('_redirects'), Object.entries(redirects)
+      .flatMap(([from, to]) => [`${from} ${clean(to)} 301`, ...(from.endsWith('.html') ? [`${clean(from)} ${clean(to)} 301`] : [])])
+      .join('\n') + '\n');
   },
 });

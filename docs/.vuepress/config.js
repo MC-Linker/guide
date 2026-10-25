@@ -18,17 +18,20 @@ export default defineUserConfig({
     vuePluginOptions: { template: { compilerOptions: { isCustomElement } } },
   }),
   head: [
-    ['meta', { charset: 'utf-8' }],
-    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
-    ['link', { rel: 'icon', href: '/logo.svg' }],
+    ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'icon', href: '/logo.png', type: 'image/png' }],
+    ['link', { rel: 'apple-touch-icon', href: '/logo.png' }],
+    // Whitney (Discord's font) for the message mockups comes from this CDN.
+    ['link', { rel: 'preconnect', href: 'https://cdn.skyra.pw', crossorigin: '' }],
     ['link', { rel: 'preload', href: '/fonts/minecraft-seven.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }],
     ['meta', { name: 'theme-color', content: '#e6e8eb' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
     // og:title, og:description, og:url and the Discord preview are set per page by linkPreview.js.
     ['meta', { property: 'og:site_name', content: 'MC Linker Guide' }],
-    ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:locale', content: 'en_US' }],
     ['meta', { property: 'og:image', content: 'https://mclinker.com/logo.png' }],
+    ['meta', { property: 'og:image:width', content: '1024' }],
+    ['meta', { property: 'og:image:height', content: '1024' }],
   ],
   // Inline code only breaks after a slash inside a path (not the one in front of a command), so paths wrap in narrow table cells but short words like `plugins` stay whole.
   extendsMarkdown: md => {
