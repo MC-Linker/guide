@@ -68,6 +68,8 @@ export default defineUserConfig({
     editLinkText: 'Edit this page on GitHub',
     themePlugins: {
       prismjs: { lineNumbers: false },
+      // No scroll-to-top button.
+      backToTop: false,
       git: {
         contributors: {
           // E reviews and approves every change, so credit Lianecx and leave AI co-authors out.

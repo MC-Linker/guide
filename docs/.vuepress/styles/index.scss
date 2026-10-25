@@ -783,23 +783,6 @@ details.hint-container summary {
   }
 }
 
-// Back to top: a small dark Ore button.
-.vp-back-to-top-button {
-  @include ore-dark;
-  width: 2.75rem !important;
-  height: 2.75rem !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  color: #fff !important;
-
-  .back-to-top-icon {
-    color: #fff;
-  }
-  .scroll-progress {
-    display: none;
-  }
-}
-
 // ── Home ────────────────────────────────────────────────────────────────────
 .vp-home {
   padding-top: calc(var(--navbar-height) + 2.6rem);
