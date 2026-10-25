@@ -88,6 +88,8 @@ export default defineUserConfig({
     colorMode: 'dark',
     colorModeSwitch: false,
     navbar: [
+      // Back to mclinker.com, in the same tab like the Links menu's website row.
+      { text: 'Home', link: 'https://mclinker.com/', target: '_self' },
       { text: 'Quick start', link: '/guide/getting-started/quick-start.md' },
       { text: 'Commands', link: '/guide/commands/' },
       { text: 'Help', link: '/guide/help/troubleshooting.md' },

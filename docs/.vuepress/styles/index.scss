@@ -1189,3 +1189,8 @@ discord-messages {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+
+// "Home" goes to mclinker.com in the same tab, so it gets no "new tab" arrow.
+.vp-navbar-item > a[href='https://mclinker.com/']::after {
+  display: none !important;
+}
