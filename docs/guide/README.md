@@ -1,3 +1,7 @@
+---
+seoTitle: "Introduction: link Minecraft and Discord"
+---
+
 # Introduction
 
 MC Linker links a Minecraft server with a Discord server. Chat flows both ways, you can look up players and moderate your server from Discord, and Discord roles can sync with Minecraft groups. You don't host a bot and you don't edit config files: everything is set up with slash commands.

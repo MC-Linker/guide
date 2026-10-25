@@ -1,3 +1,7 @@
+---
+seoTitle: "Discord-Linker plugin configuration (config.yml)"
+---
+
 # Configuration
 
 The plugin works without any configuration: everything important is set up with slash commands in Discord. The config file is only for fine-tuning how messages look and how often things are sent.

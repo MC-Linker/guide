@@ -1,3 +1,7 @@
+---
+seoTitle: "Discord-Linker in-game commands"
+---
+
 # In-game commands
 
 The Discord-Linker plugin adds four commands to your Minecraft server. In the server console, type them without the slash.

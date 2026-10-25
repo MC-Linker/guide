@@ -1,3 +1,7 @@
+---
+seoTitle: "/advancements: Minecraft advancements in Discord"
+---
+
 # /advancements
 
 Shows which advancements a player has, tab by tab, like the advancement screen in Minecraft.

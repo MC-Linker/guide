@@ -1,3 +1,7 @@
+---
+seoTitle: "Role sync: Discord roles and Minecraft groups"
+---
+
 # Role sync
 
 Role sync keeps a Discord role and a Minecraft team or group in step. Give someone the **VIP** role in Discord and they join the `vip` group in Minecraft, or the other way round.

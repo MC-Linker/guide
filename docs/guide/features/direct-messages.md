@@ -1,3 +1,7 @@
+---
+seoTitle: "Direct messages between Minecraft and Discord"
+---
+
 # Direct messages
 
 Players can send a Discord DM from inside Minecraft with `/dm`, and get replies back in their chat. In the other direction, [`/message`](../commands/message.md) whispers to an online player from Discord.

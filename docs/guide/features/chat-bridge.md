@@ -1,3 +1,7 @@
+---
+seoTitle: "Chat bridge: Minecraft chat in a Discord channel"
+---
+
 # Chat bridge
 
 A chat channel connects your Minecraft chat with a Discord channel. Messages go both ways, players show up with their own name and skin, and you choose which events come along: joins, deaths, advancements, commands and more.

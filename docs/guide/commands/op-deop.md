@@ -1,3 +1,7 @@
+---
+seoTitle: "/op and /deop: Minecraft operators from Discord"
+---
+
 # /op and /deop
 
 Make a player a server operator, or take it away.

@@ -1,3 +1,7 @@
+---
+seoTitle: "Console channel: Minecraft console in Discord"
+---
+
 # Console channel
 
 Stream your server console into a Discord channel, so your staff can keep an eye on the server from anywhere.

@@ -1,3 +1,7 @@
+---
+seoTitle: "/kick: kick Minecraft players from Discord"
+---
+
 # /kick
 
 Kick an online player from your Minecraft server.

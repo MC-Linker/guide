@@ -1,4 +1,5 @@
 ---
+seoTitle: "MC Linker Guide: link Minecraft and Discord"
 home: true
 heroImage: /logo.svg
 heroText: MC Linker Guide

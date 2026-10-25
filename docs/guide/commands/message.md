@@ -1,3 +1,7 @@
+---
+seoTitle: "/message: whisper to Minecraft players from Discord"
+---
+
 # /message
 
 Sends a private message from Discord to a player who is online on your server. It shows up in their chat as a whisper.

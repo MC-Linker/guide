@@ -1,3 +1,7 @@
+---
+seoTitle: "Troubleshooting: fix MC Linker connection problems"
+---
+
 # Troubleshooting
 
 Find the message you see (or the problem you have) below. Still stuck? Ask on the [support server](https://discord.gg/rX36kZUGNK); turning on `/linker debug` and sharing the console output helps a lot.

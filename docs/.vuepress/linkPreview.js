@@ -119,7 +119,9 @@ export const linkPreviewPlugin = () => ({
     const fm = page.frontmatter;
     const home = page.path === '/';
     if (page.path === '/404.html' || (!page.title && !home)) return;
-    const title = home ? 'MC Linker Guide' : `${page.title} · MC Linker Guide`;
+    // The search title (seoTitle) when the page has one: it says what the page is for.
+    const name = fm.seoTitle || page.title;
+    const title = home ? (fm.seoTitle || 'MC Linker Guide') : `${name} · MC Linker Guide`;
     // Discord shows the longer text; search results cut off around 155 characters.
     const description = clip(fm.description || (home ? fm.tagline : firstParagraph(page.content)) || '', 300);
     if (description && !fm.description) fm.description = clip(description, 155);

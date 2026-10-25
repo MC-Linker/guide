@@ -1,3 +1,7 @@
+---
+seoTitle: "/ban and /unban: ban Minecraft players from Discord"
+---
+
 # /ban and /unban
 
 Ban a player from your Minecraft server, or lift a ban, without opening the console.

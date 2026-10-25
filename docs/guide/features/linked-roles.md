@@ -1,3 +1,7 @@
+---
+seoTitle: "Linked Roles: a Minecraft badge on Discord"
+---
+
 # Linked Roles
 
 [Linked Roles](https://support.discord.com/hc/en-us/articles/10388356626711) are a Discord feature: a role that members can only get by connecting an app. With MC Linker, you can make a role that only players with a linked Minecraft account can get, and MC Linker shows up under their profile's connections.

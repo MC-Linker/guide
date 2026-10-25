@@ -1,3 +1,7 @@
+---
+seoTitle: "/inventory: see Minecraft inventories in Discord"
+---
+
 # /inventory
 
 Shows a player's inventory as an image: armor, offhand, hotbar and backpack, with their skin.

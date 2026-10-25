@@ -1,3 +1,7 @@
+---
+seoTitle: "All Discord commands for your Minecraft server"
+---
+
 # All commands
 
 Every MC Linker command, what it does and who can use it by default. You can change who may use each command in [Permissions](../getting-started/permissions.md).

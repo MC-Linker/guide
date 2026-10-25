@@ -1,3 +1,7 @@
+---
+seoTitle: "FAQ: the MC Linker Minecraft Discord bot"
+---
+
 # FAQ
 
 ## Is MC Linker free?

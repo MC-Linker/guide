@@ -1,3 +1,7 @@
+---
+seoTitle: "/help: every MC Linker command explained"
+---
+
 # /help
 
 Explains every MC Linker command right in Discord.

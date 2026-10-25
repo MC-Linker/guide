@@ -1,3 +1,7 @@
+---
+seoTitle: "Discord-Linker plugin permission nodes"
+---
+
 # Plugin permissions
 
 The in-game commands use these permission nodes.

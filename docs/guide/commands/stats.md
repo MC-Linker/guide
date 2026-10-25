@@ -1,3 +1,7 @@
+---
+seoTitle: "/stats: Minecraft player statistics in Discord"
+---
+
 # /stats
 
 Shows a player's Minecraft statistics as an image: blocks mined, items crafted, mobs killed, distance walked and more.

@@ -1,3 +1,7 @@
+---
+seoTitle: "/userinfo: look up Minecraft players in Discord"
+---
+
 # /userinfo
 
 Shows information about a player, on three pages: general info, survival stats and (for admins) positions and moderation buttons.

@@ -1,3 +1,7 @@
+---
+seoTitle: "Install the Discord-Linker plugin or mod"
+---
+
 # Installing the plugin
 
 The Discord-Linker plugin (or mod) runs on your Minecraft server and talks to the MC Linker bot. It works out of the box: there is nothing to configure before you [connect](./connecting.md).

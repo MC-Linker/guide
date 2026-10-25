@@ -1,3 +1,7 @@
+---
+seoTitle: "Stat channels: live Minecraft server stats in Discord"
+---
+
 # Stat channels
 
 Stat channels show live server info in your channel list: how many players are online, your server address, version or the time. They update by themselves when players join or leave, or when the server starts or stops.

@@ -1,3 +1,7 @@
+---
+seoTitle: "/serverinfo: Minecraft server info in Discord"
+---
+
 # /serverinfo
 
 Shows information about your Minecraft server: name, MOTD, players, world settings and (for admins) plugins, mods and lists.

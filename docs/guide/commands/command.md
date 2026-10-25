@@ -1,3 +1,7 @@
+---
+seoTitle: "/command: run Minecraft commands from Discord"
+---
+
 # /command
 
 Runs any Minecraft command on your server, as if you typed it in the console. While you type, MC Linker suggests completions that come live from your server, so they always match your plugins and online players.

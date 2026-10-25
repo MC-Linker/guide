@@ -1,6 +1,6 @@
 import '@fontsource-variable/pixelify-sans';
 import '@fontsource-variable/noto-sans';
-import { defineClientConfig } from 'vuepress/client';
+import { defineClientConfig, resolvers } from 'vuepress/client';
 import BotReply from './components/BotReply.vue';
 import McChat from './components/McChat.vue';
 import CommandInfo from './components/CommandInfo.vue';
@@ -9,6 +9,15 @@ import ServerInfo from './components/ServerInfo.vue';
 import NotFound from './components/NotFound.vue';
 import Layout from './layouts/Layout.vue';
 import { fixNarrowEmbeds } from './discordFixes.js';
+
+// Tab and search result titles: a page's `seoTitle` (with the words people search for) when it
+// has one, otherwise its heading. The heading and the sidebar keep the short name.
+const defaultHeadTitle = resolvers.resolvePageHeadTitle;
+resolvers.resolvePageHeadTitle = (page, site) => {
+  const seo = page.frontmatter.seoTitle;
+  if(!seo) return defaultHeadTitle(page, site);
+  return page.path === '/' ? seo : `${seo} | ${site.title}`;
+};
 
 export default defineClientConfig({
   enhance({ app }) {

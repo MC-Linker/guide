@@ -1,3 +1,7 @@
+---
+seoTitle: "Disconnect your Minecraft server from Discord"
+---
+
 # Disconnecting
 
 Disconnecting removes the link between your Discord server and your Minecraft server. You can do it from either side.

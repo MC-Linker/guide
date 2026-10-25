@@ -1,3 +1,7 @@
+---
+seoTitle: "Quick start: link Minecraft and Discord in a minute"
+---
+
 # Quick start
 
 Link your Minecraft server with Discord in three steps. It takes about a minute.

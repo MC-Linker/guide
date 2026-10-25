@@ -1,3 +1,7 @@
+---
+seoTitle: "Integrations: LuckPerms, Vault, Geyser and proxies"
+---
+
 # Integrations
 
 Discord-Linker works on its own, and picks up these plugins automatically when they're installed. There's nothing to configure.

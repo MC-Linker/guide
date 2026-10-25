@@ -1,3 +1,7 @@
+---
+seoTitle: "Custom bot: run MC Linker as your own Discord bot"
+---
+
 # Custom bot <Badge text="Premium" type="tip" />
 
 With the **Customize MC Linker** subscription, MC Linker runs as your own Discord bot. It has every feature of MC Linker, but with your bot's name, avatar, banner, status and *About Me*. We host it for you.

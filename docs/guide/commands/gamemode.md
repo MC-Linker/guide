@@ -1,3 +1,7 @@
+---
+seoTitle: "/gamemode: change game mode from Discord"
+---
+
 # /gamemode
 
 Change a player's game mode from Discord.

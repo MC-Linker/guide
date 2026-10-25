@@ -1,3 +1,7 @@
+---
+seoTitle: "Who can use which command in Discord"
+---
+
 # Permissions
 
 MC Linker uses Discord's own command permissions. Every command has a sensible default, and you can change who may use it in your server settings, down to single roles, members and channels.

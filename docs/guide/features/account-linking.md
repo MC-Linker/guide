@@ -1,3 +1,7 @@
+---
+seoTitle: "Account linking: Discord and Minecraft accounts"
+---
+
 # Account linking
 
 Players link their Discord account with their Minecraft account once. After that, MC Linker knows who is who: you can @mention people in commands instead of typing their username, [role sync](./role-sync.md) and [join requirements](./join-requirements.md) work, and [Linked Roles](./linked-roles.md) can show a Minecraft badge on their profile.
