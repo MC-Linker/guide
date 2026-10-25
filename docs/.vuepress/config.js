@@ -25,13 +25,16 @@ export default defineUserConfig({
     ['link', { rel: 'preconnect', href: 'https://cdn.skyra.pw', crossorigin: '' }],
     ['link', { rel: 'preload', href: '/fonts/minecraft-seven.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }],
     ['meta', { name: 'theme-color', content: '#e6e8eb' }],
-    ['meta', { name: 'twitter:card', content: 'summary' }],
+    // The same big share image as mclinker.com, so Discord shows a large preview.
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     // og:title, og:description, og:url and the Discord preview are set per page by linkPreview.js.
     ['meta', { property: 'og:site_name', content: 'MC Linker Guide' }],
     ['meta', { property: 'og:locale', content: 'en_US' }],
-    ['meta', { property: 'og:image', content: 'https://mclinker.com/logo.png' }],
-    ['meta', { property: 'og:image:width', content: '1024' }],
-    ['meta', { property: 'og:image:height', content: '1024' }],
+    ['meta', { property: 'og:image', content: 'https://guide.mclinker.com/og.jpg' }],
+    ['meta', { property: 'og:image:width', content: '1200' }],
+    ['meta', { property: 'og:image:height', content: '630' }],
+    ['meta', { property: 'og:image:alt', content: 'MC Linker: The easiest Minecraft and Discord link.' }],
+    ['meta', { name: 'twitter:image', content: 'https://guide.mclinker.com/og.jpg' }],
   ],
   // Inline code only breaks after a slash inside a path (not the one in front of a command), so paths wrap in narrow table cells but short words like `plugins` stay whole.
   extendsMarkdown: md => {
