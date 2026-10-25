@@ -2,7 +2,7 @@
 
 Stat channels show live server info in your channel list: how many players are online, your server address, version or the time. They update by themselves when players join or leave, or when the server starts or stops.
 
-<img src="/assets/statchannel.png" alt="A Discord category with stat channels: Status, Members: 9, IP: testing.mclinker.com" width="285">
+<img src="/assets/statchannel.png" alt="A Discord category with stat channels: Status, Members: 9, IP: testing.mclinker.com" width="285" height="170" loading="lazy">
 
 ::: tip Before you start
 - Your server is [connected](../getting-started/connecting.md).

@@ -2,7 +2,7 @@
 
 Make MC Linker fit your server. Give it its own nickname, avatar, banner and bio in your Discord server, for free. Or go further and run MC Linker as [your own bot](./custom-bot.md).
 
-<img src="/assets/profilecustomization.png" alt="MC Linker customized as 'Villager Bot' with a villager avatar and banner" width="300">
+<img src="/assets/profilecustomization.png" alt="MC Linker customized as 'Villager Bot' with a villager avatar and banner" width="300" height="303" loading="lazy">
 
 ## Change how MC Linker looks in your server
 

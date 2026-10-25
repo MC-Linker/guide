@@ -1,4 +1,3 @@
-import '@skyra/discord-components-core';
 import '@fontsource-variable/pixelify-sans';
 import '@fontsource-variable/noto-sans';
 import { defineClientConfig } from 'vuepress/client';
@@ -13,7 +12,9 @@ import { fixNarrowEmbeds } from './discordFixes.js';
 
 export default defineClientConfig({
   enhance({ app }) {
-    if(typeof window !== 'undefined') void fixNarrowEmbeds();
+    // The Discord message elements (Lit, ~80 KB gzipped) load on their own, after the page's main
+    // script, so they don't hold up the first paint. Browser only: they need the DOM.
+    if(typeof window !== 'undefined') void import('@skyra/discord-components-core').then(fixNarrowEmbeds);
     app.component('BotReply', BotReply);
     app.component('McChat', McChat);
     app.component('CommandInfo', CommandInfo);
