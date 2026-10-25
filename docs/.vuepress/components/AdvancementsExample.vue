@@ -34,8 +34,8 @@ const advancements = {
     name: 'Enchanter',
     obtained: false,
     description: 'Enchant an item at an Enchanting Table',
-    criteria: 'None yet',
-    date: '-',
+    criteria: '',
+    date: '',
     icon: 'Enchanted Book',
     type: 'Task',
     id: 'story/enchant_item',
@@ -52,12 +52,13 @@ const extra = computed(() => {
     color: '#43611a',
     author: 'Lianecx',
     authorIcon: avatar,
+    // Like the bot, empty fields are left out: nothing earned yet means no Requirements or Acquired on.
     fields: [
       { name: 'Requirements', value: a.criteria, inline: true },
       { name: 'Acquired on', value: a.date, inline: true },
       { name: 'Icon Item', value: a.icon },
       { name: 'Type', value: a.type, inline: true },
-    ],
+    ].filter(f => f.value),
     footer: `Advancement ${a.obtained ? 'Acquired' : 'Not Acquired'}\nId: ${a.id}`,
   };
 });
