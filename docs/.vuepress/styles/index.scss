@@ -340,10 +340,14 @@ body {
     }
   }
 
-  // "Add to Discord" in blurple, like the site's header.
-  .vp-navbar-item:has(> a[href$='/invite']) {
+  // Home and "Add to Discord" sit together on the right, like the site's Guide and Add to Discord.
+  .vp-navbar-item:has(> a[href='https://mclinker.com/']) {
     margin-left: auto !important;
   }
+  .vp-navbar-item:has(> a[href$='/invite']) {
+    margin-left: 0.5rem !important;
+  }
+  // "Add to Discord" in blurple, like the site's header.
   .vp-navbar-item > a[href$='/invite'] {
     @include ore-blurple;
     border: 0 !important;
