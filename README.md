@@ -1,37 +1,43 @@
 # MC Linker Guide
 
-The official documentation for [MC Linker](https://mclinker.com) — a Discord bot that links your Minecraft server to Discord.
+The official documentation for [MC Linker](https://mclinker.com), the Discord bot that links your Minecraft server with Discord. Live at [guide.mclinker.com](https://guide.mclinker.com).
 
 ## Development
 
 ```bash
 npm install
-npm run dev
+npm run dev     # http://localhost:8889
+npm run build   # output in docs/.vuepress/dist
 ```
 
-## Build
-
-```bash
-npm run build
-```
-
-The output is generated in `docs/.vuepress/dist`.
+The build reports broken internal links, so check its output before you push.
 
 ## Structure
 
 ```
 docs/
+  README.md                 Home page
   guide/
-    core/          # Account linking, connecting, permissions
-    moderation/    # Ban, kick, gamemode, op/deop
-    player-info/   # Stats, inventory, advancements, messages
-    plugin/        # Plugin config and linker command
-    server-management/  # Chat channels, stat channels, rolesync
+    README.md               Introduction
+    getting-started/        Quick start, installing, connecting, permissions, disconnecting
+    features/               One page per feature (chat bridge, stat channels, role sync, …)
+    commands/               One page per command, plus an overview of all commands
+    plugin/                 In-game commands, config.yml, plugin permissions, integrations
+    help/                   Troubleshooting and FAQ
   .vuepress/
-    components/    # Vue components (DefaultBadge)
-    layouts/       # Layout overrides (WIP banner)
-    styles/        # Global SCSS overrides
-    public/        # Static assets
-    config.js      # VuePress config
-    client.js      # Client-side config
+    components/             BotReply, McChat, SplitView, CommandInfo
+    styles/                 Theme overrides (brand colours, fonts)
+    public/                 Logo, the bot's emoji, screenshots
+    config.js               Site settings, navbar, sidebar, plugins
+    redirects.js            Old URLs and the pages they moved to
+    linkPreview.js          Link previews for every page (Open Graph and Discord's component embeds)
+    client.js               Registers components and discord-components
 ```
+
+Old URLs (like `/guide/core/connect.html`) redirect to their new pages. When you move a page, add a redirect in `redirects.js`.
+
+Every page gets a link preview for Discord automatically: its title, first paragraph, screenshots and headings, with buttons to the page, the quick start, the bot invite and the support server. A page's `description` front matter, if it has one, replaces the first paragraph.
+
+## Writing
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) for the page templates, components and style rules.

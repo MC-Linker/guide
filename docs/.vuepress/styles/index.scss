@@ -1,62 +1,1208 @@
-:root {
-  --c-brand: #729e34;
-  --c-brand-light: #729e34;
+// Minecraft fonts from the MC-Linker bot repo (resources/fonts), subset to woff2.
+@font-face {
+  font-family: 'Minecraft Seven';
+  src: url('/fonts/minecraft-seven.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Mojang Studios';
+  src: url('/fonts/mojang-studios.woff2') format('woff2');
+  font-display: swap;
 }
 
-.wip-banner {
-  position: sticky;
-  top: var(--navbar-height);
-  z-index: 10;
-  margin: -2rem 0 2rem 0;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 0.88rem;
-  text-align: center;
-  background-color: var(--vp-c-bg-alt);
-  color: var(--vp-c-yellow-text);
-  border: 1px solid rgb(194 129 0 / 30%);
-}
-
-html.dark {
-  --c-brand: #729e34;
-  --c-brand-light: #729e34;
-
-  --c-bg: #222e35;
-  --c-bg-dark: #111b21
-}
-
-.hero .description {
-  max-width: 42rem !important;
-}
-
-.custom-container {
-  border-radius: .375rem !important;
-}
-
-.hint-container.important .hint-container-title {
-  --vp-c-accent: var(--important-c-text);
-}
-
+// Discord's font, as in discord-components (served by that project).
 @font-face {
   font-family: 'Whitney';
   src: url('https://cdn.skyra.pw/whitney-font/v2/Book.woff') format('woff');
   font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Whitney';
   src: url('https://cdn.skyra.pw/whitney-font/v2/Medium.woff') format('woff');
   font-weight: 500;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Whitney';
   src: url('https://cdn.skyra.pw/whitney-font/v2/Semibold.woff') format('woff');
   font-weight: 600;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Whitney';
   src: url('https://cdn.skyra.pw/whitney-font/v2/Bold.woff') format('woff');
   font-weight: 700;
+  font-display: swap;
+}
+
+// ── Ore UI ─────────────────────────────────────────────────────────────────
+// The look of mclinker.com: Minecraft Bedrock's Ore UI menus. Colours and textures match
+// src/app.css in the main-page repo (sampled from bedrock-core's ore-styled theme, MIT).
+// The guide is dark only, like the site.
+:root,
+html[data-theme='dark'] {
+  // One texture pixel of an Ore UI control.
+  --t: 2px;
+
+  --ore-outline: #1e1e1f;
+  --ore-deep: #242425;
+  --ore-dark: #313233;
+  --ore-card: #48494a;
+  --ore-line: #5a5b5c;
+  --ore-gray: #58585a;
+  --ore-mid: #8c8d90;
+  --ore-silver: #b1b2b5;
+  --ore-white: #d0d1d4;
+  --ore-light: #e6e8eb;
+  --ore-green: #3c8527;
+  --ore-green-light: #639d52;
+  --ore-green-dark: #1d4d13;
+  --mc-green: #55ff55;
+  --link: #a6dd94;
+
+  --vp-c-accent: var(--link);
+  --vp-c-accent-bg: var(--ore-green);
+  --vp-c-accent-hover: #c3ecb6;
+  --vp-c-accent-text: #fff;
+  --vp-c-accent-soft: rgb(60 133 39 / 30%);
+
+  --vp-c-bg: var(--ore-card);
+  --vp-c-bg-alt: var(--ore-dark);
+  --vp-c-bg-elv: var(--ore-dark);
+  --vp-c-text: var(--ore-white);
+  --vp-c-text-mute: var(--ore-silver);
+  --vp-c-text-subtle: var(--ore-mid);
+  --vp-c-divider: var(--ore-line);
+  --vp-c-border: var(--ore-outline);
+  --vp-c-border-hard: var(--ore-outline);
+  --vp-c-control: rgb(0 0 0 / 15%);
+  --vp-c-control-hover: rgb(0 0 0 / 25%);
+
+  --vp-navbar-c-bg: var(--ore-deep);
+  --vp-sidebar-c-bg: var(--ore-dark);
+
+  --code-c-bg: var(--ore-deep);
+  --code-c-highlight-bg: rgb(0 0 0 / 35%);
+
+  --navbar-height: 3.5rem;
+
+  // In-game text. Pixelify only fills in glyphs Minecraft Seven doesn't have (like arrows).
+  --ml-pixel: 'Minecraft Seven', 'Pixelify Sans Variable', ui-monospace, monospace;
+  // The Mojang Studios logo font, for small uppercase labels. Same file as mclinker.com, with real
+  // capitals for B, D, M, N, Q, T and Y (see scripts/mojang-capitals.py in the main-page repo).
+  --ml-mojang: 'Mojang Studios', 'Minecraft Seven', ui-monospace, monospace;
+  // Long text in Noto Sans, the game's "smooth font", as on the site.
+  --font-family: 'Noto Sans Variable', 'Noto Sans', ui-sans-serif, system-ui, sans-serif;
+
+  color-scheme: dark;
+}
+
+// The Minecraft fonts have one weight; never smear them into fake bold.
+html {
+  font-synthesis-weight: none;
+}
+
+body {
+  background: var(--ore-deep);
+}
+
+::selection {
+  background: var(--ore-green);
+  color: #fff;
+}
+
+// Ore UI's focus: a white frame with a dark edge.
+:focus-visible {
+  outline: var(--t) solid #fff;
+  outline-offset: var(--t);
+  box-shadow: 0 0 0 calc(var(--t) * 2) var(--ore-outline);
+}
+
+// ── Ore UI faces (buttons) ──────────────────────────────────────────────────
+// A dark outline, a light top-left edge, a shaded bottom-right one and a darker edge
+// underneath that makes it stand up. Pressing pushes it down into that edge.
+@mixin ore-face($face, $hi, $shade, $edge, $ink) {
+  --face: #{$face};
+  --hi: #{$hi};
+  --shade: #{$shade};
+  --edge: #{$edge};
+  --depth: calc(2 * var(--t));
+  position: relative;
+  isolation: isolate;
+  padding-bottom: var(--depth);
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: $ink;
+  font-family: var(--ml-pixel);
+  font-weight: 400;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border: var(--t) solid var(--ore-outline);
+    background: var(--face);
+    box-shadow:
+      inset 0 calc(-1 * var(--depth)) 0 var(--edge),
+      inset var(--t) var(--t) 0 var(--hi),
+      inset calc(-1 * var(--t)) calc(-1 * var(--t) - var(--depth)) 0 var(--shade);
+  }
+
+  // Pressed: the face drops into its edge, label and all.
+  &:active {
+    padding-top: var(--depth);
+    padding-bottom: 0;
+  }
+  &:active::before {
+    top: var(--depth);
+    box-shadow:
+      inset var(--t) var(--t) 0 var(--hi),
+      inset calc(-1 * var(--t)) calc(-1 * var(--t)) 0 var(--shade);
+  }
+}
+
+@mixin ore-green {
+  @include ore-face(#3c8527, #639d52, #4f913c, #1d4d13, #fff);
+  &:hover { --face: #2a641c; --hi: #7fa277; --shade: #6a9260; color: #fff; }
+  &:active { --face: #1d4d13; --hi: #779471; --shade: #61825a; }
+}
+@mixin ore-white {
+  @include ore-face(#d0d1d4, #ecedee, #e3e3e5, #58585a, #000);
+  &:hover, &:active { --face: #b1b2b5; --hi: #eff0f0; --shade: #e0e0e1; color: #000; }
+}
+@mixin ore-dark {
+  @include ore-face(#48494a, #6d6d6e, #5a5b5c, #313233, #fff);
+  &:hover { --face: #58585a; --hi: #79797b; --shade: #69696a; color: #fff; }
+  &:active { --face: #313233; --hi: #5a5b5c; --shade: #464747; }
+}
+@mixin ore-blurple {
+  @include ore-face(#5865f2, #7c86f5, #6a76f3, #2f3896, #fff);
+  &:hover { --face: #4752c4; --hi: #9ea4f2; --shade: #8a91ea; color: #fff; }
+  &:active { --face: #2f3896; --hi: #8f95dc; --shade: #757bc8; }
+}
+
+// A panel: the dark outline, a flat face and, for raised ones, a darker edge along the bottom.
+@mixin ore-card($face: var(--ore-card), $edge: var(--ore-dark), $depth: calc(3 * var(--t))) {
+  border: var(--t) solid var(--ore-outline);
+  border-radius: 0;
+  background: $face;
+  box-shadow: inset 0 calc(-1 * #{$depth}) 0 $edge;
+}
+
+// Ore UI titles: the pixel font drawn bold the way the game does it, the glyph again one
+// sixteenth of the size to the right.
+@mixin ore-title {
+  font-family: var(--ml-pixel);
+  font-weight: 400;
+  letter-spacing: 0.0625em;
+  text-shadow: 0.0625em 0 0 currentColor;
+}
+
+// ── Header bar ──────────────────────────────────────────────────────────────
+// The light bar across the top of an Ore UI screen, with black pixel text.
+.vp-navbar {
+  height: var(--navbar-height);
+  padding: 0 0.75rem calc(3 * var(--t)) 1rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 0;
+  // The dark bar, as on mclinker.com: a darker grey than the page under it.
+  background: var(--ore-deep);
+  color: #fff;
+  box-shadow:
+    inset 0 calc(-2 * var(--t)) 0 #1a1a1b,
+    inset 0 calc(-3 * var(--t)) 0 #3a3b3c,
+    0 var(--t) 0 #121213;
+
+  // The banner, in a tab that hangs down from the middle of the bar, like mclinker.com's.
+  // The bar's bottom edge steps down around it, outline and all.
+  --drop: 1.6rem;
+  --brand-h: 3.5rem;
+  --brand-w: calc(var(--brand-h) * 1346 / 340 + 2rem);
+
+  // The theme wraps the brand link in a bare <span>.
+  > span > a:has(> .vp-site-logo) {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 2;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--brand-w);
+    height: calc(var(--navbar-height) + var(--drop));
+    padding-bottom: calc(3 * var(--t));
+    translate: -50% 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: calc(var(--navbar-height) - 3 * var(--t)) 0 0;
+      background: var(--ore-deep);
+      box-shadow:
+        inset 0 calc(-2 * var(--t)) 0 #1a1a1b,
+        inset 0 calc(-3 * var(--t)) 0 #3a3b3c,
+        0 var(--t) 0 #121213,
+        var(--t) 0 0 #121213,
+        calc(-1 * var(--t)) 0 0 #121213,
+        0 0.5rem 1rem rgb(0 0 0 / 35%);
+    }
+    &:hover .vp-site-logo { filter: brightness(1.15); }
+    &:focus-visible { outline-offset: calc(-1 * var(--t)); }
+  }
+
+  .vp-site-logo {
+    display: block;
+    width: auto;
+    height: var(--brand-h);
+    margin: 0;
+    transition: filter 0.15s ease;
+  }
+
+  // The banner already says it.
+  .vp-site-name {
+    display: none;
+  }
+
+  // The page links on the left; "Add to Discord", Links and search on the right.
+  .vp-navbar-items-wrapper {
+    top: 50%;
+    left: 1rem;
+    right: 0.75rem;
+    max-width: none !important;
+    transform: translateY(calc(-50% - 1.5 * var(--t)));
+    padding-top: 0;
+    align-items: center;
+    gap: 0.6rem;
+
+    > .vp-navbar-items {
+      flex: 1;
+    }
+  }
+
+  .vp-navbar-items:not(.vp-hide-mobile),
+  .vp-navbar-items.vp-hide-mobile {
+    align-items: center;
+    gap: 0;
+  }
+  @media (min-width: 720px) {
+    .vp-navbar-items {
+      display: flex;
+    }
+  }
+
+  .vp-navbar-item {
+    margin: 0 !important;
+  }
+
+  // The links as one row of joined Ore toggle buttons, like the site's section bar.
+  .vp-navbar-item > a {
+    @include ore-dark;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.25rem;
+    margin-left: calc(-1 * var(--t));
+    padding-inline: 0.7rem;
+    font-size: 0.9rem;
+    line-height: 1;
+    border: 0 !important;
+
+    // The page you're on turns green, like the site's chosen section.
+    &.route-link-active {
+      @include ore-green;
+      color: #fff;
+
+      // The chosen one: a short white line under the label.
+      &::after {
+        content: '';
+        position: absolute;
+        left: 33%;
+        right: 33%;
+        bottom: calc(2 * var(--t));
+        height: var(--t);
+        background: #fff;
+      }
+    }
+
+    // Ore buttons say "leaves the site" with the arrow on the outside; keep it but in white.
+    &.external-link::after {
+      background-color: currentColor;
+    }
+  }
+
+  // "Add to Discord" in blurple, like the site's header.
+  .vp-navbar-item:has(> a[href$='/invite']) {
+    margin-left: auto !important;
+  }
+  .vp-navbar-item > a[href$='/invite'] {
+    @include ore-blurple;
+    border: 0 !important;
+  }
+
+  // Less room beside the banner: "Add to Discord" moves into Links, the buttons get narrower.
+  @media (max-width: 1400px) {
+    .vp-navbar-item:has(> a[href$='/invite']) {
+      display: none;
+    }
+  }
+  @media (max-width: 1080px) {
+    --brand-h: 2.4rem;
+    --brand-w: calc(var(--brand-h) * 1346 / 340 + 1.25rem);
+
+    --search-input-width: 7rem;
+  }
+  @media (max-width: 900px) {
+    .vp-navbar-item > a {
+      padding-inline: 0.5rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  .vp-toggle-sidebar-button .icon span {
+    background-color: #fff;
+  }
+}
+
+// The search field: dark, with a shadow along its top edge so it sits into the surface.
+.search-box {
+  margin-left: 0.75rem !important;
+
+  input {
+    height: 2.25rem;
+    border: var(--t) solid var(--ore-outline) !important;
+    border-radius: 0 !important;
+    background-color: var(--ore-dark) !important;
+    box-shadow: inset 0 calc(2 * var(--t)) 0 var(--ore-deep);
+    color: #fff !important;
+    font-family: var(--ml-pixel);
+    font-size: 0.9rem;
+    background-position: 0.55rem 0.55rem !important;
+
+    &::placeholder {
+      color: #aaa;
+    }
+    &:focus {
+      border-color: var(--ore-outline) !important;
+      background-color: #38393a !important;
+    }
+  }
+
+  .suggestions {
+    @include ore-card(var(--ore-light), var(--ore-silver));
+    border-radius: 0 !important;
+    padding: var(--t) !important;
+    color: #000;
+  }
+  .suggestion {
+    border-radius: 0 !important;
+    padding: 0.35rem 0.6rem !important;
+
+    a {
+      color: #000 !important;
+    }
+    &.focus {
+      background: #fff !important;
+      box-shadow: inset 0 0 0 var(--t) var(--ore-outline);
+
+      a {
+        color: #000 !important;
+      }
+    }
+  }
+  .page-header {
+    font-family: var(--ml-pixel);
+  }
+}
+
+// ── Sidebar ─────────────────────────────────────────────────────────────────
+// A menu panel: groups as Ore headings, pages as rows that light up when chosen.
+.vp-sidebar {
+  border-right: var(--t) solid var(--ore-outline);
+  background: var(--ore-dark);
+  font-size: 0.95rem;
+
+  // The links from the header, on phones: full-width Ore buttons.
+  > .vp-navbar-items {
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.9rem 0.9rem 1rem;
+    border-bottom: calc(2 * var(--t)) solid;
+    border-image: linear-gradient(#323334 50%, var(--ore-line) 50%) 1;
+
+    @media (max-width: 719px) {
+      display: flex;
+    }
+
+    .vp-navbar-item {
+      padding: 0;
+      line-height: 1;
+    }
+    .vp-navbar-item > a {
+      @include ore-dark;
+      display: flex;
+      align-items: center;
+      min-height: 2.5rem;
+      padding-inline: 0.8rem;
+      border: 0;
+      font-size: 0.95rem;
+
+      &.route-link-active {
+        @include ore-green;
+        border: 0;
+      }
+      &[href$='/invite'] {
+        @include ore-blurple;
+        border: 0;
+      }
+    }
+  }
+
+  .vp-sidebar-items {
+    padding: 0.75rem 0 2rem;
+  }
+
+  .vp-sidebar-heading {
+    @include ore-title;
+    margin: 0.35rem 0.6rem 0;
+    padding: 0.5rem 0.75rem;
+    border: 0;
+    color: #fff;
+    font-size: 1rem;
+
+    &:hover {
+      color: var(--mc-green);
+    }
+    &.active {
+      border: 0;
+      color: var(--mc-green);
+    }
+  }
+
+  // A Premium tag after "Custom bot" in the sidebar, the same as the page title's <Badge>.
+  .vp-sidebar-item[href$='/custom-bot.html']::after {
+    content: 'Premium';
+    display: inline-block;
+    margin-left: 0.5em;
+    padding: 0 6px;
+    border-radius: 3px;
+    background: var(--badge-c-tip-bg);
+    color: var(--badge-c-tip-text);
+    font-size: 0.8em;
+    line-height: 1.4;
+    vertical-align: 1px;
+  }
+
+  .vp-sidebar-item:not(.vp-sidebar-heading) {
+    margin: 1px 0.6rem 1px 1.1rem;
+    padding: 0.4rem 0.7rem;
+    border-left: 0;
+    color: var(--ore-white);
+    font-size: 0.92rem;
+    line-height: 1.35;
+
+    &:hover {
+      background: rgb(255 255 255 / 6%);
+      color: #fff;
+    }
+
+    // The page you are on: a green Ore row.
+    &.active {
+      border-left: 0;
+      background: var(--ore-green);
+      box-shadow:
+        inset 0 0 0 var(--t) var(--ore-outline),
+        inset var(--t) var(--t) 0 calc(2 * var(--t)) var(--ore-green-light);
+      color: #fff;
+      font-weight: 500;
+    }
+  }
+
+  // Headings inside the current page: a quiet list under it.
+  .vp-sidebar-children .vp-sidebar-children .vp-sidebar-item:not(.vp-sidebar-heading) {
+    margin-left: 1.9rem;
+    padding-block: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--ore-silver);
+
+    &.active {
+      background: none;
+      box-shadow: inset var(--t) 0 0 var(--mc-green);
+      color: var(--mc-green);
+      font-weight: 400;
+    }
+  }
+
+  .arrow {
+    border-color: currentColor;
+  }
+}
+
+// ── Page ────────────────────────────────────────────────────────────────────
+// The text sits on a raised Ore panel over the dark screen, like the site's legal pages.
+.vp-page {
+  // Clear of the banner's tab.
+  padding-top: calc(var(--navbar-height) + 2.4rem);
+  padding-bottom: 2rem;
+  background: var(--ore-deep);
+}
+
+[vp-content] {
+  @include ore-card;
+  padding: 1.5rem 2.25rem calc(2rem + 3 * var(--t)) !important;
+  color: var(--ore-white);
+  line-height: 1.7;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: #fff;
+  }
+
+  h1 {
+    @include ore-title;
+    font-size: clamp(1.75rem, 5vw, 2.4rem);
+    line-height: 1.2;
+  }
+
+  h2 {
+    @include ore-title;
+    padding-bottom: 0.5rem;
+    border-bottom: calc(2 * var(--t)) solid;
+    border-image: linear-gradient(#323334 50%, var(--ore-line) 50%) 1;
+    font-size: 1.45rem;
+    letter-spacing: 0.04em;
+  }
+
+  h3 {
+    font-family: var(--ml-pixel);
+    font-weight: 400;
+    font-size: 1.15rem;
+  }
+
+  a {
+    color: var(--link);
+    font-weight: 500;
+  }
+
+  strong {
+    color: #fff;
+  }
+
+  .header-anchor {
+    color: inherit;
+    font-weight: inherit;
+  }
+  .header-anchor::before {
+    color: var(--mc-green);
+  }
+
+  // Inline code: a little dark tag.
+  :not(pre) > code {
+    border: 1px solid var(--ore-outline);
+    border-radius: 0;
+    background: var(--ore-dark);
+    color: #fff;
+    // Long paths (config/discordlinker/config.yml) wrap after their slashes (config.js adds the break points).
+    // break-word, unlike anywhere, never splits a short word like `plugins` to squeeze a table column.
+    overflow-wrap: break-word;
+  }
+
+  // Code blocks: a sunk-in dark field.
+  div[class*='language-'] {
+    border: var(--t) solid var(--ore-outline);
+    border-radius: 0 !important;
+    background: var(--ore-deep);
+    box-shadow: inset 0 calc(2 * var(--t)) 0 #1a1a1b;
+
+    &::before {
+      font-family: var(--ml-pixel);
+      color: var(--ore-mid);
+    }
+  }
+
+  // Keeps an external link's last word and its arrow together (config.js).
+  .ext-nowrap {
+    white-space: nowrap;
+  }
+
+  // Tables: an Ore list, with a light header row. They span the whole column, so short
+  // tables don't leave an empty strip on the right. Phones scroll wide tables sideways.
+  table {
+    display: table;
+    width: 100%;
+    @media (max-width: 719px) {
+      display: block;
+      width: auto;
+      overflow-x: auto;
+    }
+    border-collapse: collapse;
+    border: var(--t) solid var(--ore-outline);
+  }
+  th,
+  td {
+    border: 1px solid var(--ore-outline);
+  }
+  th {
+    background: var(--ore-light);
+    color: #000;
+    font-family: var(--ml-pixel);
+    font-weight: 400;
+  }
+  tr {
+    border: 0;
+    background: var(--ore-dark);
+  }
+  tr:nth-child(2n) {
+    background: #3a3b3c;
+  }
+
+  blockquote {
+    border-left: calc(2 * var(--t)) solid var(--ore-mid);
+    color: var(--ore-silver);
+  }
+
+  hr {
+    height: calc(2 * var(--t));
+    border: 0;
+    background: linear-gradient(#323334 50%, var(--ore-line) 50%);
+  }
+
+  ul li::marker {
+    color: var(--ore-mid);
+  }
+}
+
+// Hide the language label on short command examples.
+div[class*='language-'][data-title='text']::before,
+div[class*='language-'][data-ext='text']::before {
+  display: none;
+}
+
+// Hint boxes: dark Ore panels with a coloured title tag.
+.hint-container {
+  @include ore-card(var(--ore-dark), var(--ore-deep), calc(2 * var(--t)));
+  --hint-c: var(--ore-green);
+  margin: 1.25rem 0 !important;
+  padding: 0.25rem 1.1rem 0.6rem !important;
+  border-radius: 0 !important;
+  border-left: var(--t) solid var(--ore-outline) !important;
+  color: var(--ore-white) !important;
+
+  &.tip { --hint-c: var(--ore-green); }
+  &.info, &.note { --hint-c: #5865f2; }
+  &.important { --hint-c: #7345e5; }
+  &.warning, &.caution { --hint-c: #b07a12; }
+  &.danger { --hint-c: #ca3636; }
+
+  .hint-container-title {
+    display: inline-block;
+    margin: 0.9rem 0 0.2rem !important;
+    padding: 0.2rem 0.5rem 0.25rem !important;
+    border: var(--t) solid var(--ore-outline);
+    background: var(--hint-c);
+    color: #fff !important;
+    font-family: var(--ml-pixel);
+    font-weight: 400 !important;
+    font-size: 0.9rem;
+    line-height: 1.2;
+
+    &::before {
+      display: none !important;
+    }
+  }
+
+  &.important .hint-container-title {
+    --vp-c-accent: #fff;
+  }
+
+  code {
+    background: var(--ore-deep) !important;
+  }
+}
+
+// details blocks (::: details)
+details.hint-container summary {
+  font-family: var(--ml-pixel);
+  color: #fff;
+}
+
+// Previous / next as Ore buttons.
+.vp-page-nav {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+
+  .prev,
+  .next {
+    @include ore-dark;
+    flex: 1;
+    padding: 0.6rem 1rem calc(0.6rem + 2 * var(--t)) !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .hint {
+    color: var(--ore-silver);
+    font-size: 0.8rem;
+  }
+  .link {
+    color: #fff;
+    font-size: 1rem;
+  }
+  .arrow {
+    border-color: currentColor;
+  }
+}
+
+.vp-page-meta {
+  font-family: var(--ml-pixel);
+
+  .edit-link a {
+    color: var(--link);
+  }
+  .meta-item-label,
+  .meta-item-info {
+    color: var(--ore-silver);
+  }
+}
+
+// Back to top: a small dark Ore button.
+.vp-back-to-top-button {
+  @include ore-dark;
+  width: 2.75rem !important;
+  height: 2.75rem !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: #fff !important;
+
+  .back-to-top-icon {
+    color: #fff;
+  }
+  .scroll-progress {
+    display: none;
+  }
+}
+
+// ── Home ────────────────────────────────────────────────────────────────────
+.vp-home {
+  padding-top: calc(var(--navbar-height) + 2.6rem);
+  background: var(--ore-deep);
+}
+
+.vp-hero {
+  // Minecraft Seven drawn bold, like mclinker.com's titles (.ore-title).
+  #main-title {
+    @include ore-title;
+    color: #fff;
+    font-size: clamp(2.2rem, 7vw, 3.4rem);
+    text-shadow: 0.0625em 0.0625em 0 rgb(0 0 0 / 55%);
+  }
+
+  .vp-hero-image {
+    max-height: 9rem;
+    image-rendering: pixelated;
+  }
+
+  .vp-hero-description {
+    max-width: 40rem !important;
+    color: var(--ore-white) !important;
+    font-family: var(--ml-pixel);
+    font-size: 1.15rem !important;
+  }
+
+  .vp-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .vp-hero-action-button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 3.25rem;
+    margin: 0 !important;
+    padding: 0 1.5rem calc(2 * var(--t)) !important;
+    font-size: 1.15rem !important;
+    letter-spacing: 0.0625em;
+
+    &.primary {
+      @include ore-green;
+      text-shadow: 0.0625em 0 0 currentColor;
+    }
+    &.secondary {
+      @include ore-white;
+    }
+  }
+}
+
+.vp-features {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+  border-top: 0 !important;
+  padding-top: 0.5rem !important;
+}
+
+.vp-feature {
+  @include ore-card;
+  max-width: none !important;
+  padding: 1rem 1.25rem calc(1rem + 3 * var(--t)) !important;
+
+  h2 {
+    @include ore-title;
+    margin: 0 0 0.4rem;
+    padding: 0;
+    border: 0;
+    color: #fff !important;
+    font-size: 1.2rem;
+  }
+  p {
+    margin: 0;
+    color: var(--ore-white) !important;
+  }
+}
+
+.vp-home [vp-content] {
+  margin-top: 2rem;
+}
+
+.vp-footer {
+  border-top: calc(2 * var(--t)) solid !important;
+  border-image: linear-gradient(#323334 50%, var(--ore-line) 50%) 1 !important;
+  color: var(--ore-mid) !important;
+  font-family: var(--ml-pixel);
+}
+
+// ── Discord previews ────────────────────────────────────────────────────────
+// discord-components: a Discord window inside the Ore panel, with Ore's outline.
+discord-messages {
+  display: block;
+  margin: 1rem 0;
+  border: var(--t) solid var(--ore-outline);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+// Discord's container (Components V2), used by the bot's DMs: the embed background and
+// a faint outline, but no colour stripe. Mirrors main-page's DcMessage.svelte.
+.dc-container {
+  max-width: 32rem;
+  margin-top: 0.25rem;
+  padding: 1rem;
+  border: 1px solid #3f4147;
+  border-radius: 0.5rem;
+  background: #2b2d31;
+
+  // The header draws its own top margin inside its shadow DOM; cancel it for the first line.
+  > discord-header:first-child {
+    display: block;
+    margin-top: -1rem;
+  }
+}
+
+// ── Phones ──────────────────────────────────────────────────────────────────
+@media (max-width: 959px) {
+  [vp-content] {
+    padding-inline: 1.5rem !important;
+  }
+}
+
+@media (max-width: 719px) {
+  .vp-navbar {
+    padding-left: 3.5rem;
+    --drop: 1.1rem;
+    --brand-h: min(2.5rem, 9.5vw);
+    --brand-w: calc(var(--brand-h) * 1346 / 340 + 1rem);
+
+    // Just the search button on the right; the toggle stays clickable on the left.
+    .vp-navbar-items-wrapper {
+      left: auto;
+    }
+
+    .vp-toggle-sidebar-button {
+      top: calc(50% - 1.5 * var(--t));
+      transform: translateY(-50%);
+    }
+  }
+
+  .vp-page {
+    padding-inline: 0.5rem;
+  }
+
+  .vp-page {
+    padding-top: calc(var(--navbar-height) + 1.6rem);
+  }
+
+  // The sidebar opens under the banner's tab.
+  .vp-sidebar > .vp-navbar-items {
+    padding-top: 2rem;
+  }
+
+  [vp-content] {
+    padding: 1.1rem 1rem calc(1.5rem + 3 * var(--t)) !important;
+  }
+
+  .vp-page-nav {
+    padding-inline: 0 !important;
+  }
+
+  [vp-content] th,
+  [vp-content] td {
+    padding: 0.5rem 0.6rem;
+    line-height: 1.45;
+  }
+
+  .search-box input {
+    width: 2.5rem;
+    padding-left: 2rem;
+    background-position: 0.6rem 0.5rem !important;
+    cursor: pointer;
+
+    &:focus {
+      width: 10rem;
+    }
+  }
+}
+
+// ── 404: the game's death screen, like mclinker.com's error page ────────────
+.ml-died {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 100svh;
+  padding: 3rem 1rem 4rem;
+  text-align: center;
+  color: #fff;
+  background: radial-gradient(circle, rgb(140 20 20 / 55%), rgb(70 8 8 / 90%)), var(--ore-outline);
+
+  h1 {
+    @include ore-title;
+    margin: 0;
+    font-size: clamp(3rem, 9vw, 5rem);
+    line-height: 1.1;
+    color: #fff;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.ml-died-cause {
+  font-size: 1.1rem;
+
+  code {
+    font-family: var(--ml-pixel);
+    color: #ffff55;
+    overflow-wrap: anywhere;
+  }
+}
+
+.ml-died-score {
+  font-family: var(--ml-pixel);
+
+  span {
+    color: #ffff55;
+  }
+}
+
+.ml-died-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: min(22rem, 100%);
+  margin-top: 1.5rem;
+}
+
+.ml-died-button {
+  @include ore-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  font-family: var(--ml-pixel);
+  font-size: 1.15rem;
+  letter-spacing: 0.0625em;
+  text-decoration: none;
+
+  &.respawn {
+    @include ore-green;
+    text-shadow: 0.0625em 0 0 currentColor;
+  }
+}
+
+// With a sidebar, the banner centres over the page text instead of the whole bar.
+// (Narrower than 960px there isn't room beside it, so it stays in the middle.)
+@media (min-width: 960px) {
+  .vp-theme-container:not(.no-sidebar) .vp-navbar > span > a:has(> .vp-site-logo) {
+    left: calc(var(--sidebar-width) + (100% - var(--sidebar-width)) / 2);
+  }
+}
+
+// ── Links dropdown ──────────────────────────────────────────────────────────
+// mclinker.com's "Links": a dark Ore face with a chevron, opening a grey popup of rows.
+.ml-links {
+  position: relative;
+  flex: none;
+}
+.ml-links-face {
+  @include ore-dark;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.25rem;
+  padding-inline: 0.7rem 0.65rem;
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+
+  // A dropdown doesn't sink when pressed; it opens.
+  &:active::before {
+    top: 0;
+  }
+  > * {
+    transform: none !important;
+  }
+}
+.ml-chev {
+  width: calc(7 * var(--t));
+  height: calc(4 * var(--t));
+  shape-rendering: crispEdges;
+  transition: transform 0.15s ease;
+
+  .pressed & {
+    transform: rotate(180deg);
+  }
+}
+.ml-links-popup {
+  position: absolute;
+  top: calc(100% + var(--t));
+  right: 0;
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  gap: var(--t);
+  width: max-content;
+  max-width: min(20rem, calc(100vw - 1rem));
+  max-height: calc(100dvh - var(--navbar-height) - 0.5rem);
+  overflow-y: auto;
+  padding: var(--t);
+  border: var(--t) solid var(--ore-outline);
+  background: #8c8d90;
+  box-shadow: 0 0.75rem 1.5rem rgb(0 0 0 / 40%);
+}
+.ml-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3.25rem;
+  padding: 0.45rem 0.75rem;
+  border: var(--t) solid #8c8d90;
+  background: #58585a;
+  color: #fff !important;
+  text-decoration: none !important;
+
+  &:hover {
+    background: #48494a;
+  }
+  &:focus-visible {
+    outline-offset: calc(-1 * var(--t));
+  }
+  // The theme's "external link" arrow; these rows draw their own.
+  &::after {
+    display: none !important;
+  }
+}
+.ml-thumb {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.25rem;
+  height: 2.25rem;
+
+  img {
+    width: 2.25rem;
+    height: 2.25rem;
+    image-rendering: pixelated;
+  }
+}
+.ml-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  min-width: 0;
+}
+.ml-row-title {
+  font-family: var(--ml-pixel);
+  font-size: 1rem;
+  line-height: 1.2;
+}
+.ml-row-sub {
+  font-size: 0.85rem;
+  line-height: 1.35;
+  color: var(--ore-white);
+}
+.ml-out {
+  flex: none;
+  width: calc(6 * var(--t));
+  height: calc(6 * var(--t));
+  shape-rendering: crispEdges;
+}
+
+// On phones the same rows sit in the sidebar, under the header's links.
+.ml-links-list {
+  padding: 0.9rem 0.9rem 1rem;
+  border-bottom: calc(2 * var(--t)) solid;
+  border-image: linear-gradient(#323334 50%, var(--ore-line) 50%) 1;
+}
+.ml-links-title {
+  margin: 0 0 0.5rem;
+  font-family: var(--ml-pixel);
+  font-size: 0.8rem;
+  color: var(--ore-silver);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.ml-links-rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--t);
+  padding: var(--t);
+  border: var(--t) solid var(--ore-outline);
+  background: #8c8d90;
+}
+@media (min-width: 720px) {
+  .ml-hide-wide {
+    display: none;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
