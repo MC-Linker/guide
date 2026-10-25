@@ -68,6 +68,8 @@ export default defineUserConfig({
     editLinkText: 'Edit this page on GitHub',
     themePlugins: {
       prismjs: { lineNumbers: false },
+      // No scroll-to-top button.
+      backToTop: false,
       git: {
         contributors: {
           // E reviews and approves every change, so credit Lianecx and leave AI co-authors out.
@@ -86,6 +88,8 @@ export default defineUserConfig({
     colorMode: 'dark',
     colorModeSwitch: false,
     navbar: [
+      // Back to mclinker.com, in the same tab like the Links menu's website row.
+      { text: 'Home', link: 'https://mclinker.com/', target: '_self' },
       { text: 'Quick start', link: '/guide/getting-started/quick-start.md' },
       { text: 'Commands', link: '/guide/commands/' },
       { text: 'Help', link: '/guide/help/troubleshooting.md' },

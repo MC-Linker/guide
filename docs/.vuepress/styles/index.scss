@@ -783,23 +783,6 @@ details.hint-container summary {
   }
 }
 
-// Back to top: a small dark Ore button.
-.vp-back-to-top-button {
-  @include ore-dark;
-  width: 2.75rem !important;
-  height: 2.75rem !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  color: #fff !important;
-
-  .back-to-top-icon {
-    color: #fff;
-  }
-  .scroll-progress {
-    display: none;
-  }
-}
-
 // ── Home ────────────────────────────────────────────────────────────────────
 .vp-home {
   padding-top: calc(var(--navbar-height) + 2.6rem);
@@ -1205,4 +1188,9 @@ discord-messages {
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
+}
+
+// "Home" goes to mclinker.com in the same tab, so it gets no "new tab" arrow.
+.vp-navbar-item > a[href='https://mclinker.com/']::after {
+  display: none !important;
 }
