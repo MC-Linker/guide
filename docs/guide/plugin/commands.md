@@ -25,7 +25,7 @@ Connects the plugin to Discord and changes its settings.
 | `/linker disconnect` | Removes the link to Discord. See [Disconnecting](../getting-started/disconnecting.md). |
 | `/linker reload` | Reloads `config.yml` and reconnects to Discord. |
 | `/linker bot_port [port]` | Shows or sets the port used to reach the bot. Only change it for a [custom bot](../features/custom-bot.md). The default is `80`. |
-| `/linker debug` | Turns detailed logging on or off. Useful when the support team asks for logs. |
+| `/linker debug` | Turns detailed logging on or off. Useful when the support team asks for logs. It can spam the console, so only turn it on for a short time. |
 
 <McChat :lines="['> /linker reload', '&aSuccessfully reloaded the configuration and reconnected to Discord!']" />
 

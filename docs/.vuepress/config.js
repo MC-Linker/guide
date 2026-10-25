@@ -40,6 +40,26 @@ export default defineUserConfig({
       const content = md.utils.escapeHtml(token.content).replace(/(?<=\S)\/(?=\S)/g, '/<wbr>');
       return `<code${self.renderAttrs(token)}>${content}</code>`;
     };
+
+    // The "leaves the site" arrow sticks to the link's last word, so it never wraps onto a line of its own.
+    md.core.ruler.push('external-link-nowrap', state => {
+      for (const block of state.tokens) {
+        const tokens = block.children;
+        if (block.type !== 'inline' || !tokens) continue;
+        for (let i = 0; i < tokens.length; i++) {
+          if (tokens[i].type !== 'link_open' || !/^https?:\/\//.test(tokens[i].attrGet('href') ?? '')) continue;
+          const close = tokens.findIndex((t, j) => j > i && t.type === 'link_close');
+          const last = tokens[close - 1];
+          if (close < 0 || last.type !== 'text' || !last.content.trim()) continue;
+          const [, before, word] = last.content.match(/^([\s\S]*?)(\S+\s*)$/);
+          last.content = before;
+          const wrap = new state.Token('html_inline', '', 0);
+          wrap.content = `<span class="ext-nowrap">${md.utils.escapeHtml(word.trimEnd())}<span class="vp-external-link-icon" aria-hidden="true"></span></span>`;
+          tokens.splice(close, 0, wrap);
+          tokens[i].attrJoin('class', 'no-external-link-icon');
+        }
+      }
+    });
   },
   theme: defaultTheme({
     docsRepo: 'MC-Linker/guide',

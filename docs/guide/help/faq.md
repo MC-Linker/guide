@@ -6,9 +6,9 @@ seoTitle: "FAQ: the MC Linker Minecraft Discord bot"
 
 ## Is MC Linker free?
 
-Yes. Every feature is free. The optional **Customize MC Linker** subscription lets you run MC Linker as [your own bot](../features/custom-bot.md) with your own name, avatar and status. Changing MC Linker's look [in your own server](../features/customization.md) is free.
+Yes. Every feature is completely free, forever. The optional **Customize MC Linker** subscription lets you support our development and run MC Linker as [your own bot](../features/custom-bot.md) with your own name, avatar and status. Changing MC Linker's look [in your own server](../features/customization.md) is free.
 
-## Do I need to host a bot or edit config files?
+## Do I need to create or host a bot, or edit config files?
 
 No. The bot is hosted for you and everything is set up with slash commands. The plugin works out of the box; its [config file](../plugin/configuration.md) is only for fine-tuning.
 
@@ -40,9 +40,9 @@ Yes. On Aternos, install Discord-Linker from the plugin list. Other hosts work a
 
 No. The plugin connects out to MC Linker.
 
-## Can I change how chat messages look in Minecraft?
+## Can I change how chat messages look?
 
-Yes, with `message`, `private_message` and `reply_message` in the plugin's [config.yml](../plugin/configuration.md).
+In Minecraft, yes, with `message`, `private_message` and `reply_message` in the plugin's [config.yml](../plugin/configuration.md). In Discord, not yet, but it's planned soon.
 
 ## Can I limit who uses which command?
 

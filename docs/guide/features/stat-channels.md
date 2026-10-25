@@ -65,9 +65,9 @@ You can add several stat channels, for example one for the player count and one 
 
 To change a template, run `/statchannel add` for the same channel again.
 
-## Good to know
-
+::: warning Updates can lag a little
 Discord only lets bots rename a channel **twice every 10 minutes**. On a busy server, the name may lag behind a little; MC Linker catches up as soon as Discord allows it. Topic updates have the same limit.
+:::
 
 ## Troubleshooting
 

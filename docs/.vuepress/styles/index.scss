@@ -488,6 +488,20 @@ body {
     }
   }
 
+  // A Premium tag after "Custom bot" in the sidebar, the same as the page title's <Badge>.
+  .vp-sidebar-item[href$='/custom-bot.html']::after {
+    content: 'Premium';
+    display: inline-block;
+    margin-left: 0.5em;
+    padding: 0 6px;
+    border-radius: 3px;
+    background: var(--badge-c-tip-bg);
+    color: var(--badge-c-tip-text);
+    font-size: 0.8em;
+    line-height: 1.4;
+    vertical-align: 1px;
+  }
+
   .vp-sidebar-item:not(.vp-sidebar-heading) {
     margin: 1px 0.6rem 1px 1.1rem;
     padding: 0.4rem 0.7rem;
@@ -621,10 +635,21 @@ body {
     }
   }
 
-  // Tables: an Ore list, with a light header row.
+  // Keeps an external link's last word and its arrow together (config.js).
+  .ext-nowrap {
+    white-space: nowrap;
+  }
+
+  // Tables: an Ore list, with a light header row. They span the whole column, so short
+  // tables don't leave an empty strip on the right. Phones scroll wide tables sideways.
   table {
-    display: block;
-    overflow-x: auto;
+    display: table;
+    width: 100%;
+    @media (max-width: 719px) {
+      display: block;
+      width: auto;
+      overflow-x: auto;
+    }
     border-collapse: collapse;
     border: var(--t) solid var(--ore-outline);
   }

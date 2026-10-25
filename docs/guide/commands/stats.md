@@ -17,11 +17,15 @@ Pick a category, then the player:
 /stats custom user: Cubey sort: Descending
 ```
 
+## Example
+
+<BotReply command="/stats picked_up user: Lianecx" title="Player Statistics" image="/assets/stats.png">Here are the statistics of <strong>Lianecx</strong>:</BotReply>
+
 ## Categories
 
 | Category | Shows |
 |---|---|
-| `custom` | General stats: play time, distance walked, jumps, deaths and [many more](https://minecraft.wiki/w/Statistics#Statistic_types_and_names) |
+| `custom` | General stats: play time, distance walked, jumps, deaths and [many more](https://minecraft.wiki/w/Statistics#List_of_custom_statistic_names) |
 | `mined` | Blocks mined |
 | `broken` | Tools and items worn out |
 | `crafted` | Items crafted or smelted |
@@ -42,7 +46,8 @@ Long lists are split into pages. Use the **Stats 1-…** buttons to flip through
 
 ## Good to know
 
-If the player never did anything in a category, you get **Could Not Find Category**.
+- If the player never did anything in a category, you get **Could Not Find Category**.
+- Works when your Minecraft server is offline too: MC Linker then shows the data it downloaded last time, marked **⚠ Cached Result** in the footer.
 
 ## Related
 

@@ -58,8 +58,8 @@ Each Minecraft account can only be linked to one Discord user at a time.
 | Button | What it does |
 |---|---|
 | **Disconnect** | Unlinks that account (asks you to confirm). |
-| **Promote To Global** | Turns a per-server premium account into your global account. |
-| **Use On This Server** | Uses that account as your per-server account on the current server. |
+| **Promote To Global** | Turns a per-server premium account into your global account. Only shown while you don't have a global account. |
+| **Use On This Server** | Uses that account as your per-server account on the current server. Only shown for accounts that aren't already your global or this server's account. If you already have one here, it asks before replacing it. |
 
 `/account disconnect` unlinks the account that's active on the current server: your per-server one if there is one, otherwise your global one.
 
@@ -72,10 +72,10 @@ If you disconnect your last link for a server that [requires a linked account](.
 | What you see | What to do |
 |---|---|
 | **No Username Specified** | Type your Minecraft name, don't @mention someone. |
-| **Could Not Resolve Account** | On online-mode servers only real premium accounts (or Floodgate names with the prefix) work. Check the spelling. |
+| **Could Not Resolve Account** | On online-mode servers only real premium accounts (or Floodgate names with the prefix) work. Check the spelling. Server owners: if your server is really in offline mode, MC Linker may have detected it wrong. Set the [`online` option](../getting-started/connecting.md#options) when you connect. |
 | **Already Linked Globally** / **Already Linked Here** | You already have a link there. Disconnect it first, or use `set-as-global: False`. |
 | **Account Already Linked** | Someone else linked that Minecraft account. They have to run `/account disconnect` first. |
-| **You are not awaiting verification** (in Minecraft) | Run `/account connect` in Discord first, or the 3 minutes ran out. |
+| **You are not awaiting verification** (in Minecraft) | Run `/account connect` in Discord first, or the 3 minutes ran out. Server owners: this also happens when MC Linker detected online mode wrong, for example behind a BungeeCord or Velocity proxy or on hosts that use one by default. The player's ID in Minecraft then doesn't match. Set the [`online` option](../getting-started/connecting.md#options) when you connect. |
 | **The code you specified is incorrect** (in Minecraft) | Copy the newest code exactly. |
 | **Server Not Connected** | Run `/account connect` in a Discord server that's linked to a Minecraft server. |
 

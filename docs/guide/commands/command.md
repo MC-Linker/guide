@@ -43,8 +43,8 @@ You (or the member you mention) need a [linked account](../features/account-link
 ## Good to know
 
 - The reply shows what the server answered. Some commands don't answer anything; then you see *No response message!*. This also happens right after `/reload`.
-- If you wait too long after picking a suggestion, you may see **Selection Expired**. Run the command again.
-- `/command` is powerful. Keep it to admins, or limit it to a staff channel, in [Permissions](../getting-started/permissions.md).
+- If you wait more than 2 minutes after picking a long suggestion, you may see **Selection Expired**. Type something in the command field to refresh the suggestions and pick it again, or run the command again.
+- `/command` is powerful. Only administrators can use it by default, so be careful who you give it to when you change its [permissions](../getting-started/permissions.md).
 
 ## Related
 

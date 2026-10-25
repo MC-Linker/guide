@@ -2,9 +2,14 @@
  * discord-components lays embeds out for wide chat windows. In narrow columns (phones, the
  * guide's content column) they overflow and get cut off: inline fields have a minimum width of
  * 150px, and embed images are fixed at up to 300px. Let both shrink with their column,
- * like Discord does.
+ * like Discord does. Long slash commands in the "You used" line end in "…" like in Discord.
  */
 const fixes = {
+  'discord-command': `
+    :host { min-width: 0; max-width: 100%; overflow: hidden; }
+    :host .discord-slash-command-name { display: inline-flex; align-items: center; min-width: 0; max-width: 100%; overflow: hidden; }
+    :host .discord-slash-command-name > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+    :host .discord-slash-command-name > svg { flex-shrink: 0; }`,
   'discord-embed-field': ':host .discord-inline-field { min-width: 5rem; }',
   'discord-embed': `
     :host .discord-embed-wrapper { min-width: 0; max-width: 100%; }

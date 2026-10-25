@@ -4,7 +4,7 @@ seoTitle: "Customization: the bot's name, avatar and bio"
 
 # Customization
 
-Make MC Linker fit your server. Give it its own nickname, avatar, banner and bio in your Discord server, for free. Or go further and run MC Linker as [your own bot](./custom-bot.md).
+Make MC Linker fit your server. Give it its own nickname, avatar, banner and bio in your Discord server, completely free. Or go further and run MC Linker as [your own bot](./custom-bot.md) (supporting us in the process!).
 
 <img src="/assets/profilecustomization.png" alt="MC Linker customized as 'Villager Bot' with a villager avatar and banner" width="300" height="303" loading="lazy">
 

@@ -6,7 +6,7 @@ seoTitle: "Direct messages between Minecraft and Discord"
 
 Players can send a Discord DM from inside Minecraft with `/dm`, and get replies back in their chat. In the other direction, [`/message`](../commands/message.md) whispers to an online player from Discord.
 
-<SplitView>
+<SplitView first="minecraft">
   <template #minecraft>
     <McChat :lines="['> /dm TheAnnoying meet me at spawn?', '&aDM sent to TheAnnoying: meet me at spawn?', '&9&o&lDiscord &8&o| &7&oTheAnnoying whispers to you: omw!']" />
   </template>
@@ -32,7 +32,7 @@ The person has to be a member of the Discord server that's linked to your Minecr
 
 ## Reply from Discord
 
-**Reply** to the DM in Discord (right-click › Reply). Your answer appears in the player's chat as a whisper. You can reply for 10 minutes; after that the DM says *Reply window closed*.
+**Reply** to the DM in Discord (right-click › Reply). Your answer appears in the player's chat as a whisper. You can reply for 10 minutes; after that the DM says *Reply window closed*, but you can still whisper to the player with [`/message`](../commands/message.md) in your Discord server.
 
 ## Block DMs
 

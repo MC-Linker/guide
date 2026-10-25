@@ -8,44 +8,40 @@ import BotReply from './BotReply.vue';
  *
  * <ServerInfo />
  */
-const footer = 'Server IP: testing.mclinker.com (26.2)';
+const code = t => `<code>${t}</code>`;
+// Same fields as the bot's language file (commands.serverinfo): only the first page has the footer,
+// the player count has no names, and the admin page lists counts.
 const pages = {
   server: {
     label: 'Server Information',
     button: 'General Information',
-    color: '#729e34',
+    image: '/assets/serverlist.png',
     fields: [
       { name: 'Name', value: 'Linker SMP', inline: true },
       { name: 'MOTD', value: 'A cozy survival server', inline: true },
       { name: 'Players', value: '2/20', inline: true },
-      { name: 'Online', value: 'Lianecx, Cubey' },
     ],
-    footer,
+    footer: 'Server IP: testing.mclinker.com (26.2)',
   },
   world: {
     label: 'World Information',
-    color: '#729e34',
     fields: [
-      { name: 'World', value: 'world', inline: true },
+      { name: 'Spawn Coordinates', html: true, value: `Players will spawn at ${code('0, 64, 0')} in world: ${code('world')}` },
+      { name: 'Allow End/Nether', html: true, value: `End: ${code('Enabled')}<br>Nether: ${code('Enabled')}` },
       { name: 'Difficulty', value: 'Normal', inline: true },
-      { name: 'Hardcore', value: 'No', inline: true },
-      { name: 'Time', value: 'Day ☀️', inline: true },
-      { name: 'Weather', value: 'Clear', inline: true },
-      { name: 'Spawn', value: '0, 64, 0', inline: true },
+      { name: 'Gamerules (only non-default values)', html: true, value: 'keepInventory: true<br>playersSleepingPercentage: 50' },
     ],
-    footer,
   },
   admin: {
     label: 'Admin Information',
     style: 'danger',
-    color: '#ed4245',
     fields: [
-      { name: 'Operators', value: 'Lianecx', inline: true },
-      { name: 'Whitelist', value: 'Off', inline: true },
-      { name: 'Banned players', value: 'None', inline: true },
-      { name: 'Plugins', value: 'Discord-Linker, EssentialsX, WorldEdit' },
+      { name: 'Plugins', html: true, value: 'Discord-Linker<br>EssentialsX<br>WorldEdit', inline: true },
+      { name: 'Banned Users', value: '1', inline: true },
+      { name: 'Operators', value: '1', inline: true },
+      { name: 'Whitelist', value: 'Disabled', inline: true },
+      { name: 'Seed', html: true, value: code('-4172144997902289642'), inline: true },
     ],
-    footer: 'Only server admins can see this page',
   },
 };
 
@@ -60,8 +56,8 @@ const buttons = computed(() => Object.entries(pages)
   <BotReply
     command="/serverinfo"
     :title="current.label"
-    :color="current.color"
-    image="/assets/serverlist.png"
+    color="#729e34"
+    :image="current.image"
     :fields="current.fields"
     :footer="current.footer"
     :buttons="buttons"

@@ -6,6 +6,9 @@ import McChat from './components/McChat.vue';
 import CommandInfo from './components/CommandInfo.vue';
 import SplitView from './components/SplitView.vue';
 import ServerInfo from './components/ServerInfo.vue';
+import UserInfo from './components/UserInfo.vue';
+import InventoryExample from './components/InventoryExample.vue';
+import AdvancementsExample from './components/AdvancementsExample.vue';
 import NotFound from './components/NotFound.vue';
 import Layout from './layouts/Layout.vue';
 import { fixNarrowEmbeds } from './discordFixes.js';
@@ -29,6 +32,9 @@ export default defineClientConfig({
     app.component('CommandInfo', CommandInfo);
     app.component('SplitView', SplitView);
     app.component('ServerInfo', ServerInfo);
+    app.component('UserInfo', UserInfo);
+    app.component('InventoryExample', InventoryExample);
+    app.component('AdvancementsExample', AdvancementsExample);
   },
   layouts: { Layout, NotFound },
 });

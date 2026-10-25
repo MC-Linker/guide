@@ -23,7 +23,9 @@ Shows a player's inventory as an image: armor, offhand, hotbar and backpack, wit
 
 ## Example
 
-<BotReply command="/inventory user: TheAnnoying" title="Player Inventory" image="/assets/inventory.png">Here's the inventory of <strong>TheAnnoying</strong>:</BotReply>
+Click an item button to see its details:
+
+<InventoryExample />
 
 ## Item details
 
@@ -39,8 +41,9 @@ Shulker boxes open and show their contents, and their items have buttons too.
 ## Good to know
 
 - Works for offline players too: MC Linker reads the player's saved data from your server.
+- Works when your Minecraft server is offline too: MC Linker then shows the data it downloaded last time, marked **⚠ Cached Result** in the footer.
 - Items are rendered with your server's own Minecraft version, so new blocks and items always look right. The first time a version is used you may see **Preparing Minecraft Assets** for a moment.
-- Items added by mods aren't supported yet and may not show correctly.
+- Items added by mods don't have pictures yet, so their slot shows the item's name or ID instead.
 
 ## Related
 

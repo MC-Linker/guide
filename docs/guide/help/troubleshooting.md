@@ -4,7 +4,7 @@ seoTitle: "Troubleshooting: fix MC Linker connection problems"
 
 # Troubleshooting
 
-Find the message you see (or the problem you have) below. Still stuck? Ask on the [support server](https://discord.gg/rX36kZUGNK); turning on `/linker debug` and sharing the console output helps a lot.
+Find the message you see (or the problem you have) below. Still stuck? Ask on the [support server](https://discord.gg/rX36kZUGNK).
 
 ## Connecting
 
@@ -43,7 +43,7 @@ This Discord server isn't linked yet. See [Connecting](../getting-started/connec
 You @mentioned someone who hasn't [linked their account](../features/account-linking.md). Type their Minecraft name instead, or ask them to link.
 
 **"Could Not Fetch User"**
-The name or UUID isn't a valid Minecraft account. On online-mode servers, only real premium accounts work. Bedrock names need your Floodgate prefix, like `.Steve`.
+The name or UUID isn't a valid Minecraft account. On online-mode servers, only real premium accounts work. Bedrock names need your Floodgate prefix, like `.Steve`. If your server is really in offline mode and MC Linker detected it wrong, set the [`online` option](../getting-started/connecting.md#options) when you connect.
 
 **"Could Not Download: The user most likely never joined the server."**
 `/inventory`, `/stats`, `/advancements` and `/userinfo` read the player's saved data. The player has to have joined your server at least once.
@@ -83,5 +83,4 @@ See [Account linking › Troubleshooting](../features/account-linking.md#trouble
 Join the [support server](https://discord.gg/rX36kZUGNK) and tell us:
 
 - what you ran and what you saw (a screenshot helps),
-- your server software and Minecraft version,
-- the console output with `/linker debug` turned on.
+- your server host, server software, Minecraft version and Discord-Linker version.

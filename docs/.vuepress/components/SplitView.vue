@@ -6,11 +6,14 @@
  *   <template #discord>…</template>
  *   <template #minecraft>…</template>
  * </SplitView>
+ *
+ * Discord comes first. Set first="minecraft" when the story starts in the game.
  */
+defineProps({ first: { type: String, default: 'discord' } });
 </script>
 
 <template>
-  <div class="split">
+  <div class="split" :class="{ 'minecraft-first': first === 'minecraft' }">
     <section class="side discord">
       <p class="label">In Discord</p>
       <slot name="discord" />
@@ -31,6 +34,9 @@
 }
 .side {
   min-width: 0;
+}
+.minecraft-first .minecraft {
+  order: -1;
 }
 .side :deep(discord-messages),
 .side :deep(.mc-chat) {

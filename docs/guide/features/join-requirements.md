@@ -6,7 +6,7 @@ seoTitle: "Join requirements: Discord as your whitelist"
 
 Use your Discord server as the whitelist. With a join requirement, only players who [linked their account](./account-linking.md), or who also have certain Discord roles, can join your Minecraft server.
 
-<SplitView>
+<SplitView first="minecraft">
   <template #discord>
     <discord-messages>
       <discord-message author="Newbie" avatar="/assets/you.svg">4821</discord-message>

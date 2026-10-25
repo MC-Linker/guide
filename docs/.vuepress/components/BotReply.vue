@@ -20,6 +20,10 @@ const props = defineProps({
   buttons: { type: Array, default: () => [] },
   footer: { type: String, default: '' },
   ephemeral: { type: Boolean, default: false },
+  thumbnail: { type: String, default: '' },
+  // A second embed under the first, like the bot's detail pages:
+  // { title, description (HTML), color, author, authorIcon, fields, footer }
+  extra: { type: Object, default: null },
 });
 
 const styles = {
@@ -32,13 +36,16 @@ const styles = {
 const emit = defineEmits(['button']);
 const style = computed(() => styles[props.type] ?? styles.success);
 // discord-components lays out inline fields by their position in the row (1-3).
-const fieldsWithIndex = computed(() => {
+// Field values may hold HTML (set html: true), for inline code and line breaks.
+function withIndex(fields) {
   let run = 0;
-  return props.fields.map(f => {
+  return fields.map(f => {
     run = f.inline ? (run % 3) + 1 : 0;
     return { ...f, index: f.inline ? run : undefined };
   });
-});
+}
+const fieldsWithIndex = computed(() => withIndex(props.fields));
+const extraFields = computed(() => withIndex(props.extra?.fields ?? []));
 const buttonTypes = { primary: 'primary', secondary: 'secondary', danger: 'destructive', success: 'success' };
 
 // Like Discord: a clicked button shows pulsing dots in place of its label while the bot
@@ -66,12 +73,27 @@ function press(b) {
         :author-image="style.icon"
         :embed-title="title || undefined"
         :image="image || undefined"
+        :thumbnail="thumbnail || undefined"
       >
         <discord-embed-description v-if="$slots.default" slot="description"><slot /></discord-embed-description>
         <discord-embed-fields v-if="fields.length" slot="fields">
-          <discord-embed-field v-for="(f, i) in fieldsWithIndex" :key="i" :field-title="f.name" :inline="f.inline || undefined" :inline-index="f.index">{{ f.value }}</discord-embed-field>
+          <discord-embed-field v-for="(f, i) in fieldsWithIndex" :key="i" :field-title="f.name" :inline="f.inline || undefined" :inline-index="f.index"><span v-if="f.html" v-html="f.value"></span><template v-else>{{ f.value }}</template></discord-embed-field>
         </discord-embed-fields>
         <discord-embed-footer v-if="footer" slot="footer">{{ footer }}</discord-embed-footer>
+      </discord-embed>
+      <discord-embed
+        v-if="extra"
+        slot="embeds"
+        :color="extra.color || style.color"
+        :author-name="extra.author || undefined"
+        :author-image="extra.authorIcon || undefined"
+        :embed-title="extra.title || undefined"
+      >
+        <discord-embed-description v-if="extra.description" slot="description"><span v-html="extra.description"></span></discord-embed-description>
+        <discord-embed-fields v-if="extraFields.length" slot="fields">
+          <discord-embed-field v-for="(f, i) in extraFields" :key="i" :field-title="f.name" :inline="f.inline || undefined" :inline-index="f.index"><span v-if="f.html" v-html="f.value"></span><template v-else>{{ f.value }}</template></discord-embed-field>
+        </discord-embed-fields>
+        <discord-embed-footer v-if="extra.footer" slot="footer"><span class="pre">{{ extra.footer }}</span></discord-embed-footer>
       </discord-embed>
       <discord-attachments v-if="buttons.length" slot="components">
         <discord-action-row>
@@ -83,6 +105,7 @@ function press(b) {
 </template>
 
 <style scoped>
+.pre { white-space: pre-line; }
 /* Discord's pulsing ellipsis: the label keeps the button's width but is hidden behind three dots. */
 .label { position: relative; display: inline-block; }
 .dots { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; gap: 0.2rem; }

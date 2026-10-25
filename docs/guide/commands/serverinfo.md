@@ -16,13 +16,15 @@ Shows information about your Minecraft server: name, MOTD, players, world settin
 
 ## Example
 
+Use the buttons to switch pages:
+
 <ServerInfo />
 
 ## Pages
 
 | Page | Shows |
 |---|---|
-| **General Information** | Server icon, name, MOTD (also as a server-list preview), players online, difficulty, address and version |
+| **General Information** | Server icon, name, MOTD (also as a server-list preview), how many players are online, address and version |
 | **World Information** | Spawn point, whether the Nether and End are enabled, difficulty, and every gamerule you changed from its default |
 | **Admin Information** | Plugins, datapacks and mods, how many players are whitelisted, banned and op, banned IPs, whether the whitelist is on, and the world seed |
 
@@ -30,7 +32,8 @@ The **Admin Information** page is only available to members with **Administrator
 
 ## Good to know
 
-The address in the footer is the `display-ip` you set with [`/connect`](../getting-started/connecting.md#options), or your server's IP if you didn't set one.
+- The address in the footer is the `display-ip` you set with [`/connect`](../getting-started/connecting.md#options), or your server's IP if you didn't set one.
+- Works when your Minecraft server is offline too: MC Linker then shows the data it downloaded last time, marked **⚠ Cached Result** in the footer.
 
 ## Related
 
