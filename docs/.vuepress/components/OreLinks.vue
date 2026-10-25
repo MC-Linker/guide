@@ -12,7 +12,6 @@ const links = [
   { title: 'GitHub', hint: 'MC Linker is completely open source', href: 'https://github.com/MC-Linker', icon: '/nav/github.png' },
   { title: 'Donate', hint: 'Opens GitHub Sponsors in a new tab', href: 'https://github.com/sponsors/MC-Linker', icon: '/nav/donate.png' },
   { title: 'Meet the team', hint: 'The people behind MC Linker', href: 'https://mclinker.com/team', icon: '/nav/meet-the-team.png' },
-  { title: 'MC Linker website', hint: 'Opens mclinker.com', href: 'https://mclinker.com/', icon: '/nav/website.png', sameTab: true },
 ];
 
 
