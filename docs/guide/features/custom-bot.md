@@ -4,7 +4,7 @@ seoTitle: "Custom bot: run MC Linker as your own Discord bot"
 
 # Custom bot <Badge text="Premium" type="tip" />
 
-With the **Customize MC Linker** subscription, MC Linker runs as your own Discord bot. It has every feature of MC Linker, but with your bot's name, avatar, banner, status and *About Me*. We host it for you.
+With the **Customize MC Linker** subscription ([get it in the store](https://discord.com/discovery/applications/712759741528408064/store)), MC Linker runs as your own Discord bot. It has every feature of MC Linker, but with your bot's name, avatar, banner, status and *About Me*. We host it for you.
 
 ## What you get
 
@@ -16,7 +16,7 @@ With the **Customize MC Linker** subscription, MC Linker runs as your own Discor
 
 ## Set it up
 
-1. **Subscribe.** Run `/customize` and click the subscription button, or open MC Linker's profile and go to its **Store**.
+1. **Subscribe.** Run `/customize` and click the subscription button, or open [MC Linker's store](https://discord.com/discovery/applications/712759741528408064/store).
 2. Run `/customize` again. MC Linker walks you through the rest:
 3. **Create a bot.** In the [Discord Developer Portal](https://discord.com/developers/applications?new_application=true), enter a name and click **Create**.
 4. **Make it private** so nobody else can add it:
