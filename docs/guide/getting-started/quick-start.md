@@ -7,7 +7,7 @@ seoTitle: "Quick start: link Minecraft and Discord in a minute"
 Link your Minecraft server with Discord in three steps. It takes about a minute.
 
 ::: tip What you need
-- A Discord server where you have the **Manage Server** permission (to add the bot) and **Administrator** (to run `/connect`).
+- A Discord server where you have the **Manage Server** permission (to add the bot and to run `/connect`).
 - A Minecraft Java server where you can install plugins or mods, and OP rights or console access on it.
 :::
 

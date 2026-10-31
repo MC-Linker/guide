@@ -24,7 +24,7 @@ Wherever a command asks for a `user`, you can type a Minecraft username, a UUID,
 | Command | What it does | Default | Docs |
 |---|---|---|---|
 | `/serverinfo` | Shows info about your Minecraft server | Everyone | [/serverinfo](./serverinfo.md) |
-| `/command` | Runs any Minecraft command | Administrator | [/command](./command.md) |
+| `/command` | Runs any Minecraft command | Manage Server | [/command](./command.md) |
 | `/message` | Sends a private message to an online player | Everyone | [/message](./message.md) |
 
 ## Moderation
@@ -33,20 +33,20 @@ Wherever a command asks for a `user`, you can type a Minecraft username, a UUID,
 |---|---|---|---|
 | `/ban`, `/unban` | Bans or unbans a player | Ban Members | [/ban and /unban](./ban-unban.md) |
 | `/kick` | Kicks an online player | Kick Members | [/kick](./kick.md) |
-| `/op`, `/deop` | Gives or takes operator status | Administrator | [/op and /deop](./op-deop.md) |
-| `/gamemode` | Changes a player's game mode | Administrator | [/gamemode](./gamemode.md) |
+| `/op`, `/deop` | Gives or takes operator status | Manage Server | [/op and /deop](./op-deop.md) |
+| `/gamemode` | Changes a player's game mode | Manage Server | [/gamemode](./gamemode.md) |
 
 ## Setup and settings
 
 | Command | What it does | Default | Docs |
 |---|---|---|---|
-| `/connect` | Links your Minecraft server | Administrator | [Connecting](../getting-started/connecting.md) |
-| `/disconnect` | Unlinks your Minecraft server | Administrator | [Disconnecting](../getting-started/disconnecting.md) |
-| `/chatchannel` | Sets up the chat bridge and console channels | Administrator | [Chat bridge](../features/chat-bridge.md) |
-| `/statchannel` | Sets up channels that show live server stats | Administrator | [Stat channels](../features/stat-channels.md) |
-| `/rolesync` | Syncs Discord roles with Minecraft teams or groups | Administrator | [Role sync](../features/role-sync.md) |
+| `/connect` | Links your Minecraft server | Manage Server | [Connecting](../getting-started/connecting.md) |
+| `/disconnect` | Unlinks your Minecraft server | Manage Server | [Disconnecting](../getting-started/disconnecting.md) |
+| `/chatchannel` | Sets up the chat bridge and console channels | Manage Server | [Chat bridge](../features/chat-bridge.md) |
+| `/statchannel` | Sets up channels that show live server stats | Manage Server | [Stat channels](../features/stat-channels.md) |
+| `/rolesync` | Syncs Discord roles with Minecraft teams or groups | Manage Server | [Role sync](../features/role-sync.md) |
 | `/account` | Links your Minecraft account, manages links and DMs | Everyone | [Account linking](../features/account-linking.md) |
-| `/customize` | Changes MC Linker's look, or sets up your own bot | Everyone (see page) | [Customization](../features/customization.md) |
+| `/customize` | Changes MC Linker's look in your server | Manage Server | [Customization](../features/customization.md) |
 | `/help` | Explains every command | Everyone | [/help](./help.md) |
 
 ## In Minecraft
