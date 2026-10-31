@@ -13,9 +13,9 @@ MC Linker uses Discord's own command permissions. Every command has a sensible d
 | `/inventory`, `/stats`, `/advancements`, `/userinfo`, `/serverinfo`, `/message`, `/account`, `/help` | Everyone |
 | `/ban`, `/unban` | Members with **Ban Members** |
 | `/kick` | Members with **Kick Members** |
-| `/command`, `/op`, `/deop`, `/gamemode` | **Administrators** |
-| `/connect`, `/disconnect`, `/chatchannel`, `/statchannel`, `/rolesync` | **Administrators** |
-| `/customize` | Everyone sees it, because [custom bot](../features/custom-bot.md) subscribers manage their own bot with it. Without a subscription, changing the bot's look in a server needs **Administrator** or **Manage Server**. |
+| `/command`, `/op`, `/deop`, `/gamemode` | Members with **Manage Server** (Administrators too) |
+| `/connect`, `/disconnect`, `/chatchannel`, `/statchannel`, `/rolesync` | Members with **Manage Server** (Administrators too) |
+| `/customize` | Members with **Manage Server** (Administrators too) |
 
 Two parts always need **Administrator**, whatever you configure: the **Admin Information** pages and buttons of [`/userinfo`](../commands/userinfo.md) and [`/serverinfo`](../commands/serverinfo.md).
 
@@ -31,7 +31,7 @@ Two parts always need **Administrator**, whatever you configure: the **Admin Inf
 Example: to let your moderators use `/kick` and `/ban` without making them administrators, add your **Moderator** role to both commands.
 
 ::: tip Commands people can't use are hidden
-Discord only shows members the commands they're allowed to use. Administrator commands like `/connect` or `/command` are hidden from everyone else by default, and any command you restrict here disappears for the members and channels that lost access.
+Discord only shows members the commands they're allowed to use. Manage Server commands like `/connect` or `/command` are hidden from everyone else by default, and any command you restrict here disappears for the members and channels that lost access.
 :::
 
 ## Permissions the bot needs

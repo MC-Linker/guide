@@ -6,7 +6,7 @@ seoTitle: "/command: run Minecraft commands from Discord"
 
 Runs any Minecraft command on your server, as if you typed it in the console. While you type, MC Linker suggests completions that come live from your server, so they always match your plugins and online players.
 
-<CommandInfo discord="Administrator" where="Discord servers" needs="A connected server" />
+<CommandInfo discord="Manage Server" where="Discord servers" needs="A connected server" />
 
 ## Usage
 
@@ -44,7 +44,7 @@ You (or the member you mention) need a [linked account](../features/account-link
 
 - The reply shows what the server answered. Some commands don't answer anything; then you see *No response message!*. This also happens right after `/reload`.
 - If you wait more than 2 minutes after picking a long suggestion, you may see **Selection Expired**. Type something in the command field to refresh the suggestions and pick it again, or run the command again.
-- `/command` is powerful. Only administrators can use it by default, so be careful who you give it to when you change its [permissions](../getting-started/permissions.md).
+- `/command` is powerful. Only members with **Manage Server** can use it by default, so be careful who you give it to when you change its [permissions](../getting-started/permissions.md).
 
 ## Related
 

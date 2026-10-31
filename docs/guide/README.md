@@ -19,7 +19,7 @@ Once both are installed, you link them once with [`/connect`](/guide/getting-sta
 
 ## What you need
 
-- A **Discord server** where you can add bots (the **Manage Server** permission) and are an **Administrator**.
+- A **Discord server** where you can add bots (the **Manage Server** permission).
 - A **Minecraft Java Edition server** that runs Paper, Spigot, Purpur, Fabric, Forge or NeoForge, where you can install plugins or mods. See [Installing the plugin](/guide/getting-started/installing-the-plugin.md) for versions.
 - Operator (OP) rights or console access on that server, once, to confirm the connection.
 
