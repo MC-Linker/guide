@@ -70,14 +70,16 @@ function embedFor(page, description) {
   const label = sections[crumb] ? `MC Linker Guide › ${sections[crumb]}` : 'MC Linker Guide';
 
   const children = [
-    section(`${home ? '' : `-# ${label}\n`}## [${home ? 'MC Linker Guide' : page.title}](${url})\n${description}`, thumbnail(logo)),
+    section(`${home ? '' : `-# ${label}\n`}## [${home ? 'MC Linker - Link Minecraft & Discord' : page.title}](${url})\n${description}`, thumbnail(logo)),
   ];
 
   // One image only: Discord crops gallery images into a mosaic, and ours all have
-  // different shapes. A single image is shown whole. The front page shows /userinfo,
-  // other pages show the first image they use.
-  const image = home ? 'userinfo.png' : [...page.content.matchAll(/\/assets\/([a-z_]+\.png)/g)].map(m => m[1]).find(f => images[f]);
-  if (image) children.push({ type: 12, items: [{ media: { url: images[image] } }] });
+  // different shapes. A single image is shown whole. The front page shows the same
+  // intro card as mclinker.com (og.jpg), other pages show the first image they use.
+  const image = home
+    ? { url: `${guide}/og.jpg`, description: 'MC Linker: The easiest Minecraft and Discord link.' }
+    : [...page.content.matchAll(/\/assets\/([a-z_]+\.png)/g)].map(m => m[1]).filter(f => images[f]).map(f => ({ url: images[f] }))[0];
+  if (image) children.push({ type: 12, items: [{ media: { url: image.url }, ...(image.description && { description: image.description }) }] });
 
   const headings = (page.headers ?? []).map(h => h.title).filter(Boolean);
   if (headings.length) children.push(text(`-# On this page: ${clip(headings.join(' · '), 200)}`));
