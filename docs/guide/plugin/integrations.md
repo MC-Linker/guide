@@ -36,4 +36,4 @@ Each Discord server links to one Minecraft server.
 
 ## Server hosts
 
-Discord-Linker works on hosted servers, including Aternos (install it from the plugin list). It connects *out* to MC Linker, so you don't need to open ports. If your host blocks outgoing connections, ask them to allow `api.mclinker.com` on port 80.
+Discord-Linker works on hosted servers, including Aternos (install it from the plugin or mod list). It connects *out* to MC Linker, so you don't need to open ports. If your host blocks outgoing connections, ask them to allow `api.mclinker.com` on port 80.
