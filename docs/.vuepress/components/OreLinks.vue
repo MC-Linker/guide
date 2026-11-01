@@ -58,7 +58,7 @@ const outArrow = pixels(['..aaaa', '....aa', '...a.a', '..a..a', '.a....', 'a...
   <div v-else ref="root" class="ml-links">
     <!-- Modrinth gets its own button beside "Add to Discord"; on narrower screens it moves into Links. -->
     <a class="ml-modrinth" href="https://modrinth.com/plugin/discord-linker" target="_blank" rel="noopener">
-      <img src="/nav/modrinth.svg" alt="" width="18" height="18" />
+      <img src="/nav/modrinth-white.svg" alt="" width="18" height="18" />
       <span>Modrinth</span>
       <svg class="ml-out" viewBox="0 0 6 6" aria-hidden="true"><rect v-for="p in outArrow" :key="`${p.x}-${p.y}`" :x="p.x" :y="p.y" width="1" height="1" fill="#fff" /></svg>
       <span class="sr-only">(opens in a new tab)</span>

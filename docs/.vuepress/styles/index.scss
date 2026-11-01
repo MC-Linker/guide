@@ -1110,9 +1110,9 @@ discord-messages {
     display: none;
   }
 }
-// Modrinth, beside "Add to Discord" (OreLinks.vue), with its green logo.
+// Modrinth, beside "Add to Discord" (OreLinks.vue): a green button.
 .ml-modrinth {
-  @include ore-dark;
+  @include ore-green;
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
