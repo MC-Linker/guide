@@ -21,9 +21,8 @@ export default defineUserConfig({
     ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
     ['link', { rel: 'icon', href: '/logo.png', type: 'image/png' }],
     ['link', { rel: 'apple-touch-icon', href: '/logo.png' }],
-    // Whitney (Discord's font) for the message mockups comes from this CDN.
-    ['link', { rel: 'preconnect', href: 'https://cdn.skyra.pw', crossorigin: '' }],
     ['link', { rel: 'preload', href: '/fonts/minecraft-seven.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }],
+    ['link', { rel: 'preload', href: '/fonts/minecraft-ten.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }],
     ['meta', { name: 'theme-color', content: '#e6e8eb' }],
     // The same big share image as mclinker.com, so Discord shows a large preview.
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],

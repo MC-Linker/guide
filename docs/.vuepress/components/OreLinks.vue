@@ -9,6 +9,7 @@ const props = defineProps({ list: Boolean });
 
 const links = [
   { title: 'Support server', hint: 'Opens Discord in a new tab', href: 'https://discord.gg/rX36kZUGNK', icon: '/nav/support-server.png' },
+  { title: 'Modrinth', hint: 'Download the plugin and mods', href: 'https://modrinth.com/plugin/discord-linker', icon: '/nav/modrinth.svg' },
   { title: 'GitHub', hint: 'MC Linker is completely open source', href: 'https://github.com/MC-Linker', icon: '/nav/github.png' },
   { title: 'Donate', hint: 'Opens GitHub Sponsors in a new tab', href: 'https://github.com/sponsors/MC-Linker', icon: '/nav/donate.png' },
   { title: 'Meet the team', hint: 'The people behind MC Linker', href: 'https://mclinker.com/team', icon: '/nav/meet-the-team.png' },
