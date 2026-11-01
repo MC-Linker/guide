@@ -12,8 +12,8 @@ Make MC Linker fit your server. Give it its own nickname, avatar, banner and bio
 
 <CommandInfo discord="Manage Server" where="Discord servers" needs="Nothing else, it works before you connect a Minecraft server" />
 
-1. Run `/customize` in your server.
-2. A form opens. Fill in what you want to change:
+1. Run `/customize` in your server. The **Customize Server Appearance** form opens.
+2. Fill in what you want to change and click **Submit**:
 
 | Field | What it changes |
 |---|---|

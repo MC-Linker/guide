@@ -29,4 +29,6 @@ export const redirects = {
   '/guide/plugin/config-yml.html': '/guide/plugin/configuration.html',
   '/guide/main/inventory.html': '/guide/commands/inventory.html',
   '/guide/chatchannels/creating.html': '/guide/features/chat-bridge.html',
+  // Every other Discord command has a page at /guide/commands/<name>.html.
+  '/guide/commands/customize.html': '/guide/features/customization.html',
 };
