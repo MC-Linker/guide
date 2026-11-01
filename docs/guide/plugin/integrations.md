@@ -26,7 +26,7 @@ If [Floodgate](https://geysermc.org/wiki/floodgate/) is installed on the same se
 
 ## Hybrid servers
 
-**MohistMC, Magma, Arclight** and other servers that run Forge or NeoForge mods together with Bukkit plugins are supported. Use the **plugin** (the Paper and Spigot build) of Discord-Linker and put it in the `plugins` folder.
+**MohistMC, Magma, Arclight** and other servers that run Forge or NeoForge mods together with Bukkit plugins are supported. Both builds of Discord-Linker work, but we recommend the **plugin** (the Paper and Spigot build) in the `plugins` folder. The Forge or NeoForge build for your Minecraft version in the `mods` folder works too.
 
 ## Proxies (BungeeCord, Velocity)
 
