@@ -12,7 +12,7 @@ Disconnecting removes the link between your Discord server and your Minecraft se
 /disconnect
 ```
 
-<CommandInfo discord="Administrator" where="Discord servers" needs="A connected server" />
+<CommandInfo discord="Manage Server" where="Discord servers" needs="A connected server" />
 
 <BotReply command="/disconnect" title="Disconnected From Plugin">The plugin connection was successfully disconnected.</BotReply>
 

@@ -6,7 +6,7 @@ seoTitle: "Connect your Minecraft server to Discord"
 
 `/connect` links your Discord server with your Minecraft server. You only do this once: the connection is saved on both sides and comes back by itself after restarts.
 
-<CommandInfo discord="Administrator" minecraft="discordlinker.linker (OP by default)" where="Discord servers" needs="The Discord-Linker plugin on your Minecraft server" />
+<CommandInfo discord="Manage Server" minecraft="discordlinker.linker (OP by default)" where="Discord servers" needs="The Discord-Linker plugin on your Minecraft server" />
 
 ## Usage
 

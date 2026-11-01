@@ -6,6 +6,10 @@ seoTitle: "Custom bot: run MC Linker as your own Discord bot"
 
 With the **Customize MC Linker** subscription ([get it in the store](https://discord.com/discovery/applications/712759741528408064/store)), MC Linker runs as your own Discord bot. It has every feature of MC Linker, but with your bot's name, avatar, banner, status and *About Me*. We host it for you.
 
+::: warning Temporarily unavailable
+Custom bots are currently disabled. `/customize` only opens the free [server appearance form](./customization.md), so you can't create or manage a custom bot right now. The steps below describe how it works when it comes back.
+:::
+
 ## What you get
 
 - Your own **bot name, profile picture and banner**

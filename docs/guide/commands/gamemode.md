@@ -6,7 +6,7 @@ seoTitle: "/gamemode: change game mode from Discord"
 
 Change a player's game mode from Discord.
 
-<CommandInfo discord="Administrator" where="Discord servers" needs="A connected server, and the player must be online" />
+<CommandInfo discord="Manage Server" where="Discord servers" needs="A connected server, and the player must be online" />
 
 ## Usage
 

@@ -6,7 +6,7 @@ seoTitle: "/op and /deop: Minecraft operators from Discord"
 
 Make a player a server operator, or take it away.
 
-<CommandInfo discord="Administrator" where="Discord servers" needs="A connected server" />
+<CommandInfo discord="Manage Server" where="Discord servers" needs="A connected server" />
 
 ## Usage
 
