@@ -10,11 +10,10 @@ Make MC Linker fit your server. Give it its own nickname, avatar, banner and bio
 
 ## Change how MC Linker looks in your server
 
-<CommandInfo discord="Administrator or Manage Server" where="Discord servers" needs="Nothing else, it works before you connect a Minecraft server" />
+<CommandInfo discord="Manage Server" where="Discord servers" needs="Nothing else, it works before you connect a Minecraft server" />
 
-1. Run `/customize` in your server.
-2. Click **Change Server Appearance**.
-3. Fill in what you want to change:
+1. Run `/customize` in your server. The **Customize Server Appearance** form opens.
+2. Fill in what you want to change and click **Submit**:
 
 | Field | What it changes |
 |---|---|
@@ -30,7 +29,7 @@ Leaving a field empty resets it to the default.
 These changes only apply to your server. Everywhere else MC Linker keeps its usual look.
 
 ::: tip Customization Failed?
-The image may be invalid, or you changed things too quickly. Use a PNG, JPG or GIF and wait a minute before trying again.
+The image may be invalid, or you changed things too quickly. Discord limits how often a bot's profile can change, so use a PNG, JPG or GIF and wait a few minutes before trying again.
 :::
 
 ## Want more?

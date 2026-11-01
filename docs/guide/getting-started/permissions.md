@@ -15,7 +15,7 @@ MC Linker uses Discord's own command permissions. Every command has a sensible d
 | `/kick` | Members with **Kick Members** |
 | `/command`, `/op`, `/deop`, `/gamemode` | **Administrators** |
 | `/connect`, `/disconnect`, `/chatchannel`, `/statchannel`, `/rolesync` | **Administrators** |
-| `/customize` | Everyone sees it, because [custom bot](../features/custom-bot.md) subscribers manage their own bot with it. Without a subscription, changing the bot's look in a server needs **Administrator** or **Manage Server**. |
+| `/customize` | Members with **Manage Server** |
 
 Two parts always need **Administrator**, whatever you configure: the **Admin Information** pages and buttons of [`/userinfo`](../commands/userinfo.md) and [`/serverinfo`](../commands/serverinfo.md).
 

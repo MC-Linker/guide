@@ -46,7 +46,7 @@ Wherever a command asks for a `user`, you can type a Minecraft username, a UUID,
 | `/statchannel` | Sets up channels that show live server stats | Administrator | [Stat channels](../features/stat-channels.md) |
 | `/rolesync` | Syncs Discord roles with Minecraft teams or groups | Administrator | [Role sync](../features/role-sync.md) |
 | `/account` | Links your Minecraft account, manages links and DMs | Everyone | [Account linking](../features/account-linking.md) |
-| `/customize` | Changes MC Linker's look, or sets up your own bot | Everyone (see page) | [Customization](../features/customization.md) |
+| `/customize` | Changes MC Linker's nickname, avatar, banner and bio in your server | Manage Server | [Customization](../features/customization.md) |
 | `/help` | Explains every command | Everyone | [/help](./help.md) |
 
 ## In Minecraft

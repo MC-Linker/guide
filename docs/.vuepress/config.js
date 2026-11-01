@@ -144,6 +144,8 @@ export default defineUserConfig({
             '/guide/commands/kick.md',
             '/guide/commands/op-deop.md',
             '/guide/commands/gamemode.md',
+            // /customize has no options, so its docs live on the Customization page.
+            { text: '/customize', link: '/guide/features/customization.md' },
             '/guide/commands/help.md',
           ],
         },
