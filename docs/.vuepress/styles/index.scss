@@ -389,7 +389,12 @@ body {
     border: 0 !important;
   }
 
-  // Less room beside the banner: "Add to Discord" moves into Links, the buttons get narrower.
+  // Less room beside the banner: Modrinth moves into Links, then "Add to Discord" goes.
+  @media (max-width: 1600px) {
+    .ml-modrinth {
+      display: none !important;
+    }
+  }
   @media (max-width: 1400px) {
     .vp-navbar-item:has(> a[href$='/invite']) {
       display: none;
@@ -509,6 +514,14 @@ body {
 
   .vp-sidebar-items {
     padding: 0.75rem 0 2rem;
+  }
+
+  // The theme makes every row 100% wide; with the margins below that pushed them past the
+  // sidebar's edge and made it scroll sideways. Let them fill what's left instead.
+  .vp-sidebar-item {
+    box-sizing: border-box;
+    width: auto;
+    overflow-wrap: anywhere;
   }
 
   .vp-sidebar-heading {
@@ -1086,7 +1099,31 @@ discord-messages {
 // mclinker.com's "Links": a dark Ore face with a chevron, opening a grey popup of rows.
 .ml-links {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   flex: none;
+}
+// Being a flex box would otherwise override the theme's phone hiding.
+@media (max-width: 719px) {
+  .ml-links.vp-hide-mobile {
+    display: none;
+  }
+}
+// Modrinth, beside "Add to Discord" (OreLinks.vue), with its green logo.
+.ml-modrinth {
+  @include ore-dark;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.25rem;
+  padding-inline: 0.7rem;
+  font-size: 0.9rem;
+  line-height: 1;
+  text-decoration: none;
+
+  img { width: 1.1em; height: 1.1em; }
+  .ml-out { width: 0.55em; height: 0.55em; }
 }
 .ml-links-face {
   @include ore-dark;
@@ -1233,4 +1270,14 @@ discord-messages {
 // "Home" goes to mclinker.com in the same tab, so it gets no "new tab" arrow.
 .vp-navbar-item > a[href='https://mclinker.com/']::after {
   display: none !important;
+}
+
+// Rows of the Links menu that only show once their header button has gone (see the navbar's Modrinth).
+.ml-row.ml-narrow-only {
+  display: none !important;
+}
+@media (max-width: 1600px) {
+  .ml-row.ml-narrow-only {
+    display: flex !important;
+  }
 }
