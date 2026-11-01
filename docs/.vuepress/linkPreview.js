@@ -69,8 +69,10 @@ function embedFor(page, description) {
   const crumb = page.path.split('/')[2];
   const label = sections[crumb] ? `MC Linker Guide › ${sections[crumb]}` : 'MC Linker Guide';
 
-  const children = [
-    section(`${home ? '' : `-# ${label}\n`}## [${home ? 'MC Linker - Link Minecraft & Discord' : page.title}](${url})\n${description}`, thumbnail(logo)),
+  // The front page has no logo thumbnail, like mclinker.com's embed.
+  const children = [home
+    ? text(`## [MC Linker - Link Minecraft & Discord](${url})\n${description}`)
+    : section(`-# ${label}\n## [${page.title}](${url})\n${description}`, thumbnail(logo)),
   ];
 
   // One image only: Discord crops gallery images into a mosaic, and ours all have
