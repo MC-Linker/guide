@@ -11,8 +11,8 @@ The Discord-Linker plugin (or mod) runs on your Minecraft server and talks to th
 | Server software | Minecraft versions | Folder |
 |---|---|---|
 | Paper, Spigot, Purpur and other Bukkit-based servers | 1.8 – latest | `plugins` |
-| Fabric | 1.16.5 – 26.2 | `mods` |
-| NeoForge | 1.21.1 – 26.2 | `mods` |
+| Fabric | 1.16.5 – 26.3 | `mods` |
+| NeoForge | 1.21.1 – 26.3 | `mods` |
 | Forge | 1.16.5 – 1.20.x | `mods` |
 | Hybrid servers (MohistMC, Magma, Arclight) | Plugin recommended (Paper and Spigot build); the Forge or NeoForge build also works | `plugins` (or `mods` for the mod) |
 

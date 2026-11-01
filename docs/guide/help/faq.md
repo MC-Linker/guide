@@ -14,7 +14,7 @@ No. The bot is hosted for you and everything is set up with slash commands. The 
 
 ## Which servers and versions are supported?
 
-Paper, Spigot and Purpur from 1.8, Fabric 1.16.5 – 26.2, NeoForge 1.21.1 – 26.2, Forge 1.16.5 – 1.20.x and hybrid servers. See [Installing the plugin](../getting-started/installing-the-plugin.md).
+Paper, Spigot and Purpur from 1.8, Fabric 1.16.5 – 26.3, NeoForge 1.21.1 – 26.3, Forge 1.16.5 – 1.20.x and hybrid servers. See [Installing the plugin](../getting-started/installing-the-plugin.md).
 
 ## Does it work with Bedrock players?
 
