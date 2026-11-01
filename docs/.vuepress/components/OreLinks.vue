@@ -9,6 +9,7 @@ const props = defineProps({ list: Boolean });
 
 const links = [
   { title: 'Support server', hint: 'Opens Discord in a new tab', href: 'https://discord.gg/rX36kZUGNK', icon: '/nav/support-server.png' },
+  { title: 'Modrinth', hint: 'Download the plugin and mods', href: 'https://modrinth.com/plugin/discord-linker', icon: '/nav/modrinth.svg', narrowOnly: true },
   { title: 'GitHub', hint: 'MC Linker is completely open source', href: 'https://github.com/MC-Linker', icon: '/nav/github.png' },
   { title: 'Donate', hint: 'Opens GitHub Sponsors in a new tab', href: 'https://github.com/sponsors/MC-Linker', icon: '/nav/donate.png' },
   { title: 'Meet the team', hint: 'The people behind MC Linker', href: 'https://mclinker.com/team', icon: '/nav/meet-the-team.png' },
@@ -55,12 +56,19 @@ const outArrow = pixels(['..aaaa', '....aa', '...a.a', '..a..a', '.a....', 'a...
     </div>
   </div>
   <div v-else ref="root" class="ml-links">
+    <!-- Modrinth gets its own button beside "Add to Discord"; on narrower screens it moves into Links. -->
+    <a class="ml-modrinth" href="https://modrinth.com/plugin/discord-linker" target="_blank" rel="noopener">
+      <img src="/nav/modrinth-white.svg" alt="" width="18" height="18" />
+      <span>Modrinth</span>
+      <svg class="ml-out" viewBox="0 0 6 6" aria-hidden="true"><rect v-for="p in outArrow" :key="`${p.x}-${p.y}`" :x="p.x" :y="p.y" width="1" height="1" fill="#fff" /></svg>
+      <span class="sr-only">(opens in a new tab)</span>
+    </a>
     <button ref="button" type="button" class="ml-links-face" :class="{ pressed: open }" :aria-expanded="open" aria-controls="ml-links-popup" @click="open = !open">
       <span>Links</span>
       <svg class="ml-chev" viewBox="0 0 7 4" aria-hidden="true"><rect v-for="p in chevron" :key="`${p.x}-${p.y}`" :x="p.x" :y="p.y" width="1" height="1" fill="#fff" /></svg>
     </button>
     <div v-if="open" id="ml-links-popup" class="ml-links-popup" @click="open = false">
-      <a v-for="l in links" :key="l.title" class="ml-row" :href="l.href" :target="l.sameTab ? undefined : '_blank'" :rel="l.sameTab ? undefined : 'noopener'">
+      <a v-for="l in links" :key="l.title" class="ml-row" :class="{ 'ml-narrow-only': l.narrowOnly }" :href="l.href" :target="l.sameTab ? undefined : '_blank'" :rel="l.sameTab ? undefined : 'noopener'">
         <span class="ml-thumb"><img :src="l.icon" alt="" width="36" height="36" /></span>
         <span class="ml-text"><span class="ml-row-title">{{ l.title }}</span><span class="ml-row-sub">{{ l.hint }}</span></span>
         <svg v-if="!l.sameTab" class="ml-out" viewBox="0 0 6 6" aria-hidden="true"><rect v-for="p in outArrow" :key="`${p.x}-${p.y}`" :x="p.x" :y="p.y" width="1" height="1" fill="#fff" /></svg>

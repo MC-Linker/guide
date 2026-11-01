@@ -30,7 +30,7 @@ Download **Discord-Linker** for your server software and put the file into the `
 
 Fabric, Forge and NeoForge also need the [Architectury API](https://modrinth.com/mod/architectury-api) mod (and Fabric also needs [Fabric API](https://modrinth.com/mod/fabric-api)).
 
-On Aternos, add Discord-Linker from the plugin list. More details: [Installing the plugin](./installing-the-plugin.md).
+On Aternos, add Discord-Linker from the plugin list (or the mod list on mod servers). More details: [Installing the plugin](./installing-the-plugin.md).
 
 ## 3. Connect
 

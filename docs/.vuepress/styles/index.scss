@@ -1,40 +1,75 @@
-// Minecraft fonts from the MC-Linker bot repo (resources/fonts), subset to woff2.
+// Minecraft's own fonts, as on mclinker.com: Ten for titles, Seven (Mojangles) for UI text, Five
+// for small capital labels. Their metrics are evened out so capitals sit in the middle of the
+// line box, level with icons next to them.
+@font-face {
+  font-family: 'Minecraft Ten';
+  src: url('/fonts/minecraft-ten.woff2') format('woff2');
+  font-display: swap;
+  ascent-override: 85%;
+  descent-override: 15%;
+  line-gap-override: 0%;
+}
+
 @font-face {
   font-family: 'Minecraft Seven';
   src: url('/fonts/minecraft-seven.woff2') format('woff2');
   font-display: swap;
+  ascent-override: 85%;
+  descent-override: 15%;
+  line-gap-override: 0%;
 }
+
+@font-face {
+  font-family: 'Minecraft Five';
+  src: url('/fonts/minecraft-five.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  ascent-override: 85%;
+  descent-override: 15%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Minecraft Five';
+  src: url('/fonts/minecraft-five-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+  ascent-override: 85%;
+  descent-override: 15%;
+  line-gap-override: 0%;
+}
+
 @font-face {
   font-family: 'Mojang Studios';
   src: url('/fonts/mojang-studios.woff2') format('woff2');
   font-display: swap;
 }
 
-// Discord's font, as in discord-components (served by that project).
+// Discord's font, gg sans (https://github.com/damnxav/gg-sans-font), for the Discord mock-ups.
 @font-face {
-  font-family: 'Whitney';
-  src: url('https://cdn.skyra.pw/whitney-font/v2/Book.woff') format('woff');
+  font-family: 'gg sans';
+  src: url('/fonts/gg-sans-regular.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Whitney';
-  src: url('https://cdn.skyra.pw/whitney-font/v2/Medium.woff') format('woff');
+  font-family: 'gg sans';
+  src: url('/fonts/gg-sans-medium.woff2') format('woff2');
   font-weight: 500;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Whitney';
-  src: url('https://cdn.skyra.pw/whitney-font/v2/Semibold.woff') format('woff');
+  font-family: 'gg sans';
+  src: url('/fonts/gg-sans-semibold.woff2') format('woff2');
   font-weight: 600;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Whitney';
-  src: url('https://cdn.skyra.pw/whitney-font/v2/Bold.woff') format('woff');
+  font-family: 'gg sans';
+  src: url('/fonts/gg-sans-bold.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
 }
@@ -92,6 +127,8 @@ html[data-theme='dark'] {
 
   // In-game text. Pixelify only fills in glyphs Minecraft Seven doesn't have (like arrows).
   --ml-pixel: 'Minecraft Seven', 'Pixelify Sans Variable', ui-monospace, monospace;
+  // Titles in Minecraft Ten, like Bedrock's.
+  --ml-title: 'Minecraft Ten', 'Minecraft Seven', ui-monospace, monospace;
   // The Mojang Studios logo font, for small uppercase labels. Same file as mclinker.com, with real
   // capitals for B, D, M, N, Q, T and Y (see scripts/mojang-capitals.py in the main-page repo).
   --ml-mojang: 'Mojang Studios', 'Minecraft Seven', ui-monospace, monospace;
@@ -200,10 +237,9 @@ body {
 // Ore UI titles: the pixel font drawn bold the way the game does it, the glyph again one
 // sixteenth of the size to the right.
 @mixin ore-title {
-  font-family: var(--ml-pixel);
+  font-family: var(--ml-title);
   font-weight: 400;
-  letter-spacing: 0.0625em;
-  text-shadow: 0.0625em 0 0 currentColor;
+  letter-spacing: 0.02em;
 }
 
 // ── Header bar ──────────────────────────────────────────────────────────────
@@ -353,7 +389,12 @@ body {
     border: 0 !important;
   }
 
-  // Less room beside the banner: "Add to Discord" moves into Links, the buttons get narrower.
+  // Less room beside the banner: Modrinth moves into Links, then "Add to Discord" goes.
+  @media (max-width: 1600px) {
+    .ml-modrinth {
+      display: none !important;
+    }
+  }
   @media (max-width: 1400px) {
     .vp-navbar-item:has(> a[href$='/invite']) {
       display: none;
@@ -473,6 +514,14 @@ body {
 
   .vp-sidebar-items {
     padding: 0.75rem 0 2rem;
+  }
+
+  // The theme makes every row 100% wide; with the margins below that pushed them past the
+  // sidebar's edge and made it scroll sideways. Let them fill what's left instead.
+  .vp-sidebar-item {
+    box-sizing: border-box;
+    width: auto;
+    overflow-wrap: anywhere;
   }
 
   .vp-sidebar-heading {
@@ -794,7 +843,7 @@ details.hint-container summary {
 }
 
 .vp-hero {
-  // Minecraft Seven drawn bold, like mclinker.com's titles (.ore-title).
+  // Minecraft Ten, like mclinker.com's titles (.ore-title).
   #main-title {
     @include ore-title;
     color: #fff;
@@ -828,11 +877,11 @@ details.hint-container summary {
     margin: 0 !important;
     padding: 0 1.5rem calc(2 * var(--t)) !important;
     font-size: 1.15rem !important;
-    letter-spacing: 0.0625em;
 
     &.primary {
       @include ore-green;
-      text-shadow: 0.0625em 0 0 currentColor;
+      font-family: var(--ml-title);
+      letter-spacing: 0.02em;
     }
     &.secondary {
       @include ore-white;
@@ -1029,12 +1078,12 @@ discord-messages {
   min-height: 3.25rem;
   font-family: var(--ml-pixel);
   font-size: 1.15rem;
-  letter-spacing: 0.0625em;
   text-decoration: none;
 
   &.respawn {
     @include ore-green;
-    text-shadow: 0.0625em 0 0 currentColor;
+    font-family: var(--ml-title);
+    letter-spacing: 0.02em;
   }
 }
 
@@ -1050,7 +1099,31 @@ discord-messages {
 // mclinker.com's "Links": a dark Ore face with a chevron, opening a grey popup of rows.
 .ml-links {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   flex: none;
+}
+// Being a flex box would otherwise override the theme's phone hiding.
+@media (max-width: 719px) {
+  .ml-links.vp-hide-mobile {
+    display: none;
+  }
+}
+// Modrinth, beside "Add to Discord" (OreLinks.vue): a green button.
+.ml-modrinth {
+  @include ore-green;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.25rem;
+  padding-inline: 0.7rem;
+  font-size: 0.9rem;
+  line-height: 1;
+  text-decoration: none;
+
+  img { width: 1.1em; height: 1.1em; }
+  .ml-out { width: 0.55em; height: 0.55em; }
 }
 .ml-links-face {
   @include ore-dark;
@@ -1197,4 +1270,14 @@ discord-messages {
 // "Home" goes to mclinker.com in the same tab, so it gets no "new tab" arrow.
 .vp-navbar-item > a[href='https://mclinker.com/']::after {
   display: none !important;
+}
+
+// Rows of the Links menu that only show once their header button has gone (see the navbar's Modrinth).
+.ml-row.ml-narrow-only {
+  display: none !important;
+}
+@media (max-width: 1600px) {
+  .ml-row.ml-narrow-only {
+    display: flex !important;
+  }
 }

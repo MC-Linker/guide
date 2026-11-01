@@ -34,7 +34,7 @@ Install Discord-Linker on the backend server you want to link and set `online: T
 
 ## Does it work on Aternos and other hosts?
 
-Yes. On Aternos, install Discord-Linker from the plugin list. Other hosts work as long as they allow outgoing connections.
+Yes. On Aternos, install Discord-Linker from the plugin list (or the mod list on mod servers). Other hosts work as long as they allow outgoing connections.
 
 ## Do I need to open a port?
 
